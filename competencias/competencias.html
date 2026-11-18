@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competencias & Brackets | Beatbox Perú</title>
+    <link rel="icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
+    <link rel="shortcut icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="competencias.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="theme-beatbox-peru">
+
+<div class="spotlight"></div>
+
+<!-- =========================
+        NAVBAR UNIFICADO
+========================== -->
+<header class="navbar" id="navbar">
+    <div class="logo-area">
+        <a href="../index.html" class="logo">
+            <img src="../PICS/V15_negro sobre rojo.png" alt="Beatbox Perú">
+            <div class="logo-text">
+                <span class="logo-top">Comunidad Oficial</span>
+                <h2>BEATBOX <span>PERÚ</span></h2>
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav-center">
+        <ul class="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../nosotros/nosotros.html">Nosotros <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../nosotros/nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="../nosotros/contactanos.html">Contáctanos</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Artistas <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../artistas/campeonesnacionales.html">Campeones Nacionales</a></li>
+                    <li><a href="../artistas/artistasdestacados.html">Artistas Destacados</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="competencias.html" class="active-nav">Competencias <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="competencias.html">Brackets & Historial</a></li>
+                    <li><a href="../index.html#eventos-comunidad">Próximos Eventos</a></li>
+                </ul>
+            </li>
+            <li><a href="../merch.html">Merch</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-socials">
+        <a href="https://www.instagram.com/beatboxperunacional/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.tiktok.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/19njhVERoM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+
+    <div class="mobile-btn">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- =========================
+     HUB CENTRAL DE COMPETENCIAS & BRACKETS
+========================== -->
+<main class="brackets-hub" id="bracketsHub">
+    <div class="hub-ambient-glow"></div>
+
+    <div class="hub-container">
+        <!-- CABECERA EDITORIAL -->
+        <div class="hub-hero-header">
+            <div class="hub-hero-text">
+                <span class="hub-eyebrow"><i class="fa-solid fa-sitemap"></i> ARCHIVO OFICIAL DE LLAVES · PERÚ</span>
+                <h1 class="hub-main-title">COMPETENCIAS <span>& BRACKETS</span></h1>
+                <p class="hub-subtitle">Explora los cuadros de eliminación oficial de los Campeonatos Nacionales, Eventos Locales y Colectivos Regionales del Perú en tiempo real.</p>
+            </div>
+        </div>
+
+        <!-- SELECTOR PRINCIPAL DE COMUNIDAD (4 TARJETAS CON SU PROPIA IDENTIDAD DE COLOR) -->
+        <div class="community-switcher-bar" role="tablist" aria-label="Comunidades">
+            <button type="button" class="comm-tab active" data-comm="beatbox-peru">
+                <span class="comm-dot red"></span>
+                <div class="comm-tab-info">
+                    <strong>BEATBOX PERÚ</strong>
+                    <small>Nacionales & Eventos Locales</small>
+                </div>
+            </button>
+
+            <button type="button" class="comm-tab" data-comm="kawsabeat">
+                <span class="comm-dot kawsa"></span>
+                <div class="comm-tab-info">
+                    <strong>KAWSABEAT</strong>
+                    <small>Plazas & Torneos Underground</small>
+                </div>
+            </button>
+
+            <button type="button" class="comm-tab" data-comm="beatbox-lima">
+                <span class="comm-dot lima"></span>
+                <div class="comm-tab-info">
+                    <strong>BEATBOX LIMA</strong>
+                    <small>Batallas & Escena Capital</small>
+                </div>
+            </button>
+
+            <button type="button" class="comm-tab" data-comm="ramabeat">
+                <span class="comm-dot rama"></span>
+                <div class="comm-tab-info">
+                    <strong>RAMABEAT</strong>
+                    <small>Encuentros & Retos</small>
+                </div>
+            </button>
+        </div>
+
+        <!-- PANEL DE CONTROL DE LA COMUNIDAD ACTIVA + BOTÓN "S" -->
+        <section class="community-workspace">
+            <div class="workspace-top-bar">
+                <div class="workspace-identity">
+                    <span class="ws-badge" id="wsCommunityBadge">COMUNIDAD OFICIAL</span>
+                    <h2 class="ws-title" id="wsCommunityTitle">BEATBOX <span>PERÚ</span></h2>
+                    <p class="ws-desc" id="wsCommunityDesc">Campeonatos Nacionales (2019–2025) y Eventos Locales oficiales.</p>
+                </div>
+
+                <!-- ACCIONES STAFF POR COMUNIDAD (BOTÓN PEQUEÑO "S") -->
+                <div class="workspace-staff-box">
+                    <div id="staffUnlockedControls" class="staff-unlocked-pill" style="display:none;">
+                        <span><i class="fa-solid fa-shield-halved"></i> ADMIN ACTIVO</span>
+                        <button type="button" id="btnOpenCreatorModal" class="btn-create-bracket-main">
+                            <i class="fa-solid fa-plus"></i> Crear / Editar Bracket
+                        </button>
+                        <button type="button" id="btnLockCommunityStaff" class="btn-lock-mini" title="Cerrar sesión admin">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+
+                    <button type="button" id="btnOpenStaffPass" class="btn-staff-s" title="Acceso Admin de esta Comunidad">
+                        S
+                    </button>
+                </div>
+            </div>
+
+            <!-- SUB-FILTROS DE CATEGORÍA (SOLO VISIBLE EN BEATBOX PERÚ) -->
+            <div class="subfilter-row" id="bbxPeruSubfilters">
+                <button type="button" class="subfilter-pill active" data-cat="ALL">Todos (<span id="countAll">10</span>)</button>
+                <button type="button" class="subfilter-pill" data-cat="NACIONAL"><i class="fa-solid fa-crown"></i> Nacionales (<span id="countNac">6</span>)</button>
+                <button type="button" class="subfilter-pill" data-cat="LOCAL"><i class="fa-solid fa-fire"></i> Eventos Locales (<span id="countLoc">4</span>)</button>
+            </div>
+
+            <!-- CARRUSEL HORIZONTAL DE TARJETAS GRANDES DE COMPETENCIAS (CON FLECHAS LATERALES) -->
+            <div class="tourneys-carousel-shell" id="tourneysCarouselShell">
+                <button type="button" class="carousel-nav-arrow prev-arrow" id="btnCarouselPrev" aria-label="Anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="tournaments-carousel-track" id="tournamentsSelectorGrid"></div>
+
+                <button type="button" class="carousel-nav-arrow next-arrow" id="btnCarouselNext" aria-label="Siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- VISOR DEL BRACKET ESTILO TORNEO (CUARTOS · SEMIS · FINAL · CAMPEÓN) -->
+            <div class="bracket-stage-wrapper" id="bracketStageWrapper">
+                <div class="bracket-stage-header">
+                    <div class="stage-title-group">
+                        <span class="stage-cat-tag" id="activeTourneyTag">CAMPEONATO NACIONAL</span>
+                        <h3 class="stage-tourney-name" id="activeTourneyTitle">NACIONAL BEATBOX PERÚ 2025</h3>
+                        <span class="stage-tourney-meta" id="activeTourneyMeta">Lima, Perú · Top 8 Eliminación Directa</span>
+                    </div>
+
+                    <div class="stage-actions-right" id="activeTourneyAdminActions" style="display:none;">
+                        <button type="button" id="btnEditCurrentBracket" class="btn-stage-edit">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar Llaves
+                        </button>
+                        <button type="button" id="btnDeleteCurrentBracket" class="btn-stage-delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTENEDOR CON SCROLL HORIZONTAL SUAVE EN CELULAR -->
+                <div class="bracket-scroll-viewport">
+                    <div class="the-bracket-board" id="bracketBoardRender">
+                        <!-- Renderizado dinámico de Cuartos -> Semis -> Final -> Campeón -->
+                    </div>
+                </div>
+
+                <div class="mobile-scroll-hint">
+                    <i class="fa-solid fa-arrows-left-right"></i> Desliza horizontalmente para recorrer todo el bracket
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- =========================
+     MODAL 1: CONTRASEÑA ADMIN POR COMUNIDAD ("S")
+========================== -->
+<div class="bbx-modal-backdrop" id="staffPassModal">
+    <div class="bbx-modal-card small-modal" role="dialog" aria-modal="true">
+        <button type="button" class="modal-close-btn" id="closeStaffPassModal"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-lock-badge"><i class="fa-solid fa-key"></i></div>
+        <h3 class="modal-title">ADMIN <span id="modalCommName">BEATBOX PERÚ</span></h3>
+        <p class="modal-desc">Ingresa la contraseña exclusiva de esta comunidad para habilitar la creación y edición de brackets.</p>
+
+        <form id="staffPassForm" class="modal-form">
+            <input type="password" id="staffPassInput" placeholder="Contraseña de comunidad..." required autocomplete="off">
+            <button type="submit" class="btn-modal-primary">DESBLOQUEAR BRACKETS</button>
+        </form>
+        <p id="staffPassError" class="modal-error-msg" style="display:none;">Contraseña incorrecta para esta comunidad.</p>
+    </div>
+</div>
+
+<!-- =========================
+     MODAL 2: CONSTRUCTOR VISUAL DE BRACKETS (TOP 8 O TOP 4)
+========================== -->
+<div class="bbx-modal-backdrop" id="bracketBuilderModal">
+    <div class="bbx-modal-card builder-modal" role="dialog" aria-modal="true">
+        <button type="button" class="modal-close-btn" id="closeBuilderModal"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="builder-header">
+            <span class="builder-eyebrow" id="builderCommLabel">BEATBOX PERÚ · CONSTRUCTOR</span>
+            <h3 class="modal-title" id="builderModalHeading">CREAR NUEVO <span>BRACKET</span></h3>
+        </div>
+
+        <form id="bracketBuilderForm" class="builder-form">
+            <input type="hidden" id="editBracketId" value="">
+
+            <div class="builder-grid-3">
+                <div class="form-group">
+                    <label for="bTitle">NOMBRE DEL TORNEO / EVENTO *</label>
+                    <input type="text" id="bTitle" placeholder="Ej. Nacional 2026 / Feria Random 3" required>
+                </div>
+
+                <div class="form-group" id="bCategoryGroup">
+                    <label for="bCategory">CATEGORÍA *</label>
+                    <select id="bCategory">
+                        <option value="NACIONAL">Campeonato Nacional</option>
+                        <option value="LOCAL">Evento Local (Feria / Plaza)</option>
+                        <option value="COMUNIDAD">Torneo de Comunidad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bFormat">FORMATO DE LLAVES *</label>
+                    <select id="bFormat">
+                        <option value="TOP8">Top 8 (Cuartos → Semis → Final)</option>
+                        <option value="TOP4">Top 4 (Semifinales → Final)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="builder-grid-2">
+                <div class="form-group">
+                    <label for="bMeta">AÑO / SEDE / DETALLE *</label>
+                    <input type="text" id="bMeta" placeholder="Ej. 2026 · Lima, Perú" required>
+                </div>
+                <div class="form-group">
+                    <label for="bChampion">CAMPEÓN DEL TORNEO *</label>
+                    <input type="text" id="bChampion" placeholder="Ej. NEXUSS" required>
+                </div>
+            </div>
+
+            <!-- SECCIÓN CUARTOS DE FINAL (SE OCULTA SI ES TOP 4) -->
+            <div id="qfInputsSection" class="builder-round-block">
+                <h4><i class="fa-solid fa-bolt"></i> CUARTOS DE FINAL (4 LLAVES)</h4>
+                <div class="matches-builder-grid">
+                    <div class="match-input-box">
+                        <span class="m-label">CUARTOS 1 (IZQ SUPERIOR)</span>
+                        <div class="m-pair">
+                            <input type="text" id="qf1_p1" placeholder="Beatboxer A">
+                            <select id="qf1_win"><option value="1">Gana A</option><option value="2">Gana B</option></select>
+                            <input type="text" id="qf1_p2" placeholder="Beatboxer B">
+                        </div>
+                    </div>
+                    <div class="match-input-box">
+                        <span class="m-label">CUARTOS 2 (IZQ INFERIOR)</span>
+                        <div class="m-pair">
+                            <input type="text" id="qf2_p1" placeholder="Beatboxer A">
+                            <select id="qf2_win"><option value="1">Gana A</option><option value="2">Gana B</option></select>
+                            <input type="text" id="qf2_p2" placeholder="Beatboxer B">
+                        </div>
+                    </div>
+                    <div class="match-input-box">
+                        <span class="m-label">CUARTOS 3 (DER SUPERIOR)</span>
+                        <div class="m-pair">
+                            <input type="text" id="qf3_p1" placeholder="Beatboxer A">
+                            <select id="qf3_win"><option value="1">Gana A</option><option value="2">Gana B</option></select>
+                            <input type="text" id="qf3_p2" placeholder="Beatboxer B">
+                        </div>
+                    </div>
+                    <div class="match-input-box">
+                        <span class="m-label">CUARTOS 4 (DER INFERIOR)</span>
+                        <div class="m-pair">
+                            <input type="text" id="qf4_p1" placeholder="Beatboxer A">
+                            <select id="qf4_win"><option value="1">Gana A</option><option value="2">Gana B</option></select>
+                            <input type="text" id="qf4_p2" placeholder="Beatboxer B">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN SEMIFINALES -->
+            <div class="builder-round-block">
+                <h4><i class="fa-solid fa-fire-flame-curved"></i> SEMIFINALES (2 LLAVES)</h4>
+                <div class="matches-builder-grid">
+                    <div class="match-input-box">
+                        <span class="m-label">SEMIFINAL IZQUIERDA</span>
+                        <div class="m-pair">
+                            <input type="text" id="sf1_p1" placeholder="Semifinalista 1" required>
+                            <select id="sf1_win"><option value="1">Gana 1</option><option value="2">Gana 2</option></select>
+                            <input type="text" id="sf1_p2" placeholder="Semifinalista 2" required>
+                        </div>
+                    </div>
+                    <div class="match-input-box">
+                        <span class="m-label">SEMIFINAL DERECHA</span>
+                        <div class="m-pair">
+                            <input type="text" id="sf2_p1" placeholder="Semifinalista 3" required>
+                            <select id="sf2_win"><option value="1">Gana 3</option><option value="2">Gana 4</option></select>
+                            <input type="text" id="sf2_p2" placeholder="Semifinalista 4" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN GRAN FINAL -->
+            <div class="builder-round-block final-block">
+                <h4><i class="fa-solid fa-trophy"></i> GRAN FINAL</h4>
+                <div class="match-input-box">
+                    <span class="m-label">FINALISTAS</span>
+                    <div class="m-pair">
+                        <input type="text" id="fin_p1" placeholder="Finalista Izq" required>
+                        <select id="fin_win"><option value="1">Gana Izq</option><option value="2">Gana Der</option></select>
+                        <input type="text" id="fin_p2" placeholder="Finalista Der" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="btnSaveBracket" class="btn-modal-primary">
+                <i class="fa-solid fa-floppy-disk"></i> GUARDAR Y PUBLICAR BRACKET
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- =========================================================================
+     LÓGICA DE BRACKETS + FIREBASE FIRESTORE EN TIEMPO REAL + TEMAS POR COMUNIDAD
+     ========================================================================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    onSnapshot,
+    setDoc,
+    deleteDoc,
+    doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA-HVjqM0iFZQYWvEaiS6abe0mIdVPAROE",
+    authDomain: "beatboxperu.firebaseapp.com",
+    projectId: "beatboxperu",
+    storageBucket: "beatboxperu.firebasestorage.app",
+    messagingSenderId: "56621298048",
+    appId: "1:56621298048:web:89393ffc7e5ebf3445d165",
+    measurementId: "G-X38XJ1CVLF"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const bracketsColRef = collection(db, "competencias_brackets");
+
+// Configuración de Comunidades, Temas y Contraseñas Exactas
+const COMMUNITIES = {
+    "beatbox-peru": {
+        name: "BEATBOX PERÚ",
+        themeClass: "theme-beatbox-peru",
+        badge: "COMUNIDAD OFICIAL NACIONAL",
+        desc: "Archivo histórico de Campeonatos Nacionales (2019–2025) y Eventos Locales oficiales.",
+        password: "beatboxperuadmin2026"
+    },
+    "kawsabeat": {
+        name: "KAWSABEAT",
+        themeClass: "theme-kawsabeat",
+        badge: "COLECTIVO UNDERGROUND · VERDE ESMERALDA",
+        desc: "Llaves oficiales de competencias de plaza, cyphers y encuentros organizados por Kawsabeat.",
+        password: "kawsabeatadmin2026"
+    },
+    "beatbox-lima": {
+        name: "BEATBOX LIMA",
+        themeClass: "theme-beatbox-lima",
+        badge: "NÚCLEO CAPITAL · MORADO & AMARILLO LIMA",
+        desc: "Brackets oficiales de torneos metropolitanos y clasificatorias organizadas por Beatbox Lima.",
+        password: "beatboxlimaadmin2026"
+    },
+    "ramabeat": {
+        name: "RAMABEAT",
+        themeClass: "theme-ramabeat",
+        badge: "COLECTIVO URBANO · LIMA",
+        desc: "Historial de llaves, torneos formativos y batallas organizadas por Ramabeat.",
+        password: "ramabeatadmin2026"
+    }
+};
+
+// Base inicial precargada con las competencias exactas
+const DEFAULT_BRACKETS = [
+    {
+        id: "bbx-nac-2025",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2025",
+        meta: "Campeonato Nacional Beatbox Perú 2025 · Lima",
+        format: "TOP8",
+        champion: "NEXUSS",
+        createdAt: 202501,
+        qf: [
+            { p1: "NEXUSS", p2: "POR DEFINIR", win: 1 },
+            { p1: "POR DEFINIR", p2: "POR DEFINIR", win: 1 },
+            { p1: "GOLIAT", p2: "POR DEFINIR", win: 1 },
+            { p1: "POR DEFINIR", p2: "POR DEFINIR", win: 1 }
+        ],
+        sf: [
+            { p1: "NEXUSS", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "GOLIAT", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "NEXUSS", p2: "GOLIAT", win: 1 }
+    },
+    {
+        id: "bbx-nac-2024",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2024",
+        meta: "Campeonato Nacional Beatbox Perú 2024 · Lima",
+        format: "TOP8",
+        champion: "TITA",
+        createdAt: 202401,
+        qf: [
+            { p1: "TITA", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 },
+            { p1: "JGAS", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 }
+        ],
+        sf: [
+            { p1: "TITA", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "JGAS", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "TITA", p2: "JGAS", win: 1 }
+    },
+    {
+        id: "bbx-nac-2023",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2023",
+        meta: "Campeonato Nacional Beatbox Perú 2023 · Lima",
+        format: "TOP8",
+        champion: "JGAS",
+        createdAt: 202301,
+        qf: [
+            { p1: "JGAS", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 },
+            { p1: "RAKURA", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 }
+        ],
+        sf: [
+            { p1: "JGAS", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "RAKURA", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "JGAS", p2: "RAKURA", win: 1 }
+    },
+    {
+        id: "bbx-nac-2022",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2022",
+        meta: "Campeonato Nacional Beatbox Perú 2022 · Lima",
+        format: "TOP8",
+        champion: "POLLI",
+        createdAt: 202201,
+        qf: [
+            { p1: "POLLI", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 },
+            { p1: "GAMMA", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 }
+        ],
+        sf: [
+            { p1: "POLLI", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "GAMMA", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "POLLI", p2: "GAMMA", win: 1 }
+    },
+    {
+        id: "bbx-nac-2021",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2021",
+        meta: "Campeonato Nacional Beatbox Perú 2021 · Lima",
+        format: "TOP8",
+        champion: "NEXUSS",
+        createdAt: 202101,
+        qf: [
+            { p1: "NEXUSS", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 },
+            { p1: "NAIRO", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 }
+        ],
+        sf: [
+            { p1: "NEXUSS", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "NAIRO", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "NEXUSS", p2: "NAIRO", win: 1 }
+    },
+    {
+        id: "bbx-nac-2019",
+        community: "beatbox-peru",
+        category: "NACIONAL",
+        title: "NACIONAL 2019",
+        meta: "Campeonato Nacional Beatbox Perú 2019 · Lima",
+        format: "TOP8",
+        champion: "TANOS",
+        createdAt: 201901,
+        qf: [
+            { p1: "TANOS", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 },
+            { p1: "FELIPEBEAT", p2: "CUARTOS", win: 1 },
+            { p1: "CUARTOS", p2: "CUARTOS", win: 1 }
+        ],
+        sf: [
+            { p1: "TANOS", p2: "SEMIFINALISTA", win: 1 },
+            { p1: "FELIPEBEAT", p2: "SEMIFINALISTA", win: 1 }
+        ],
+        fin: { p1: "TANOS", p2: "FELIPEBEAT", win: 1 }
+    },
+    {
+        id: "bbx-loc-bombart",
+        community: "beatbox-peru",
+        category: "LOCAL",
+        title: "FERIA BOMBART",
+        meta: "13 Abr 2025 · Edición Especial Underground",
+        format: "TOP4",
+        champion: "POR ACTUALIZAR",
+        createdAt: 202504,
+        qf: [],
+        sf: [
+            { p1: "SEMIFINALISTA 1", p2: "SEMIFINALISTA 2", win: 1 },
+            { p1: "SEMIFINALISTA 3", p2: "SEMIFINALISTA 4", win: 1 }
+        ],
+        fin: { p1: "FINALISTA 1", p2: "FINALISTA 2", win: 1 }
+    },
+    {
+        id: "bbx-loc-random1",
+        community: "beatbox-peru",
+        category: "LOCAL",
+        title: "FERIA RANDOM 1",
+        meta: "12 Oct 2025 · Plaza Freestyle",
+        format: "TOP4",
+        champion: "POR ACTUALIZAR",
+        createdAt: 202510,
+        qf: [],
+        sf: [
+            { p1: "SEMIFINALISTA 1", p2: "SEMIFINALISTA 2", win: 1 },
+            { p1: "SEMIFINALISTA 3", p2: "SEMIFINALISTA 4", win: 1 }
+        ],
+        fin: { p1: "FINALISTA 1", p2: "FINALISTA 2", win: 1 }
+    },
+    {
+        id: "bbx-loc-random2",
+        community: "beatbox-peru",
+        category: "LOCAL",
+        title: "FERIA RANDOM 2",
+        meta: "02 Nov 2025 · Plaza Freestyle",
+        format: "TOP4",
+        champion: "POR ACTUALIZAR",
+        createdAt: 202511,
+        qf: [],
+        sf: [
+            { p1: "SEMIFINALISTA 1", p2: "SEMIFINALISTA 2", win: 1 },
+            { p1: "SEMIFINALISTA 3", p2: "SEMIFINALISTA 4", win: 1 }
+        ],
+        fin: { p1: "FINALISTA 1", p2: "FINALISTA 2", win: 1 }
+    },
+    {
+        id: "bbx-loc-random3",
+        community: "beatbox-peru",
+        category: "LOCAL",
+        title: "FERIA RANDOM 3",
+        meta: "26 Abr 2026 · Última Edición",
+        format: "TOP4",
+        champion: "POR ACTUALIZAR",
+        createdAt: 202604,
+        qf: [],
+        sf: [
+            { p1: "SEMIFINALISTA 1", p2: "SEMIFINALISTA 2", win: 1 },
+            { p1: "SEMIFINALISTA 3", p2: "SEMIFINALISTA 4", win: 1 }
+        ],
+        fin: { p1: "FINALISTA 1", p2: "FINALISTA 2", win: 1 }
+    }
+];
+
+let allBrackets = [...DEFAULT_BRACKETS];
+let activeCommunity = "beatbox-peru";
+let activeSubFilter = "ALL";
+let selectedBracketId = "bbx-nac-2025";
+let unlockedCommunities = JSON.parse(sessionStorage.getItem("bbx_unlocked_comms") || "{}");
+
+// Escuchar cambios en tiempo real desde Firebase Firestore en todos los dispositivos
+onSnapshot(bracketsColRef, (snapshot) => {
+    const cloudMap = new Map();
+    DEFAULT_BRACKETS.forEach(b => cloudMap.set(b.id, b));
+    snapshot.forEach(docSnap => {
+        cloudMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
+    });
+    allBrackets = Array.from(cloudMap.values()).sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
+    renderWorkspace();
+}, (err) => {
+    console.error("Error sincronizando Firestore en tiempo real:", err);
+    renderWorkspace();
+});
+
+// Aplicar transición suave de paleta de colores según comunidad
+function applyCommunityTheme(commKey) {
+    const body = document.body;
+    body.classList.remove("theme-beatbox-peru", "theme-kawsabeat", "theme-beatbox-lima", "theme-ramabeat");
+    body.classList.add(COMMUNITIES[commKey].themeClass);
+}
+
+function getFilteredBrackets() {
+    return allBrackets.filter(b => {
+        if (b.community !== activeCommunity) return false;
+        if (activeCommunity === "beatbox-peru" && activeSubFilter !== "ALL") {
+            return b.category === activeSubFilter;
+        }
+        return true;
+    });
+}
+
+function renderWorkspace() {
+    const commInfo = COMMUNITIES[activeCommunity];
+    const isUnlocked = Boolean(unlockedCommunities[activeCommunity]);
+
+    applyCommunityTheme(activeCommunity);
+
+    // Actualizar cabecera de comunidad
+    document.getElementById("wsCommunityBadge").textContent = commInfo.badge;
+    const parts = commInfo.name.split(" ");
+    if (parts.length > 1) {
+        document.getElementById("wsCommunityTitle").innerHTML = `${parts[0]} <span>${parts.slice(1).join(" ")}</span>`;
+    } else {
+        document.getElementById("wsCommunityTitle").innerHTML = `<span>${commInfo.name}</span>`;
+    }
+    document.getElementById("wsCommunityDesc").textContent = commInfo.desc;
+
+    // Actualizar contadores dinámicos de Beatbox Perú
+    const bbxAll = allBrackets.filter(b => b.community === "beatbox-peru");
+    document.getElementById("countAll").textContent = bbxAll.length;
+    document.getElementById("countNac").textContent = bbxAll.filter(b => b.category === "NACIONAL").length;
+    document.getElementById("countLoc").textContent = bbxAll.filter(b => b.category === "LOCAL").length;
+
+    // Mostrar u ocultar subfiltros de Beatbox Perú
+    const subfilterRow = document.getElementById("bbxPeruSubfilters");
+    subfilterRow.style.display = activeCommunity === "beatbox-peru" ? "flex" : "none";
+
+    // Controles Admin de la comunidad activa
+    const unlockedBar = document.getElementById("staffUnlockedControls");
+    const btnPass = document.getElementById("btnOpenStaffPass");
+    if (isUnlocked) {
+        unlockedBar.style.display = "flex";
+        btnPass.classList.add("is-unlocked");
+    } else {
+        unlockedBar.style.display = "none";
+        btnPass.classList.remove("is-unlocked");
+    }
+
+    // Renderizar carrusel horizontal de tarjetas grandes de competencias
+    const list = getFilteredBrackets();
+    const grid = document.getElementById("tournamentsSelectorGrid");
+    const shell = document.getElementById("tourneysCarouselShell");
+    grid.innerHTML = "";
+
+    if (list.length === 0) {
+        shell.classList.add("is-empty");
+        grid.innerHTML = `<div class="empty-comm-brackets">Aún no hay brackets publicados para <strong>${commInfo.name}</strong>. ${isUnlocked ? 'Haz clic en "Crear / Editar Bracket" para añadir el primero.' : 'El administrador de esta comunidad puede añadir llaves con el botón S.'}</div>`;
+        document.getElementById("bracketStageWrapper").style.display = "none";
+        return;
+    }
+
+    shell.classList.remove("is-empty");
+    document.getElementById("bracketStageWrapper").style.display = "block";
+
+    if (!list.some(item => item.id === selectedBracketId)) {
+        selectedBracketId = list[0].id;
+    }
+
+    list.forEach(item => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `tourney-pill-card ${item.id === selectedBracketId ? "active" : ""}`;
+        const tagLabel = item.category === "NACIONAL" ? "NACIONAL" : (item.category === "LOCAL" ? "EVENTO LOCAL" : commInfo.name);
+        btn.innerHTML = `
+            <span class="tp-tag">${tagLabel}</span>
+            <strong class="tp-title">${item.title}</strong>
+            <span class="tp-champ"><i class="fa-solid fa-trophy"></i> ${item.champion}</span>
+        `;
+        btn.addEventListener("click", () => {
+            selectedBracketId = item.id;
+            renderWorkspace();
+        });
+        grid.appendChild(btn);
+    });
+
+    updateCarouselArrowsVisibility();
+    renderBracketBoard();
+}
+
+// Controles de flechas del carrusel horizontal de competencias
+const carouselTrack = document.getElementById("tournamentsSelectorGrid");
+const btnCarouselPrev = document.getElementById("btnCarouselPrev");
+const btnCarouselNext = document.getElementById("btnCarouselNext");
+
+function updateCarouselArrowsVisibility() {
+    if (!carouselTrack) return;
+    const hasOverflow = carouselTrack.scrollWidth > carouselTrack.clientWidth + 8;
+    btnCarouselPrev.style.display = hasOverflow ? "flex" : "none";
+    btnCarouselNext.style.display = hasOverflow ? "flex" : "none";
+}
+
+btnCarouselPrev.addEventListener("click", () => {
+    carouselTrack.scrollBy({ left: -340, behavior: "smooth" });
+});
+
+btnCarouselNext.addEventListener("click", () => {
+    carouselTrack.scrollBy({ left: 340, behavior: "smooth" });
+});
+
+window.addEventListener("resize", updateCarouselArrowsVisibility);
+
+function getInitials(name) {
+    return (name || "?").replace(/[^a-zA-Z0-9]/g, "").slice(0, 2).toUpperCase() || "BP";
+}
+
+function buildMatchCardHTML(match) {
+    const p1 = match?.p1 || "POR DEFINIR";
+    const p2 = match?.p2 || "POR DEFINIR";
+    const win = Number(match?.win || 1);
+    return `
+        <div class="b-match-box">
+            <div class="b-player-row ${win === 1 ? "is-winner" : "is-loser"}">
+                <span class="b-avatar">${getInitials(p1)}</span>
+                <span class="b-name">${p1}</span>
+                ${win === 1 ? '<i class="fa-solid fa-check b-win-icon"></i>' : ''}
+            </div>
+            <div class="b-player-row ${win === 2 ? "is-winner" : "is-loser"}">
+                <span class="b-avatar">${getInitials(p2)}</span>
+                <span class="b-name">${p2}</span>
+                ${win === 2 ? '<i class="fa-solid fa-check b-win-icon"></i>' : ''}
+            </div>
+        </div>
+    `;
+}
+
+function renderBracketBoard() {
+    const bracket = allBrackets.find(b => b.id === selectedBracketId);
+    if (!bracket) return;
+
+    const commInfo = COMMUNITIES[activeCommunity];
+    const isUnlocked = Boolean(unlockedCommunities[activeCommunity]);
+
+    document.getElementById("activeTourneyTag").textContent =
+        bracket.category === "NACIONAL" ? "CAMPEONATO NACIONAL · BEATBOX PERÚ" :
+        bracket.category === "LOCAL" ? "EVENTO LOCAL · BEATBOX PERÚ" :
+        `COMPETENCIA OFICIAL · ${commInfo.name}`;
+
+    document.getElementById("activeTourneyTitle").textContent = bracket.title;
+    document.getElementById("activeTourneyMeta").textContent = bracket.meta;
+
+    const adminActions = document.getElementById("activeTourneyAdminActions");
+    adminActions.style.display = isUnlocked ? "flex" : "none";
+
+    const board = document.getElementById("bracketBoardRender");
+    const isTop8 = bracket.format === "TOP8" && bracket.qf && bracket.qf.length === 4;
+
+    const qfLeftHTML = isTop8 ? `
+        <div class="b-col b-qf-col">
+            <span class="b-round-label">CUARTOS DE FINAL</span>
+            <div class="b-col-matches">
+                ${buildMatchCardHTML(bracket.qf[0])}
+                ${buildMatchCardHTML(bracket.qf[1])}
+            </div>
+        </div>
+    ` : "";
+
+    const qfRightHTML = isTop8 ? `
+        <div class="b-col b-qf-col">
+            <span class="b-round-label">CUARTOS DE FINAL</span>
+            <div class="b-col-matches">
+                ${buildMatchCardHTML(bracket.qf[2])}
+                ${buildMatchCardHTML(bracket.qf[3])}
+            </div>
+        </div>
+    ` : "";
+
+    board.innerHTML = `
+        ${qfLeftHTML}
+
+        <div class="b-col b-sf-col">
+            <span class="b-round-label">SEMIFINAL</span>
+            <div class="b-col-matches center-single">
+                ${buildMatchCardHTML(bracket.sf?.[0])}
+            </div>
+        </div>
+
+        <div class="b-col b-final-col">
+            <span class="b-round-label gold-label">GRAN FINAL</span>
+            <div class="champion-pedestal">
+                <div class="champ-crown-circle">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <span class="champ-tag">CAMPEÓN</span>
+                <strong class="champ-name-display">${bracket.champion}</strong>
+            </div>
+            <div class="b-col-matches center-single">
+                ${buildMatchCardHTML(bracket.fin)}
+            </div>
+        </div>
+
+        <div class="b-col b-sf-col">
+            <span class="b-round-label">SEMIFINAL</span>
+            <div class="b-col-matches center-single">
+                ${buildMatchCardHTML(bracket.sf?.[1])}
+            </div>
+        </div>
+
+        ${qfRightHTML}
+    `;
+}
+
+// Cambio de pestañas de comunidad
+document.querySelectorAll(".comm-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+        document.querySelectorAll(".comm-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        activeCommunity = tab.dataset.comm;
+        activeSubFilter = "ALL";
+        document.querySelectorAll(".subfilter-pill").forEach((p, idx) => p.classList.toggle("active", idx === 0));
+        if (carouselTrack) carouselTrack.scrollLeft = 0;
+        renderWorkspace();
+    });
+});
+
+// Subfiltros de Beatbox Perú
+document.querySelectorAll(".subfilter-pill").forEach(pill => {
+    pill.addEventListener("click", () => {
+        document.querySelectorAll(".subfilter-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        activeSubFilter = pill.dataset.cat;
+        if (carouselTrack) carouselTrack.scrollLeft = 0;
+        renderWorkspace();
+    });
+});
+
+// Modal Contraseña por Comunidad ("S")
+const staffPassModal = document.getElementById("staffPassModal");
+const staffPassInput = document.getElementById("staffPassInput");
+const staffPassError = document.getElementById("staffPassError");
+
+document.getElementById("btnOpenStaffPass").addEventListener("click", () => {
+    document.getElementById("modalCommName").textContent = COMMUNITIES[activeCommunity].name;
+    staffPassError.style.display = "none";
+    staffPassInput.value = "";
+    staffPassModal.classList.add("open");
+    setTimeout(() => staffPassInput.focus(), 100);
+});
+
+document.getElementById("closeStaffPassModal").addEventListener("click", () => staffPassModal.classList.remove("open"));
+staffPassModal.addEventListener("click", (e) => {
+    if (e.target === staffPassModal) staffPassModal.classList.remove("open");
+});
+
+document.getElementById("staffPassForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const expected = COMMUNITIES[activeCommunity].password;
+    if (staffPassInput.value.trim() === expected) {
+        unlockedCommunities[activeCommunity] = true;
+        sessionStorage.setItem("bbx_unlocked_comms", JSON.stringify(unlockedCommunities));
+        staffPassModal.classList.remove("open");
+        renderWorkspace();
+    } else {
+        staffPassError.style.display = "block";
+    }
+});
+
+document.getElementById("btnLockCommunityStaff").addEventListener("click", () => {
+    delete unlockedCommunities[activeCommunity];
+    sessionStorage.setItem("bbx_unlocked_comms", JSON.stringify(unlockedCommunities));
+    renderWorkspace();
+});
+
+// Constructor de Brackets (Crear o Editar)
+const builderModal = document.getElementById("bracketBuilderModal");
+const bFormatSelect = document.getElementById("bFormat");
+const qfInputsSection = document.getElementById("qfInputsSection");
+
+bFormatSelect.addEventListener("change", () => {
+    qfInputsSection.style.display = bFormatSelect.value === "TOP8" ? "block" : "none";
+});
+
+function openBuilder(bracketToEdit = null) {
+    const commInfo = COMMUNITIES[activeCommunity];
+    document.getElementById("builderCommLabel").textContent = `${commInfo.name} · GESTOR DE BRACKETS`;
+
+    const catSelect = document.getElementById("bCategory");
+    if (activeCommunity === "beatbox-peru") {
+        catSelect.innerHTML = `
+            <option value="NACIONAL">Campeonato Nacional</option>
+            <option value="LOCAL">Evento Local (Feria / Plaza)</option>
+        `;
+    } else {
+        catSelect.innerHTML = `<option value="COMUNIDAD">Torneo ${commInfo.name}</option>`;
+    }
+
+    if (bracketToEdit) {
+        document.getElementById("builderModalHeading").innerHTML = `EDITAR <span>${bracketToEdit.title}</span>`;
+        document.getElementById("editBracketId").value = bracketToEdit.id;
+        document.getElementById("bTitle").value = bracketToEdit.title;
+        catSelect.value = bracketToEdit.category;
+        bFormatSelect.value = bracketToEdit.format || "TOP8";
+        document.getElementById("bMeta").value = bracketToEdit.meta;
+        document.getElementById("bChampion").value = bracketToEdit.champion;
+
+        for (let i = 0; i < 4; i++) {
+            const q = bracketToEdit.qf?.[i] || { p1: "", p2: "", win: 1 };
+            document.getElementById(`qf${i + 1}_p1`).value = q.p1;
+            document.getElementById(`qf${i + 1}_p2`).value = q.p2;
+            document.getElementById(`qf${i + 1}_win`).value = String(q.win || 1);
+        }
+
+        for (let i = 0; i < 2; i++) {
+            const s = bracketToEdit.sf?.[i] || { p1: "", p2: "", win: 1 };
+            document.getElementById(`sf${i + 1}_p1`).value = s.p1;
+            document.getElementById(`sf${i + 1}_p2`).value = s.p2;
+            document.getElementById(`sf${i + 1}_win`).value = String(s.win || 1);
+        }
+
+        document.getElementById("fin_p1").value = bracketToEdit.fin?.p1 || "";
+        document.getElementById("fin_p2").value = bracketToEdit.fin?.p2 || "";
+        document.getElementById("fin_win").value = String(bracketToEdit.fin?.win || 1);
+    } else {
+        document.getElementById("builderModalHeading").innerHTML = `CREAR BRACKET · <span>${commInfo.name}</span>`;
+        document.getElementById("bracketBuilderForm").reset();
+        document.getElementById("editBracketId").value = "";
+        bFormatSelect.value = "TOP8";
+    }
+
+    qfInputsSection.style.display = bFormatSelect.value === "TOP8" ? "block" : "none";
+    builderModal.classList.add("open");
+}
+
+document.getElementById("btnOpenCreatorModal").addEventListener("click", () => openBuilder(null));
+document.getElementById("btnEditCurrentBracket").addEventListener("click", () => {
+    const current = allBrackets.find(b => b.id === selectedBracketId);
+    if (current) openBuilder(current);
+});
+
+document.getElementById("closeBuilderModal").addEventListener("click", () => builderModal.classList.remove("open"));
+builderModal.addEventListener("click", (e) => {
+    if (e.target === builderModal) builderModal.classList.remove("open");
+});
+
+document.getElementById("btnDeleteCurrentBracket").addEventListener("click", async () => {
+    if (!unlockedCommunities[activeCommunity]) return;
+    if (!confirm("¿Seguro que deseas eliminar este bracket para todos los dispositivos?")) return;
+    try {
+        await deleteDoc(doc(db, "competencias_brackets", selectedBracketId));
+    } catch (e) {
+        console.error("Error eliminando de Firestore:", e);
+        alert("No se pudo eliminar en la nube. Verifica tu conexión.");
+    }
+});
+
+document.getElementById("bracketBuilderForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!unlockedCommunities[activeCommunity]) return;
+
+    const btnSave = document.getElementById("btnSaveBracket");
+    btnSave.disabled = true;
+    btnSave.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> PUBLICANDO EN TIEMPO REAL...';
+
+    const existingId = document.getElementById("editBracketId").value;
+    const bracketId = existingId || `${activeCommunity}-${Date.now()}`;
+    const format = bFormatSelect.value;
+
+    const qf = [];
+    if (format === "TOP8") {
+        for (let i = 1; i <= 4; i++) {
+            qf.push({
+                p1: document.getElementById(`qf${i}_p1`).value.trim().toUpperCase() || "POR DEFINIR",
+                p2: document.getElementById(`qf${i}_p2`).value.trim().toUpperCase() || "POR DEFINIR",
+                win: Number(document.getElementById(`qf${i}_win`).value)
+            });
+        }
+    }
+
+    const sf = [
+        {
+            p1: document.getElementById("sf1_p1").value.trim().toUpperCase(),
+            p2: document.getElementById("sf1_p2").value.trim().toUpperCase(),
+            win: Number(document.getElementById("sf1_win").value)
+        },
+        {
+            p1: document.getElementById("sf2_p1").value.trim().toUpperCase(),
+            p2: document.getElementById("sf2_p2").value.trim().toUpperCase(),
+            win: Number(document.getElementById("sf2_win").value)
+        }
+    ];
+
+    const fin = {
+        p1: document.getElementById("fin_p1").value.trim().toUpperCase(),
+        p2: document.getElementById("fin_p2").value.trim().toUpperCase(),
+        win: Number(document.getElementById("fin_win").value)
+    };
+
+    const payload = {
+        community: activeCommunity,
+        category: document.getElementById("bCategory").value,
+        title: document.getElementById("bTitle").value.trim().toUpperCase(),
+        meta: document.getElementById("bMeta").value.trim(),
+        format,
+        champion: document.getElementById("bChampion").value.trim().toUpperCase(),
+        qf,
+        sf,
+        fin,
+        updatedAt: Date.now()
+    };
+
+    try {
+        await setDoc(doc(db, "competencias_brackets", bracketId), payload);
+        selectedBracketId = bracketId;
+        builderModal.classList.remove("open");
+    } catch (err) {
+        console.error("Error guardando en Firestore:", err);
+        alert("No se pudo guardar en la nube. Revisa las reglas de Firebase Firestore.");
+    } finally {
+        btnSave.disabled = false;
+        btnSave.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> GUARDAR Y PUBLICAR BRACKET';
+    }
+});
+
+renderWorkspace();
+</script>
+
+<!-- Script Global: Menú Móvil sincronizado con style.css -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileBtn = document.querySelector(".mobile-btn");
+    const navbar = document.getElementById("navbar");
+    const menuLinks = document.querySelectorAll(".nav-center a");
+
+    if (mobileBtn && navbar) {
+        mobileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileBtn.classList.toggle("open");
+            navbar.classList.toggle("nav-open");
+        });
+    }
+
+    menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            const href = link.getAttribute("href");
+            if (window.innerWidth <= 992 && href && href !== "#") {
+                navbar.classList.remove("nav-open");
+                if (mobileBtn) mobileBtn.classList.remove("open");
+            }
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (navbar && navbar.classList.contains("nav-open") && !e.target.closest("#navbar")) {
+            navbar.classList.remove("nav-open");
+            if (mobileBtn) mobileBtn.classList.remove("open");
+        }
+    });
+
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("active");
+            } else {
+                navbar.classList.remove("active");
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
