@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeones Nacionales - BEATBOX PERÚ</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <link rel="stylesheet" href="../header-global.css"> 
+    <link rel="stylesheet" href="campeonesnacionales.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER PRINCIPAL REPLICADO AL 100% -->
+<header>
+    <div class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../PICS/V16_rojo sobre negro.png" alt="Beatbox Perú" class="header-logo-img">
+            <span class="logo-text">BEATBOX PERÚ</span>
+        </a>
+    </div>
+    
+    <nav>
+        <a href="../index.html">Inicio</a>
+
+        <div class="dropdown">
+            <a href="../nosotros/nosotros.html" class="dropdown-trigger">Nosotros <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="../nosotros/nosotros.html">Sobre Nosotros</a>
+                <a href="../nosotros/contactanos.html">Contáctanos</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Artistas <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="campeonesnacionales.html">Campeones Nacionales</a>
+                <a href="artistas-destacados.html">Artistas Destacados</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" class="dropdown-trigger active">Competencias <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="campeones.html">Campeonatos</a>
+                <a href="artistas-destacados.html">Eventos</a>
+            </div>
+        </div>
+        <a href="merch.html">Merch</a>
+    </nav>
+</header>
+
+<!-- CONTENEDOR DE LA INTERFAZ DE CAMPEONES -->
+<main class="epic-fullscreen-arena">
+
+    <!-- Fondo que ocupará el 100% real de la pantalla -->
+    <div class="arena-dynamic-bg" id="arenaBg"></div>
+    <div class="arena-cinematic-overlay"></div>
+
+    <!-- CONTENIDO DIVIDIDO EN PANTALLA COMPLETA -->
+    <div class="arena-layout">
+        <!-- Panel Izquierdo: Información y Roles -->
+        <div class="info-panel">
+            <div class="role-selector">
+                <span class="role-tab active" id="btnChamp">WINNER</span>
+                <span class="role-vs">VS</span>
+                <span class="role-tab" id="btnRunner">FINALIST</span>
+            </div>
+            
+            <div class="champion-meta">
+                <h1 class="champ-name-massive" id="fighterName">NEXUSS</h1>
+                <p class="champ-status-sub" id="fighterRole">CAMPEÓN NACIONAL</p>
+            </div>
+
+            <div class="champ-bio-card">
+                <p id="fighterBio">Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.</p>
+            </div>
+        </div>
+
+        <!-- Panel Derecho: Espacio limpio para que luzca la foto gigante del artista -->
+        <div class="visual-panel">
+            <div class="giant-year-stroke" id="currentYearDisplay">2025</div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN INFERIOR DE EXTREMO A EXTREMO -->
+    <div class="epic-timeline-bar">
+        <div class="timeline-track">
+            <button class="epic-time-btn active" data-index="0">2025</button>
+            <button class="epic-time-btn" data-index="1">2024</button>
+            <button class="epic-time-btn" data-index="2">2023</button>
+            <button class="epic-time-btn" data-index="3">2022</button>
+            <button class="epic-time-btn" data-index="4">2021</button>
+            <button class="epic-time-btn" data-index="5">2019</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Mantén exactamente tu misma lógica de JavaScript y la base de datos 'battleData' anterior.
+    // Solo asegúrate de mapear bien los IDs (que se mantienen iguales en este HTML).
+    const battleData = [
+        {
+            year: "2025",
+            champ: { name: "Nexuss", role: "CAMPEÓN NACIONAL", bio: "Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.", img: "../PICS/neksu.webp" },
+            runner: { name: "Goliat", role: "SUBCAMPEÓN", bio: "Luchando hasta la última ronda con bajos profundos y una potencia brutal en tarima, Goliat demostró por qué es una de las bestias más temidas.", img: "../PICS/goliat.jpg" }
+        },
+        {
+            year: "2024",
+            champ: { name: "Tita", role: "CAMPEÓN NACIONAL", bio: "Marcando un antes y un después, Tita se coronó campeón absoluto con rutinas cargadas de una energía brutal y flows totalmente innovadores.", img: "../PICS/tita.jpg.webp" },
+            runner: { name: "Jgas", role: "SUBCAMPEÓN", bio: "Con una propuesta melódica impecable y beats complejos de alta escuela, Jgas se quedó con el segundo puesto tras una final de infarto.", img: "../PICS/jgas.jpg" }
+        },
+        {
+            year: "2023",
+            champ: { name: "Jgas", role: "CAMPEÓN NACIONAL", bio: "Conocido por su increíble creatividad y musicalidad extrema, Jgas dominó la escena en 2023 entregando batallas e innovaciones icónicas.", img: "../PICS/jgas.jpg" },
+            runner: { name: "Rakura", role: "SUBCAMPEÓN", bio: "Dejó el alma en cada ronda con un repertorio dinámico lleno de efectos vocales limpios, asegurando un subcampeonato histórico.", img: "../PICS/neksu.webp" }
+        },
+        {
+            year: "2022",
+            champ: { name: "Polli", role: "CAMPEÓN NACIONAL", bio: "Polli se llevó el trofeo nacional gracias a su increíble velocidad, patrones complejos de drops pesados y una presencia escénica brutal.", img: "../PICS/polli.jpg" },
+            runner: { name: "Gamma", role: "SUBCAMPEÓN", bio: "Aportando una tremenda versatilidad y técnicas de bass muy limpias, Gamma demostró su alta categoría en el torneo.", img: "../PICS/jgas.jpg" }
+        },
+        {
+            year: "2021",
+            champ: { name: "Nexuss", role: "CAMPEÓN NACIONAL", bio: "Su primer título nacional que marcó el inicio de su legado. Deslumbró con una limpieza de sonido impecable y métricas de nivel internacional.", img: "../PICS/nekkkksu.jpg.webp" },
+            runner: { name: "Nairo", role: "SUBCAMPEÓN", bio: "Desplegó una creatividad inagotable en cada enfrentamiento, plantando cara al campeón con un estilo fresco y dinámico.", img: "../PICS/tita.jpg.webp" }
+        },
+        {
+            year: "2019",
+            champ: { name: "Tanos", role: "CAMPEÓN NACIONAL", bio: "El campeón pionero de esta era. Tanos se alzó con la victoria gracias a su potencia pura, bajos demoledores y un estilo agresivo old school.", img: "../PICS/tanos.jpg.jpeg" },
+            runner: { name: "Felipebeat", role: "SUBCAMPEÓN", bio: "Marcó un hito en la competencia fundacional con rutinas sólidas y una precisión rítmica legendaria digna de la gran final.", img: "../PICS/polli.jpg" }
+        }
+    ];
+
+    let currentYearIndex = 0;
+    let currentSide = 'champ';
+
+    const arenaBg = document.getElementById('arenaBg');
+    const fighterName = document.getElementById('fighterName');
+    const fighterRole = document.getElementById('fighterRole');
+    const fighterBio = document.getElementById('fighterBio');
+    const currentYearDisplay = document.getElementById('currentYearDisplay');
+    
+    const idChamp = document.getElementById('btnChamp');
+    const idRunner = document.getElementById('btnRunner');
+
+    function renderScreen() {
+        const data = battleData[currentYearIndex];
+        const activeFighter = data[currentSide];
+
+        arenaBg.style.backgroundImage = `url('${activeFighter.img}')`;
+        fighterName.textContent = activeFighter.name;
+        fighterRole.textContent = activeFighter.role;
+        fighterBio.textContent = activeFighter.bio;
+        currentYearDisplay.textContent = data.year;
+
+        if(currentSide === 'champ') {
+            idChamp.classList.add('active');
+            idRunner.classList.remove('active');
+            fighterRole.style.color = "#aa3131";
+        } else {
+            idChamp.classList.remove('active');
+            idRunner.classList.add('active');
+            fighterRole.style.color = "#ffffff";
+        }
+    }
+
+    idChamp.addEventListener('mouseenter', () => { currentSide = 'champ'; renderScreen(); });
+    idRunner.addEventListener('mouseenter', () => { currentSide = 'runner'; renderScreen(); });
+    idChamp.addEventListener('click', () => { currentSide = 'champ'; renderScreen(); });
+    idRunner.addEventListener('click', () => { currentSide = 'runner'; renderScreen(); });
+
+    const timeBtns = document.querySelectorAll('.epic-time-btn');
+    timeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            timeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentYearIndex = parseInt(btn.getAttribute('data-index'));
+            renderScreen();
+        });
+    });
+
+    renderScreen();
+</script>

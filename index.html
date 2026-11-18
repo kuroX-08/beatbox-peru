@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatbox Perú</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="spotlight"></div>
+
+<!-- =========================
+        NAVBAR (NAVEGACIÓN)
+========================== -->
+<header class="navbar" id="navbar">
+    <div class="logo-area">
+        <a href="#" class="logo">
+            <img src="./PICS/V15_negro sobre rojo.png" alt="Beatbox Perú">
+            <div class="logo-text">
+                <span class="logo-top">Comunidad Oficial</span>
+                <h2>BEATBOX <span>PERÚ</span></h2>
+            </div>
+        </a>
+    </div>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Nosotros <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="nosotros/nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="nosotros/contactanos.html">Contáctanos</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Artistas <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="artistas/campeonesnacionales.html">Campeones Nacionales</a></li>
+                    <li><a href="artistas/artistasdestacados.html">Artistas Destacados</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Competencias <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="#campeonatos">Campeonatos</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Merch</a></li>
+        </ul>
+    </nav>
+
+    <div class="mobile-btn">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- =========================
+            HERO
+========================== -->
+<section class="hero">
+    <div class="hero-slider">
+        <img src="PICS/baner1.jpeg" class="active" alt="Banner 1">
+        <img src="img/banner/banner2.jpg" alt="Banner 2">
+        <img src="img/banner/banner3.jpg" alt="Banner 3">
+    </div>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-light hero-light-1"></div>
+    <div class="hero-light hero-light-2"></div>
+
+    <div class="hero-content">
+        <img src="PICS/beatboxperu_escudo.png" class="hero-logo" alt="Escudo Beatbox Perú" onerror="this.style.display='none'">
+        <span class="hero-tag">LA COMUNIDAD OFICIAL DEL BEATBOX PERUANO</span>
+        <h1>BEATBOX <span>PERÚ</span></h1>
+        <p id="heroPhrase">ojerekuidateporfabor:C</p>
+
+        <div class="hero-buttons">
+            <a href="#historia" class="btn-primary">Explorar</a>
+            <a href="#competencias" class="btn-secondary">Próximos Eventos</a>
+        </div>
+
+        <div class="hero-stats">
+            <div><h2>30+</h2><span>Beatboxers</span></div>
+            <div><h2>3+</h2><span>Comunidades</span></div>
+            <div><h2>8</h2><span>Regiones</span></div>
+        </div>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+</section>
+
+<section class="mission-section">
+    <div class="mission-horizontal-container">
+        <!-- Bloque Izquierdo: Texto -->
+        <div class="mission-content-left">
+            <h2 class="mission-title">Nuestra Misión</h2>
+            <p class="mission-text">La comunidad peruana de beatbox no solo imita ritmos; crea mundos con la voz. Nos dedicamos a descentralizar el arte vocal en el Perú, conectando colectivos de Lima, Huancayo y Chimbote para forjar la próxima generación de campeones.</p>
+        </div>
+        
+        <!-- Bloque Derecho: Estadísticas compactas -->
+        <div class="mission-stats-right">
+            <div class="m-stat-box">
+                <h3>3+</h3>
+                <span>Comunidades Activas</span>
+            </div>
+            <div class="m-stat-box">
+                <h3>100%</h3>
+                <span>Arte Independiente</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+      SECCIÓN COMBINADA: COMUNIDADES & ANÁLISIS
+=========================================== -->
+<section class="main-split-section">
+    <div class="split-wrapper">
+        
+        <!-- COLUMNA IZQUIERDA: Carrusel -->
+        <div class="split-col-left">
+            <div class="split-header">
+                <h2 class="section-title-premium">Comunidades Activas</h2>
+                <p class="section-subtitle-premium">Los colectivos que mantienen encendido el micrófono en cada rincón.</p>
+            </div>
+
+            <div class="carousel-radio-container">
+                <input type="radio" name="carousel-control" id="slide-1" checked>
+                <input type="radio" name="carousel-control" id="slide-2">
+                <input type="radio" name="carousel-control" id="slide-3">
+
+                <div class="carousel-native-window">
+                    <div class="carousel-track">
+                        <!-- Tarjeta 1 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/beatboxlima.jpg" alt="Beatbox Lima"></div>
+                            <div class="card-info">
+                                <span class="card-tag">LIMA</span>
+                                <h3>BEATBOX LIMA</h3>
+                                <p>El núcleo central de batallas en la capital. ¡Organizadores de competencias con clasificaciones internacionales!</p>
+                                <a href="beatboxlima/beatboxlima.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 2 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/kawsabeat.jpg.jpeg" alt="Kawsabeat"></div>
+                            <div class="card-info">
+                                <span class="card-tag">LIMA</span>
+                                <h3>KAWSABEAT</h3>
+                                <p>Comunidad activa enfocada en el desarrollo del freestyle y la cultura del beatbox local en plazas.</p>
+                                <a href="kawsabeat/kawsabeat.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 3 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/ramabeat.jpg" alt="Ramabeat"></div>
+                            <div class="card-info">
+                                <span class="card-tag">LIMA</span>
+                                <h3>RAMABEAT</h3>
+                                <p>Colectivo en crecimiento constante, impulsando nuevos talentos y talleres formativos en la región urbana.</p>
+                                <a href="ramabeat.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 4 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/beatbox_huancayo.jpg" alt="Huancayo Beatbox"></div>
+                            <div class="card-info">
+                                <span class="card-tag">JUNÍN</span>
+                                <h3>HUANCAYO BEATBOX</h3>
+                                <p>Fuerza y potencia en la altura. Una de las comunidades del centro del país con mayor nivel de constancia y beats brutales.</p>
+                                <a href="huancayo.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 5 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/chimbote_beatbox.jpg" alt="Chimbote Beatbox"></div>
+                            <div class="card-info">
+                                <span class="card-tag">ÁNCASH</span>
+                                <h3>CHIMBOTE BEATBOX</h3>
+                                <p>La cuna del ritmo norteño. Impulsando la cultura underground de la costa con cyphers y encuentros locales potentes.</p>
+                                <a href="chimbote.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 6 -->
+                        <div class="custom-card-item">
+                            <div class="card-img-wrapper"><img src="PICS/arequipa_beatbox.jpg" alt="Arequipa Beatbox"></div>
+                            <div class="card-info">
+                                <span class="card-tag">AREQUIPA</span>
+                                <h3>AREQUIPA BEATBOX</h3>
+                                <p>El sonido del sur del país. Colectivo autogestionado organizador de batallas interregionales icónicas.</p>
+                                <a href="arequipa.html" class="btn-card-link">Ver Comunidad <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-dots">
+                    <label for="slide-1" class="dot-btn"></label>
+                    <label for="slide-2" class="dot-btn"></label>
+                    <label for="slide-3" class="dot-btn"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Análisis -->
+        <div class="split-col-right">
+            <div class="split-header">
+                <h2 class="section-title-premium-small">Análisis & Más</h2>
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
+                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
+                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
+                <div class="analysis-box class-highlight"><span>REGLAMENTO OFICIAL</span></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--====================================================
+      SECCIÓN COMBINADA: COMPETENCIAS & EXPONENTES
+====================================================-->
+<section class="main-split-section content-split-artists">
+    <div class="split-wrapper">
+        
+        <!-- COLUMNA IZQUIERDA: TIMELINE EN ZIGZAG -->
+        <div class="split-col-left timeline-zigzag-column">
+            <div class="split-header">
+                <span class="timeline-mini-tag">CRONOLOGÍA</span>
+                <h2 class="section-title-premium">Eventos <span>Locales</span></h2>
+                <p class="section-subtitle-premium">Historial de batallas y plazas de la comunidad peruana.</p>
+            </div>
+            
+            <div class="timeline-zigzag-wrapper">
+                <div class="timeline-center-line"></div>
+
+                <!-- Bloque 1 -->
+                <div class="timeline-zigzag-node left-node">
+                    <div class="node-glow-circle"><span>2023</span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">Edición Especial</span>
+                        <h3>FERIA BOMBART</h3>
+                        <p>Espacio underground de exhibición e integración en Lima.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 2 -->
+                <div class="timeline-zigzag-node right-node">
+                    <div class="node-glow-circle"><span>2024</span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">Plaza Freestyle</span>
+                        <h3>FERIA RANDOM 1</h3>
+                        <p>Primer volumen del torneo experimental con dinámicas aleatorias.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 3 -->
+                <div class="timeline-zigzag-node left-node">
+                    <div class="node-glow-circle"><span>2025</span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">Plaza Freestyle</span>
+                        <h3>FERIA RANDOM 2</h3>
+                        <p>Consolidación del formato callejero con mayor convocatoria.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 4 -->
+                <div class="timeline-zigzag-node right-node">
+                    <div class="node-glow-circle"><span>2026</span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">Última Edición</span>
+                        <h3>FERIA RANDOM 3</h3>
+                        <p>El cierre del ciclo competitivo underground en plazas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: CARRUSEL INDIVIDUAL DE EXPONENTES -->
+        <div class="split-col-right column-artists-carousel">
+            <div class="split-header">
+                <h2 class="section-title-premium-small">Beatboxers Relevantes</h2>
+            </div>
+            
+            <div class="artist-solo-carousel">
+                <!-- Selectores de Radio Invisibles -->
+                <input type="radio" name="artist-slide" id="artist-1" checked>
+                <input type="radio" name="artist-slide" id="artist-2">
+                <input type="radio" name="artist-slide" id="artist-3">
+
+                <!-- Ventana del Carrusel -->
+                <div class="carousel-native-window">
+                    <div class="artist-solo-track">
+                        
+                        <!-- Tarjeta 1: Nexuss -->
+                        <div class="solo-artist-card">
+                            <div class="card-img-wrapper visual-glow">
+                                <img src="PICS/neksu.webp" alt="Nexuss">
+                            </div>
+                            <div class="premium-artist-meta">
+                                <span class="card-tag font-gold">BICAMPEÓN NACIONAL</span>
+                                <h3>NEXUSS</h3>
+                                <p>Máximo exponente actual sosteniendo el título consecutivo y representando la bandera en los escenarios internacionales más exigentes del circuito.</p>
+                                <a href="#" class="btn-card-link">Ver Perfil Artistico →</a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: Dmhop -->
+                        <div class="solo-artist-card">
+                            <div class="card-img-wrapper visual-glow">
+                                <img src="PICS/diemjop.jpg" alt="Dmhop">
+                            </div>
+                            <div class="premium-artist-meta">
+                                <span class="card-tag font-gold">TOP 8 BBX AMÉRICA</span>
+                                <h3>DMHOP</h3>
+                                <p>Reconocido internacionalmente por sus complejos patrones rítmicos y por meter a Perú en las fases finales del campeonato continental mediante una wildcard histórica.</p>
+                                <a href="#" class="btn-card-link">Ver Perfil Artistico →</a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 3: El Grande -->
+                        <div class="solo-artist-card">
+                            <div class="card-img-wrapper visual-glow">
+                                <img src="PICS/elgrande.bbx.jpg" alt="El Grande">
+                            </div>
+                            <div class="premium-artist-meta">
+                                <span class="card-tag font-gold">CAMPEÓN SOLO BUZZER</span>
+                                <h3>EL GRANDE</h3>
+                                <p>Dominador absoluto de los efectos de impacto y dinámicas con micrófonos especiales, coronándose campeón indiscutible de la categoría Solo Buzzer en 2025.</p>
+                                <a href="#" class="btn-card-link">Ver Perfil Artistico →</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Paginación / Controles -->
+                <div class="carousel-dots premium-dots">
+                    <label for="artist-1" class="dot-btn"></label>
+                    <label for="artist-2" class="dot-btn"></label>
+                    <label for="artist-3" class="dot-btn"></label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--====================================================
+            SECCIÓN: PRÓXIMOS EVENTOS & BATALLAS
+====================================================-->
+<section class="events-section-premium">
+    <div class="events-container">
+        <div class="events-header">
+            <h2 class="section-title-premium">Próximos Eventos <span>& Batallas</span></h2>
+            <p class="section-subtitle-premium">Saca tu micrófono, entrena tus rutinas y asiste a los siguientes encuentros.</p>
+        </div>
+        <div id="events-dynamic-list" class="events-list-wrapper"></div>
+    </div>
+</section>
+
+<script src="agenda.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAWSABEAT | Archivo Histórico & Comunidad</title>
+    <!-- Tipografía Cyberpunk / Urbana -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper CSS para Carruseles Proporcionados -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="kawsabeat.css">
+</head>
+<body>
+
+    <!-- MENÚ LATERAL VERTICAL FLOTANTE (ESTILO BEATBOX LIMA) -->
+    <nav class="kawsa-side-menu">
+        <div class="menu-brand">
+            <img src="PICS/logo.png" alt="KawsaBeat Logo">
+            <span>KWB</span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#archivo">Ediciones</a></li>
+            <li><a href="#podios">Tabla de Honor</a></li>
+            <li><a href="#detalles-produccion">Comunidad</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION (Estilo Centrado y Proporcionado - Ya no es tapado por el header) -->
+    <section id="inicio" class="kawsa-hero">
+        <div class="section-container hero-grid">
+            <div class="hero-left">
+                <span class="hero-tag">MEMORIA HISTÓRICA • ESCENA PERUANA</span>
+                <h1>KAWSA<span>BEAT</span></h1>
+                <h2>Archivo Histórico de Competencias</h2>
+                <p>Plataforma oficial orientada a preservar el registro audiovisual, las estadísticas y la evolución de los beatboxers de la escena local.</p>
+                <div class="hero-buttons">
+                    <a href="#archivo" class="btn-main">Explorar Archivo</a>
+                    <a href="#podios" class="btn-outline">Ver Campeones</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="logo-neon-shield">
+                    <img src="PICS/logo.png" alt="Kawsa Shield">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FILTROS Y ARCA DE EDICIONES -->
+    <section id="archivo" class="archive-section">
+        <div class="section-container">
+            <div class="section-header-flex">
+                <div class="section-title">
+                    <span>COMPETENCIAS</span>
+                    <h2>Todas las Ediciones</h2>
+                    <p>Explora el recorrido cronológico de cada evento, formatos de clasificación y brackets interactivos.</p>
+                </div>
+                <!-- Sistema de Filtros Recomendado -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="2021">2021</button>
+                    <button class="filter-btn" data-filter="2025">2025</button>
+                    <button class="filter-btn" data-filter="2026">2026</button>
+                </div>
+            </div>
+
+            <!-- Swiper Container: Evita que el contenido se desborde o se vea vacío -->
+            <div class="swiper tournamentsSwiper">
+                <div class="swiper-wrapper" id="tournamentWrapper">
+                    <!-- Inyección dinámica controlada por JS -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABLA DE HONOR / HISTÓRICO DE CAMPEONES -->
+    <section id="podios" class="history-table-section">
+        <div class="section-container">
+            <div class="section-title">
+                <span>RESUMEN HISTÓRICO</span>
+                <h2>Hall de Campeones</h2>
+                <p>El registro definitivo de los competidores que grabaron su nombre en la historia de la organización.</p>
+            </div>
+
+            <div class="table-responsive-container">
+                <table class="kawsa-table">
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Evento</th>
+                            <th>Campeón</th>
+                            <th>Consecuencia / Clasificación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="championsTableBody">
+                        <!-- Inyección dinámica desde JS para orden absoluto -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEDRA DE DETALLES Y PRODUCCIÓN -->
+    <section id="detalles-produccion" class="production-section">
+        <div class="section-container grid-two-columns">
+            
+            <!-- Bloque Playlists y Multimedia -->
+            <div class="media-box">
+                <h3>Playlists & Multimedia</h3>
+                <p>Sigue el desarrollo cronológico de cada enfrentamiento a través de los canales y registros oficiales validados.</p>
+                <div class="multimedia-links" id="multimediaLinksContainer">
+                    <!-- Enlaces limpios generados por JS -->
+                </div>
+            </div>
+
+            <!-- Bloque Staff / Créditos -->
+            <div class="staff-box">
+                <h3>Equipo de Producción</h3>
+                <p>El núcleo técnico detrás de la gestión audiovisual, jueceo, hosting y soporte de los eventos.</p>
+                <div class="staff-tags-container" id="staffTagsContainer">
+                    <!-- Tags de producción autogenerados -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FUENTES Y CRÉDITOS EDITORIALES -->
+    <footer class="kawsa-footer">
+        <div class="section-container footer-content">
+            <p>© 2026 KAWSABEAT. Creado en base a registros audiovisuales oficiales y tablas de puntuación verificadas.</p>
+            <span class="disclaimer">Nota: En caso de discrepancia gráfica, se prioriza el registro batalla por batalla.</span>
+        </div>
+    </footer
+
+    <!-- Dependencias obligatorias al final de la carga del DOM -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="eventoskwb.js"></script>
+    <script src="campeoneskwb.js"></script>
+    <script src="kawsabeat.js"></script>
+</body>
+</html>

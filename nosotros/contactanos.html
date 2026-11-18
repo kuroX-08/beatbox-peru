@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - BEATBOX PERÚ</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/header-global.css">
+    <link rel="stylesheet" href="contactanos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ==========================================
+     HEADER PARA PESTAÑAS INDIVIDUALES
+     ========================================== -->
+<header>
+    
+    <!-- LOGO UNIFICADO (IMAGEN + TEXTO) -->
+    <div class="logo">
+        <a href="/index.html" class="logo-link">
+            <img src="/PICS/V16_rojo sobre negro.png" alt="Logo Beatbox Perú" class="header-logo-img">
+            <span class="logo-text">BEATBOX PERÚ</span>
+        </a>
+    </div>
+    
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+        <a href="/index.html">Inicio</a>
+
+        <div class="dropdown">
+            <a href="nosotros.html" class="dropdown-trigger">Nosotros <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="nosotros.html">Sobre Nosotros</a>
+                <a href="contactanos.html">Contáctanos</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Artistas <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="/artistas/campeonesnacionales.html">Campeones Nacionales</a>
+                <a href="/artistas/artistas-destacados.html">Artistas Destacados</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Competencias <span class="arrow">↓</span></a>
+            <div class="dropdown-menu">
+                <a href="campeones.html">Campeonatos</a>
+                <a href="/artistas/artistas-destacados.html">Eventos</a>
+            </div>
+        </div>
+        <a href="merch.html">Merch</a>
+    </nav>
+</header>
+
+<main class="contacto-container">
+    <div class="contacto-wrapper">
+        
+        <div class="contacto-info">
+            <span class="contacto-badge">SOPORTE, ALIANZAS Y SHOWS</span>
+            <h1>Ponte en contacto con Beatbox Perú</h1>
+            <p>¿Quieres llevar un show de beatbox a tu evento, proponer una alianza comercial, sumarte a la comunidad o mandarnos feedback? Escríbenos y te responderemos al toque.</p>
+            
+            <div class="info-detalles">
+                <div class="info-item">
+                    <span class="info-icono">📧</span>
+                    <div>
+                        <h3>Correo Electrónico</h3>
+                        <p>contacto@beatboxperu.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icono">🎤</span>
+                    <div>
+                        <h3>Sede Principal</h3>
+                        <p>Lima, Perú (Comunidad Nacional)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacto-card">
+            <form action="#" method="POST" onsubmit="return false;" class="formulario-contacto">
+                
+                <div class="input-grupo">
+                    <label for="email">Dirección de correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required autocomplete="off">
+                </div>
+
+                <div class="input-grupo">
+                    <label for="mensaje">Tu mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe aquí tu propuesta, duda o mensaje para la comunidad..." required></textarea>
+                </div>
+
+                <button type="button" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">BEATBOX PERÚ</div>
+        <p>© 2026 BEATBOX PERÚ - Inspirado por las raíces del arte vocal callejero.</p>
+    </div>
+</footer>
+
+</body>
+</html>

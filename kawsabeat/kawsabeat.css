@@ -1,0 +1,599 @@
+/* ========================================================= */
+/* PALETA HISTÓRICA KAWSABEAT: UNDERGROUND PREMIUM          */
+/* ========================================================= */
+:root {
+    --verde-deep: #032b1d;     /* 🌲 Fondos de tarjetas y bloques secundarios */
+    --verde-core: #054f35;     /* 🟢 Verde Kawsabeat principal (Botones activos, bordes) */
+    --verde-neon: #10b981;     /* 🧪 Verde Esmeralda (Acentos destacados y hovers) */
+    
+    --negro-base: #070807;     /* ◼️ Negro mate profundo para el fondo general */
+    --negro-card: #0d110e;     /* 🎚️ Negro con matiz verdoso para contraste limpio */
+    
+    --texto-max: #f3f4f6;      /* ⚪ Blanco limpio para títulos */
+    --texto-mut: #9ca3af;      /* 🩶 Gris industrial para párrafos */
+    
+    --transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================= */
+/* RESETS GENERALES Y REGLAS DE ESTRUCTURA                   */
+/* ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--negro-base);
+    color: var(--texto-max);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Contenedor estructural global centrado */
+.section-container {
+    width: min(1300px, 92%);
+    margin: 0 auto;
+    position: relative;
+}
+
+section {
+    padding: 100px 0;
+    width: 100%;
+}
+
+/* Títulos de sección estandarizados */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title span {
+    color: var(--verde-neon);
+    font-size: 13px;
+    letter-spacing: 6px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.section-title h2 {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    color: var(--texto-mut);
+    font-size: 17px;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ========================================================= */
+/* MENÚ LATERAL FLOTANTE VERTICAL (PREMIUM UNDERGROUND)      */
+/* ========================================================= */
+.kawsa-side-menu {
+    position: fixed;
+    right: 30px; /* Lo ancla al lado derecho de la pantalla */
+    top: 50%;
+    transform: translateY(-50%); /* Lo centra verticalmente a la perfección */
+    background: rgba(13, 17, 14, 0.85); /* Fondo negro con matiz verde oliva */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(16, 185, 129, 0.12); /* Borde sutil esmeralda */
+    padding: 30px 24px;
+    border-radius: 20px; /* Bordes redondeados exactos al estilo de la captura */
+    z-index: 9999;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    width: 200px; /* Ancho estructural óptimo */
+    transition: var(--transition);
+}
+
+/* Animación sutil de entrada al pasar el mouse por el contenedor */
+.kawsa-side-menu:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 25px 60px rgba(5, 79, 53, 0.25);
+}
+
+/* Identidad minimalista superior del menú */
+.menu-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.menu-brand img {
+    height: 28px;
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--verde-neon));
+}
+
+.menu-brand span {
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--texto-max);
+}
+
+/* Lista de navegación vertical */
+.menu-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Separación vertical idéntica al diseño de Lima */
+}
+
+.menu-links li {
+    width: 100%;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: var(--texto-mut);
+    font-size: 16px;
+    font-weight: 650;
+    display: block;
+    padding: 6px 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+/* Efecto hover interactivo: se mueve hacia la izquierda y cambia a verde neón */
+.menu-links a:hover {
+    color: var(--verde-neon);
+    transform: translateX(-5px);
+}
+
+/* Indicador de estado activo o interactivo (pequeña línea esmeralda lateral) */
+.menu-links a::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: var(--verde-neon);
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.menu-links a:hover::before {
+    height: 60%;
+}
+
+/* Ajuste de padding superior para que el contenido de las secciones no choque con nada */
+.kawsa-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 0; /* Ya no requiere el colchón forzado del header viejo */
+}
+
+/* Ocultar en dispositivos móviles para evitar conflictos táctiles */
+@media (max-width: 968px) {
+    .kawsa-side-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        transform: none;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        padding: 15px 20px;
+        background: rgba(7, 8, 7, 0.95);
+    }
+    .menu-brand {
+        display: none;
+    }
+    .menu-links {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0;
+    }
+    .menu-links a:hover {
+        transform: translateY(-3px);
+    }
+}
+/* ========================================================= */
+/* HERO SECTION (Estructura en dos columnas alineada)        */
+/* ========================================================= */
+.kawsa-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 120px;
+    background: radial-gradient(circle at 80% 50%, rgba(5, 79, 53, 0.15) 0%, var(--negro-base) 70%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-left .hero-tag {
+    color: var(--verde-neon);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-left h1 {
+    font-size: 75px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.hero-left h1 span {
+    color: var(--verde-neon);
+}
+
+.hero-left h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 15px 0 25px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-left p {
+    color: var(--texto-mut);
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: 40px;
+}
+
+/* Botones con fondo real y volumen */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-main {
+    background: var(--verde-core);
+    color: var(--texto-max);
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-main:hover {
+    background: var(--verde-neon);
+    color: var(--negro-base);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-outline {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--texto-max);
+    padding: 14px 34px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background: var(--texto-max);
+    color: var(--negro-base);
+    transform: translateY(-4px);
+}
+
+/* Escudo derecho en el Hero */
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-neon-shield img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 35px rgba(5, 79, 53, 0.4));
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ========================================================= */
+/* SECCIÓN ARCHIVO & FILTROS (Flex y Swiper Grid)           */
+/* ========================================================= */
+.archive-section {
+    background: #0a0c0b;
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.section-header-flex .section-title {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.section-header-flex .section-title p {
+    margin: 15px 0 0 0;
+}
+
+/* Contenedor de Filtros Limpio */
+.filter-container {
+    display: flex;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--texto-mut);
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background: var(--verde-core);
+    color: var(--texto-max);
+    box-shadow: 0 4px 15px rgba(5, 79, 53, 0.3);
+}
+
+/* Renderización e Inyección del Swiper Wrapper */
+.swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Estructura para las tarjetas inyectadas dinámicamente */
+.swiper-slide {
+    background: var(--negro-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 30px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-8px);
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 20px 40px rgba(3, 43, 29, 0.4);
+}
+
+.swiper-slide h4 {
+    color: var(--verde-neon);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.swiper-slide h3 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.swiper-slide p {
+    color: var(--texto-mut);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ========================================================= */
+/* TABLA DE HONOR / HALL DE CAMPEONES                       */
+/* ========================================================= */
+.history-table-section {
+    background: var(--negro-base);
+}
+
+.table-responsive-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    background: var(--negro-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.kawsa-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 16px;
+}
+
+.kawsa-table th, 
+.kawsa-table td {
+    padding: 22px 28px;
+}
+
+.kawsa-table th {
+    background: rgba(5, 79, 53, 0.2);
+    color: var(--verde-neon);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.15);
+}
+
+.kawsa-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    transition: var(--transition);
+}
+
+.kawsa-table tbody tr:hover {
+    background: rgba(5, 79, 53, 0.08);
+}
+
+.kawsa-table tbody td {
+    color: #e5e7eb;
+}
+
+.kawsa-table tbody tr td:first-child {
+    font-weight: 700;
+    color: var(--verde-neon);
+}
+
+/* ========================================================= */
+/* CATEDRA DE DETALLES Y PRODUCCIÓN                          */
+/* ========================================================= */
+.production-section {
+    background: #0a0c0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.grid-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.media-box, 
+.staff-box {
+    background: var(--verde-deep);
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    padding: 40px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.media-box:hover, 
+.staff-box:hover {
+    border-color: var(--verde-neon);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
+}
+
+.media-box h3, 
+.staff-box h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.media-box p, 
+.staff-box p {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Contenedores de inyección dinámica */
+.multimedia-links, 
+.staff-tags-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilos de elementos inyectados dentro de las cajas */
+.multimedia-links a {
+    color: var(--verde-neon);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.multimedia-links a:hover {
+    color: var(--texto-max);
+    transform: translateX(4px);
+}
+
+.staff-tags-container span {
+    background: rgba(7, 8, 7, 0.4);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    border-left: 3px solid var(--verde-neon);
+}
+
+/* ========================================================= */
+/* FUENTES Y CRÉDITOS EDITORIALES (FOOTER)                   */
+/* ========================================================= */
+.kawsa-footer {
+    background: var(--negro-base);
+    padding: 50px 0;
+    border-top: 1px solid rgba(16, 185, 129, 0.06);
+    text-align: center;
+}
+
+.footer-content p {
+    color: var(--texto-mut);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.footer-content .disclaimer {
+    color: rgba(16, 185, 129, 0.6);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Responsive bizarro para pantallas móviles */
+@media (max-width: 968px) {
+    .hero-grid, 
+    .grid-two-columns {
+        grid-template-columns: 1fr;
+    }
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+    .hero-left h1 {
+        font-size: 50px;
+    }
+}

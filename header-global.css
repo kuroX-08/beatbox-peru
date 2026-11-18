@@ -1,0 +1,48 @@
+/* ==========================================================================
+   FUERZA EL LOGO COMBINADO (IMAGEN + TEXTO) EN UNA SOLA LÍNEA HORIZONTAL
+   ========================================================================== */
+
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+header .logo, 
+header .logo a, 
+.logo-link {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    width: auto !important;
+}
+
+.logo-link {
+    gap: 25px !important; /* Espacio de 25px entre el logo y el texto */
+    cursor: pointer;
+}
+
+.header-logo-img {
+    height: 45px !important;
+    width: auto !important;
+    display: block !important;
+    margin-right: 5px !important;
+    transition: transform 0.2s ease !important;
+}
+
+.logo-text {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+}
+
+.logo-link:hover .header-logo-img {
+    transform: scale(1.05);
+}

@@ -1,0 +1,860 @@
+/*====================================================
+  1. CONFIGURACIÓN, VARIABLES Y RESET
+====================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --black: #050505;
+    --black2: #0c0c0c;
+    --black3: #141414;
+    --red: #d8001d;
+    --red2: #ff203d;
+    --red-glow: rgba(216, 0, 29, 0.22);
+    --gold: #d6b04d;
+    --gold-glow: rgba(214, 176, 77, 0.12);
+    --white: #ffffff;
+    --gray: #b9b9b9;
+    --shadow: 0 20px 45px rgba(0,0,0,.45);
+    --transition: .45s cubic-bezier(.22,.61,.36,1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+a { text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--red); color: var(--white); }
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(216,0,29,.08), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(214,176,77,.05), transparent 35%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #090909; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--red), var(--gold)); border-radius: 50px; }
+
+/* Interface Utils */
+.reveal { opacity: 1; transform: translateY(0); transition: 1s ease; }
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #d8001d, #ff3c58, #d6b04d);
+    z-index: 999999;
+    box-shadow: 0 0 18px rgba(216,0,29,.8);
+}
+.spotlight {
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(216,0,29,.10), transparent 70%);
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    transition: transform .08s linear;
+}
+
+/*====================================================
+  2. NAVBAR
+====================================================*/
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    transition: var(--transition);
+}
+
+.navbar.active {
+    padding: 16px 8%;
+    background: rgba(5,5,5,.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,.45);
+}
+
+.logo-area .logo { display: flex; align-items: center; gap: 16px; }
+.logo img { width: 62px; height: auto; border-radius: 4px; transition: .4s; }
+.logo:hover img { transform: rotate(-10deg) scale(1.06); }
+.logo-text { display: flex; flex-direction: column; }
+.logo-top { color: #a8a8a8; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; }
+
+.logo-text h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-top: 2px;
+}
+.logo-text h2 span { color: var(--red); }
+
+.menu { display: flex; gap: 45px; }
+.menu > li { position: relative; }
+.menu > li > a {
+    color: var(--white);
+    font-size: .95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    transition: .3s;
+}
+
+.menu > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    transition: .4s;
+}
+.menu > li:hover > a::after { width: 100%; }
+
+.submenu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 260px;
+    padding: 15px;
+    background: rgba(15,15,15,.88);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.55);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+.dropdown:hover .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+.submenu li { margin: 6px 0; }
+
+.submenu a {
+    display: block;
+    padding: 15px 18px;
+    color: var(--white);
+    border-radius: 12px;
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.submenu a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--red);
+    transform: scaleY(0);
+    transition: .35s;
+}
+.submenu a:hover { background: rgba(255,255,255,.05); padding-left: 28px; }
+.submenu a:hover::before { transform: scaleY(1); }
+.mobile-btn { display: none; width: 40px; cursor: pointer; }
+.mobile-btn span { display: block; height: 3px; margin: 7px 0; border-radius: 20px; background: var(--white); transition: .35s; }
+
+/*====================================================
+  3. HERO SECCIÓN
+====================================================*/
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--black);
+    padding: 0 8%;
+}
+
+.hero-slider, .hero-overlay, .hero-gradient, .hero-noise { position: absolute; inset: 0; }
+.hero-slider { z-index: 1; }
+.hero-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 2s ease, transform 9s ease;
+}
+.hero-slider img.active { opacity: 0.15; transform: scale(1.12); }
+.hero-overlay { background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.72)); z-index: 2; }
+.hero-gradient {
+    background: radial-gradient(circle at 15% 20%, var(--red-glow), transparent 45%),
+                radial-gradient(circle at 80% 70%, var(--gold-glow), transparent 45%),
+                linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.85));
+    z-index: 3;
+}
+.hero-noise { background-image: url("img/noise.png"); opacity: .05; mix-blend-mode: soft-light; animation: noiseMove 8s linear infinite; z-index: 4; }
+
+@keyframes noiseMove {
+    0%, 100% { transform: translate(0); }
+    25% { transform: translate(-15px,10px); }
+    50% { transform: translate(15px,-10px); }
+    75% { transform: translate(-8px,-8px); }
+}
+
+.hero-light { position: absolute; border-radius: 50%; filter: blur(120px); z-index: 3; }
+.hero-light-1 { width: 450px; height: 450px; background: var(--red-glow); top: -120px; left: -120px; animation: lightOne 9s ease-in-out infinite; }
+.hero-light-2 { width: 380px; height: 380px; background: var(--gold-glow); bottom: -120px; right: -120px; animation: lightTwo 11s ease-in-out infinite; }
+
+@keyframes lightOne { 0%, 100% { transform: translate(0); } 50% { transform: translate(70px,40px); } }
+@keyframes lightTwo { 0%, 100% { transform: translate(0); } 50% { transform: translate(-70px,-40px); } }
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: heroFade 1.4s ease;
+}
+
+@keyframes heroFade { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 30px rgba(216,0,29,.45));
+    animation: logoFloat 5s ease-in-out infinite;
+    transition: 1s;
+}
+.hero-logo:hover { transform: rotate(-8deg) scale(1.08); }
+@keyframes logoFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--red);
+    color: var(--white);
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.hero-content h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 8rem;
+    line-height: .9;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255,255,255,.2), 0 0 40px rgba(216,0,29,.18), 0 0 90px rgba(216,0,29,.12);
+}
+.hero-content h1 span { color: var(--red); }
+.hero-content p { max-width: 680px; margin-top: 25px; color: #d0d0d0; font-size: 1.2rem; line-height: 1.8; }
+
+.hero-buttons { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-start; }
+.hero-buttons a {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 18px 42px;
+    border-radius: 60px;
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .45s;
+}
+.hero-buttons a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+    transform: skewX(-25deg);
+    transition: 1s;
+    z-index: -1;
+}
+.hero-buttons a:hover::before { left: 170%; }
+.btn-primary { background: linear-gradient(135deg, var(--red), #ff304f); color: var(--white); box-shadow: 0 18px 35px rgba(216,0,29,.35); }
+.btn-primary:hover { transform: translateY(-6px); box-shadow: 0 25px 45px rgba(216,0,29,.5); }
+.btn-secondary { color: var(--white); border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(12px); background: rgba(255,255,255,.05); }
+.btn-secondary:hover { background: var(--white); color: var(--black); transform: translateY(-6px); }
+
+.hero-stats { margin-top: 80px; display: flex; justify-content: flex-start; gap: 80px; flex-wrap: wrap; width: 100%; }
+.hero-stats div { position: relative; }
+.hero-stats div::after { content: ""; position: absolute; right: -45px; top: 10px; width: 1px; height: 55px; background: rgba(255,255,255,.12); }
+.hero-stats div:last-child::after { display: none; }
+.hero-stats h2 { font-family: "Bebas Neue", sans-serif; font-size: 3.2rem; color: var(--gold); letter-spacing: 2px; }
+.hero-stats span { color: #bdbdbd; letter-spacing: 1px; }
+
+.scroll-indicator { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); z-index: 20; }
+.scroll-indicator span { display: block; width: 28px; height: 48px; border: 2px solid rgba(255,255,255,.35); border-radius: 30px; position: relative; }
+.scroll-indicator span::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 10px;
+    border-radius: 20px;
+    background: var(--white);
+    top: 8px;
+    animation: scrollMove 2s infinite;
+}
+@keyframes scrollMove { 0% { opacity: 1; top: 8px; } 100% { opacity: 0; top: 28px; } }
+
+/*====================================================
+  4. MANIFIESTO / NUESTRA MISIÓN (DISEÑO COMPACTO)
+====================================================*/
+.mission-section { 
+    width: 100%; 
+    padding: 60px 8%; 
+    background: #000000; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mission-horizontal-container { 
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Izquierda: Títulos y párrafos */
+.mission-content-left {
+    flex: 1;
+}
+
+.mission-title { 
+    font-family: "Bebas Neue", sans-serif; 
+    font-size: 3rem; /* Tamaño controlado, no gigante */
+    line-height: 1; 
+    letter-spacing: 1px; 
+    color: var(--white); 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+}
+
+.mission-text { 
+    font-family: 'Inter', sans-serif; 
+    color: #8c8c8c; 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    margin: 0;
+}
+
+/* Derecha: Stats compactos en fila */
+.mission-stats-right { 
+    display: flex; 
+    gap: 40px; 
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.m-stat-box { 
+    display: flex; 
+    flex-direction: column; 
+    min-width: 120px;
+}
+
+.m-stat-box h3 { 
+    font-family: "Bebas Neue", sans-serif; 
+    font-size: 2.8rem; /* Reducido para que se vea sutil y estilizado */
+    color: rgba(216, 0, 29, 0.8); /* Rojo apagado elegante según tu referencia */
+    line-height: 1; 
+    margin-bottom: 5px; 
+    letter-spacing: 0.5px; 
+}
+
+.m-stat-box span { 
+    font-family: 'Inter', sans-serif; 
+    color: #666666; 
+    font-size: 0.72rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    line-height: 1.2;
+}
+
+/* Ajuste Responsive básico para móviles */
+@media (max-width: 850px) {
+    .mission-horizontal-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .mission-stats-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+/*====================================================
+  5. COMUNIDADES & ANÁLISIS (SPLIT GENERAL)
+====================================================*/
+.main-split-section {
+    background: #000000;
+    /* Agregamos el SVG de fondo */
+    background-image: url('../beatbox-peru/PICS/background-beatbox.svg');
+    background-position: center; /* Lo centra */
+    background-repeat: no-repeat; /* Evita que se duplique como mosaico */
+    background-size: cover; /* Hace que cubra toda la sección de lado a lado */
+    
+    /* Si quieres que se vea sutil y no compita con el texto, puedes jugar con la opacidad usando una máscara */
+    /* background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('PICS/fondo-beats.svg'); */
+}
+.split-wrapper { max-width: 1400px; margin: 0 auto; display: flex; gap: 45px; align-items: flex-start; width: 100%; }
+.split-col-left { flex: 0 0 60%; width: 60%; display: flex; flex-direction: column; }
+.split-header { width: 100%; margin-bottom: 25px; text-align: left; }
+/* ====================================================
+   DISEÑO HOMOGÉNEO DE TÍTULOS PREMIUM (ESTILO HERO)
+==================================================== */
+.section-title-premium {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3.5rem; /* Tamaño grande e imponente igual al Hero */
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 0.95;
+    margin-bottom: 10px;
+}
+
+/* Para los títulos más pequeños de la columna derecha */
+.section-title-premium-small {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 0.95;
+    margin-bottom: 20px;
+}
+
+/* Efecto de color rojo destacado y resplandor sutil para las palabras clave */
+/* ====================================================
+   DISEÑO HOMOGÉNEO DE TÍTULOS PREMIUM (ESTILO HERO)
+==================================================== */
+.section-title-premium {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3.5rem; /* Tamaño grande e imponente igual al Hero */
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 0.95;
+    margin-bottom: 10px;
+}
+
+/* Para los títulos más pequeños de la columna derecha */
+.section-title-premium-small {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 0.95;
+    margin-bottom: 20px;
+}
+
+/* Efecto de color rojo destacado y resplandor sutil para las palabras clave */
+.section-title-premium span,
+.section-title-premium-small span {
+    color: var(--red, #d8001d);
+    text-shadow: 0 0 15px rgba(216, 0, 29, 0.4); /* Replicamos el brillo del Hero */
+}
+
+/* Carrusel Radio */
+.carousel-radio-container { width: 100%; position: relative; }
+.carousel-radio-container input[type="radio"] { display: none; }
+.carousel-native-window { width: 100%; overflow: hidden; border-radius: 12px; }
+.carousel-track { display: flex; gap: 20px; width: 300%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+
+.custom-card-item {
+    flex: 0 0 calc(16.666% - 14px);
+    background: #0b0b0b;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+}
+.custom-card-item:hover { border-color: rgba(216, 0, 29, 0.4); }
+
+.card-img-wrapper { width: 100%; height: 170px; background: #141414; overflow: hidden; }
+.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.custom-card-item:hover .card-img-wrapper img { transform: scale(1.05); }
+
+.card-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.card-tag { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 800; color: #d8001d; letter-spacing: 1px; margin-bottom: 8px; }
+.card-info h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.8rem; color: #ffffff; margin-bottom: 8px; }
+.card-info p { font-family: 'Inter', sans-serif; color: #8a8a8a; font-size: 0.88rem; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+.btn-card-link { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s; }
+.btn-card-link:hover { color: #d8001d; }
+
+#slide-1:checked ~ .carousel-native-window .carousel-track { transform: translateX(0%); }
+#slide-2:checked ~ .carousel-native-window .carousel-track { transform: translateX(calc(-33.333% - 7px)); }
+#slide-3:checked ~ .carousel-native-window .carousel-track { transform: translateX(calc(-66.666% - 14px)); }
+
+.carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 25px; width: 100%; }
+.dot-btn { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.3s ease; }
+.dot-btn:hover { background: rgba(255, 255, 255, 0.6); }
+
+#slide-1:checked ~ .carousel-dots label[for="slide-1"],
+#slide-2:checked ~ .carousel-dots label[for="slide-2"],
+#slide-3:checked ~ .carousel-dots label[for="slide-3"] { background: #d8001d; width: 28px; border-radius: 6px; }
+
+/* Columna Análisis */
+.split-col-right { flex: 0 0 40%; width: 40%; display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
+.section-title-premium-small { font-family: "Bebas Neue", sans-serif; font-size: 2.5rem; letter-spacing: 1px; color: #ffffff; margin-bottom: 25px; }
+.analysis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; }
+.analysis-box { background: #050505; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; height: 120px; display: flex; align-items: flex-end; padding: 15px; cursor: pointer; transition: all 0.3s ease; }
+.analysis-box span { font-family: "Bebas Neue", sans-serif; font-size: 1.1rem; color: #555555; letter-spacing: 1px; }
+.analysis-box:hover { border-color: rgba(255, 255, 255, 0.15); background: #0c0c0c; }
+.analysis-box.class-highlight span { color: #ffffff; }
+.analysis-box.class-highlight:hover { border-color: #d8001d; }
+
+/*====================================================
+  6. SECCIÓN: BEATBOXERS RELEVANTES
+====================================================*/
+.artists-section { width: 100%; padding: 80px 8% 120px 8%; background: #000000; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+.artists-section::before {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(216, 0, 29, 0.1), transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.artists-header { width: 100%; margin-bottom: 50px; text-align: left; position: relative; z-index: 2; }
+.artists-grid-premium { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; position: relative; z-index: 2; }
+.artist-card-link { text-decoration: none; color: inherit; display: block; }
+
+.artist-card-premium {
+    background: #070707;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    overflow: hidden;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.artist-img-wrapper { width: 100%; height: 75%; background: #0f0f0f; overflow: hidden; position: relative; }
+.artist-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) brightness(90%); transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease; }
+.artist-img-wrapper::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(5, 5, 5, 0.95) 100%); transition: background 0.4s ease; }
+
+.artist-meta-info { padding: 28px 24px; display: flex; flex-direction: column; justify-content: flex-end; flex-grow: 1; background: linear-gradient(180deg, #070707 0%, #030303 100%); border-top: 1px solid rgba(255, 255, 255, 0.02); position: relative; }
+.artist-meta-info::before { content: ""; position: absolute; top: -1px; left: 24px; width: 40px; height: 2px; background: var(--red); transition: width 0.4s ease, background-color 0.4s ease; }
+.artist-meta-info h3 { font-family: "Bebas Neue", sans-serif; font-size: 2.6rem; color: #ffffff; letter-spacing: 1.5px; line-height: 1; margin-bottom: 8px; transition: color 0.3s ease, transform 0.3s ease; }
+.artist-achievement { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 800; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; }
+
+/* Artist Card Hovers */
+.artist-card-link:hover .artist-card-premium { transform: translateY(-12px); border-color: rgba(216, 0, 29, 0.5); box-shadow: 0 25px 50px rgba(216, 0, 29, 0.12), 0 0 30px rgba(216, 0, 29, 0.04); }
+.artist-card-link:hover .artist-img-wrapper img { transform: scale(1.06); filter: grayscale(0%) brightness(100%); }
+.artist-card-link:hover .artist-meta-info::before { width: calc(100% - 48px); background: linear-gradient(90deg, var(--red), var(--gold)); }
+.artist-card-link:hover .artist-meta-info h3 { color: var(--white); transform: translateX(2px); }
+.artist-card-link:hover .artist-achievement { color: var(--red2); text-shadow: 0 0 10px rgba(255, 32, 61, 0.3); }
+
+/*====================================================
+  7. SECCIÓN ASIMÉTRICA: TIMELINE & ARTISTAS COMPACTOS
+====================================================*/
+.content-split-artists { 
+    /* Cambiamos el negro plano por el fondo con tu SVG */
+    background: #000000 url('../beatbox-peru/PICS/background-beatbox.svg') no-repeat center center; 
+    background-size: cover;
+    padding: 100px 8% 120px 8%; 
+}
+.content-split-artists .split-wrapper { display: flex; gap: 45px; align-items: flex-start; width: 100%; }
+
+/* Proporciones perfectas alineadas con el bloque superior */
+.content-split-artists .split-col-left { flex: 0 0 60%; width: 60%; }
+.content-split-artists .split-col-right { flex: 0 0 40%; width: 40%; border-top: none !important; padding-top: 0 !important; }
+
+.content-split-artists .split-header { min-height: 110px; display: flex; flex-direction: column; justify-content: flex-end; margin-bottom: 30px; }
+
+/* Timeline Izquierda */
+.timeline-container-premium { position: relative; margin-top: 20px; padding-left: 20px; }
+.timeline-container-premium::before { content: ""; position: absolute; top: 5px; left: 4px; width: 2px; height: calc(100% - 30px); background: linear-gradient(to bottom, var(--red), var(--gold), rgba(255,255,255,0.05)); }
+.timeline-item { position: relative; margin-bottom: 32px; padding-left: 30px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-badge { position: absolute; left: 0; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--black); border: 2px solid var(--red); transition: all 0.4s ease; z-index: 2; }
+.timeline-item:hover .timeline-badge { background: var(--red2); box-shadow: 0 0 12px var(--red2); transform: scale(1.3); }
+
+.timeline-content { background: #070707; border: 1px solid rgba(255, 255, 255, 0.03); padding: 16px 20px; border-radius: 8px; transition: all 0.35s ease; }
+.timeline-item:hover .timeline-content { background: #0c0c0c; border-color: rgba(216, 0, 29, 0.25); transform: translateX(5px); }
+.timeline-tag { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.timeline-content h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.6rem; color: #ffffff; letter-spacing: 1px; margin-bottom: 4px; }
+.timeline-content p { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #8a8a8a; line-height: 1.4; }
+
+/* Timeline ZigZag */
+.timeline-mini-tag { font-family: 'Inter', sans-serif; color: var(--gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 3px; display: block; margin-bottom: 6px; text-transform: uppercase; }
+.timeline-zigzag-wrapper { position: relative; width: 100%; margin-top: 20px; padding: 20px 0; }
+.timeline-center-line { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; background: linear-gradient(to bottom, var(--red) 0%, var(--gold) 50%, rgba(255,255,255,0.02) 100%); }
+.timeline-zigzag-node { display: flex; align-items: center; width: 100%; margin-bottom: 40px; position: relative; }
+.timeline-zigzag-node:last-child { margin-bottom: 0; }
+
+.node-glow-circle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #160204 0%, #050505 100%);
+    border: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0 0 20px rgba(216, 0, 29, 0.25);
+    transition: all 0.4s ease;
+}
+.node-glow-circle span { font-family: "Bebas Neue", sans-serif; font-size: 1.15rem; color: var(--white); letter-spacing: 1px; }
+
+.node-card-content { width: 44%; background: #080808; border: 1px solid rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 12px; position: relative; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.left-node { justify-content: flex-end; }
+.left-node .node-card-content { margin-left: auto; }
+.right-node { justify-content: flex-start; }
+.right-node .node-card-content { margin-right: auto; }
+
+.card-mini-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.node-card-content h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.8rem; color: #ffffff; letter-spacing: 1px; margin-bottom: 6px; }
+.node-card-content p { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #8c8c8c; line-height: 1.5; }
+
+.timeline-zigzag-node:hover .node-glow-circle { transform: translateX(-50%) scale(1.08); }
+.timeline-zigzag-node:hover .node-card-content { background: #0c0c0c; border-color: rgba(216, 0, 29, 0.3); }
+
+
+/* ====================================================
+   ESTILOS Y ESTRUCTURA DEL CARRUSEL DE BEATBOXERS
+==================================================== */
+.artist-solo-carousel { width: 100%; max-width: 420px; margin: 0 auto; position: relative; }
+.artist-solo-carousel input[type="radio"] { display: none; }
+
+/* El Riel Desplazable Único */
+.artist-solo-carousel .artist-solo-track { 
+    display: flex; 
+    width: 300%; /* Espacio horizontal exacto para 3 tarjetas */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+/* Tarjeta Individual limpia */
+.solo-artist-card { 
+    flex: 0 0 33.3333%; 
+    width: 33.3333%; 
+    background: #060606; 
+    border: 1px solid rgba(255, 255, 255, 0.04); 
+    border-radius: 14px; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    box-sizing: border-box;
+}
+
+.solo-artist-card .card-img-wrapper { height: 280px; position: relative; width: 100%; overflow: hidden; }
+.solo-artist-card .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.premium-artist-meta { padding: 24px 22px; }
+.premium-artist-meta h3 { font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; margin-bottom: 6px; line-height: 1; color: #ffffff; letter-spacing: 1px; }
+.premium-artist-meta p { font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.4; color: #8c8c8c; margin-bottom: 18px; }
+
+/* ====================================================
+   LÓGICA INTERACTIVA DE DESPLAZAMIENTO (CSS PURO)
+==================================================== */
+#artist-1:checked ~ .carousel-native-window .artist-solo-track { transform: translateX(0%); }
+#artist-2:checked ~ .carousel-native-window .artist-solo-track { transform: translateX(-33.3333%); }
+#artist-3:checked ~ .carousel-native-window .artist-solo-track { transform: translateX(-66.6666%); }
+
+/* Paginación Activa Carrusel Premium */
+.premium-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; width: 100%; }
+.premium-dots .dot-btn { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.3s ease; }
+
+#artist-1:checked ~ .premium-dots label[for="artist-1"], 
+#artist-2:checked ~ .premium-dots label[for="artist-2"], 
+#artist-3:checked ~ .premium-dots label[for="artist-3"] { 
+    background: var(--red, #d8001d); 
+    width: 35px; 
+    border-radius: 6px; 
+}
+
+/*====================================================
+  8. SECCIÓN: LISTA DE EVENTOS COHERENTE
+====================================================*/
+.events-section-premium { background: #000000; padding: 80px 8%; width: 100%; }
+.events-container { max-width: 1200px; margin: 0 auto; width: 100%; }
+.events-list-wrapper { display: flex; flex-direction: column; margin-top: 30px; width: 100%; }
+
+.event-row-premium { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); width: 100%; }
+.event-date-box { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 70px; text-align: center; }
+.event-day { font-family: "Bebas Neue", Arial black, sans-serif; font-size: 3rem; font-weight: 900; line-height: 0.85; color: #ffffff; }
+.event-month { font-family: "Bebas Neue", Arial black, sans-serif; font-size: 1rem; font-weight: 900; color: var(--red2, #d8001d); letter-spacing: 1px; margin-top: 4px; }
+
+.event-details-box { flex-grow: 1; padding: 0 40px; display: flex; flex-direction: column; justify-content: center; }
+.event-tag-wrapper { margin-bottom: 6px; }
+.event-row-tag-badge { font-family: "Bebas Neue", Arial black, sans-serif; font-size: 0.8rem; font-weight: 900; color: #ffffff; background: #0c0c0c; border: 1px solid rgba(255, 255, 255, 0.15); padding: 3px 10px; letter-spacing: 1px; display: inline-block; text-transform: uppercase; }
+.event-title-brutal { font-family: "Bebas Neue", Arial black, sans-serif; font-size: 1.8rem; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 4px; text-transform: uppercase; }
+.event-location-text { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #777777; margin: 0; }
+
+.event-action-box { display: flex; align-items: center; justify-content: flex-end; min-width: 160px; }
+.btn-event-action-premium { display: inline-block; background: #ffffff; color: #000000; font-family: "Bebas Neue", Arial black, sans-serif; font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; text-align: center; text-transform: uppercase; padding: 12px 24px; border-radius: 0px; width: 100%; transition: all 0.3s ease; border: none; cursor: pointer; }
+.btn-event-action-premium:hover { background: var(--red, #d8001d); color: #ffffff; box-shadow: 0 0 15px rgba(216, 0, 29, 0.4); }
+
+/* ====================================================
+   FIX DE ALINEACIÓN PARA LA COLUMNA DERECHA
+   ==================================================== */
+
+/* 1. Aseguramos que el contenedor derecho respete su propia grilla */
+.split-col-right, 
+.right-column-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+/* 2. Forzamos a que todos los títulos y elementos dentro de la derecha arranquen alineados al mismo filo */
+.split-col-right h2,
+.split-col-right .section-title-premium,
+.right-column-wrapper h2,
+.right-column-wrapper .section-title-premium {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+}
+
+/* 3. Limpiamos cualquier margen lateral huérfano en los carruseles o cajas de la derecha */
+.split-col-right .carousel-container,
+.split-col-right .card-grid,
+.right-column-wrapper .carousel-container {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/*====================================================
+  ALINEAR "BEATBOXERS DESTACADOS" CON "ANÁLISIS Y MÁS"
+====================================================*/
+
+.artists-section{
+    padding: 80px 8% 120px;
+}
+
+.artists-section .artists-header,
+.artists-section .artists-grid-premium{
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.artists-section .artists-header{
+    padding-left: 0;
+    margin-bottom: 45px;
+}
+
+.artists-section .section-title-premium,
+.artists-section .section-subtitle-premium{
+    text-align: left;
+    margin-left: 0;
+}
+
+/*====================================================
+  9. RESPONSIVE / MEDIA QUERIES (CONSOLIDADOS)
+====================================================*/
+@media (max-width: 1200px) {
+    .artists-grid-premium { gap: 25px; }
+    .artist-card-premium { height: 460px; }
+}
+
+@media (max-width: 1024px) {
+    .split-wrapper, .content-split-artists .split-wrapper { flex-direction: column; gap: 40px; }
+    .split-col-left, .split-col-right, .content-split-artists .split-col-left, .content-split-artists .split-col-right { width: 100%; flex: 0 0 100%; }
+    .custom-card-item { flex: 0 0 calc(100% - 40px); }
+    .artists-grid-premium { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .content-split-artists .split-header { min-height: auto; }
+}
+
+@media (max-width: 992px) {
+    .menu { display: none; }
+    .mobile-btn { display: block; }
+    .hero { padding: 0 5%; }
+    .hero-content h1 { font-size: 5rem; }
+    .hero-stats { gap: 45px; }
+    .hero-stats div::after { display: none; }
+    .mission-section { padding: 80px 5% 60px 5%; }
+    .mission-title { font-size: 3.5rem; }
+    .mission-text { font-size: 1.05rem; }
+    .mission-stats-premium { gap: 40px; margin-top: 30px; }
+    .m-stat-box h3 { font-size: 3rem; }
+    .main-split-section { padding: 40px 5% 80px 5%; }
+    .section-title-premium { font-size: 3.2rem; }
+}
+
+@media (max-width: 768px) {
+    .artists-grid-premium { grid-template-columns: 1fr; gap: 30px; }
+    .artist-card-premium { height: 450px; }
+    
+    /* ZigZag Mobile */
+    .timeline-center-line { left: 20px; }
+    .node-glow-circle { left: 20px; transform: translateX(0); width: 45px; height: 45px; }
+    .timeline-zigzag-node:hover .node-glow-circle { transform: translateX(0) scale(1.08); }
+    .timeline-zigzag-node:hover .node-glow-circle { transform: scale(1.08); }
+    .node-card-content { width: calc(100% - 60px); margin-left: 60px !important; }
+    
+    /* Events Mobile */
+    .event-row-premium { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .event-details-box { padding: 0; }
+    .event-action-box { width: 100%; justify-content: center; }
+}

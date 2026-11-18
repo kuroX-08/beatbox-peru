@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bracket Dinámico | BBX LIMA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="diseño-brackets.css">
+</head>
+<body>
+
+    <!-- BARRA LATERAL IZQUIERDA (Inmutable) -->
+    <aside class="sidebar-brand">
+        <div class="sidebar-header">
+            <span class="city-tag">LIMA / PE</span>
+            <h2>BBX<br>LIMA</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../beatboxlima.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Volver a BBX LIMA</a>
+        </nav>
+        <div class="sidebar-footer">
+            <p>EL QUINTO ELEMENTO</p>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL (Se llena dinámicamente) -->
+    <main class="content-wrapper">
+        <header class="hero-header">
+            <span class="pill-status" id="bracket-status">Cargando...</span>
+            <h1 id="bracket-title">---</h1>
+            <p class="intro-text" id="bracket-desc" style="color: #e0e0e0 !important; opacity: 0.9;"></p>
+        </header>
+
+        <section class="bracket-championship-flow">
+            <!-- El canvas donde JS renderizará el torneo completo -->
+            <div class="tournament-canvas" id="tournament-render-canvas"></div>
+
+            <!-- APARTADO DE JURADOS -->
+            <div class="judged-by-section" style="color: #ffffff !important;">
+                <h3 style="color: #ffffff !important; letter-spacing: 2px;">JUDGED BY</h3>
+                <div class="judges-list" id="judges-render-list" style="color: #ffffff !important; font-weight: 700;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- UN SOLO MOTOR DE LÓGICA CON FILTRO DE RUTA -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const torneoId = urlParams.get('torneo') || 'NR26'; 
+        const origen = urlParams.get('origen'); 
+
+        let rutaFinal = '';
+
+        // Filtro inteligente de carpetas
+        if (origen === 'peru') {
+            // Sube dos niveles para ir a la carpeta de Beatbox Perú en la raíz
+            rutaFinal = `data-bbxperu/${torneoId}.json`;
+        } else {
+            // Entra a tu carpeta local de Lima con espacios
+            rutaFinal = `data-bbxlima/${torneoId}.json`;
+        }
+
+        // Carga el JSON correspondiente
+        fetch(rutaFinal)
+            .then(response => {
+                if (!response.ok) throw new Error("Torneo no encontrado");
+                return response.json();
+            })
+            .then(data => renderBracket(data))
+            .catch(err => {
+                document.getElementById('bracket-title').innerText = "Error al cargar el torneo";
+                console.error(err);
+            });
+
+        // Función constructora de HTML
+        function renderBracket(data) {
+            document.getElementById('bracket-status').innerText = data.status;
+            document.getElementById('bracket-title').innerText = data.title;
+            document.getElementById('bracket-desc').innerText = data.description;
+
+            // Renderizar Jueces
+            const judgesContainer = document.getElementById('judges-render-list');
+            judgesContainer.innerHTML = data.judges.map((j, i) => 
+                `<span style="color: #ffffff !important;">${j}</span>`
+            ).join('<span class="separator" style="color: #ff4500 !important; margin: 0 10px;">|</span>');
+
+            // Renderizar Estructura del Canvas
+            const canvas = document.getElementById('tournament-render-canvas');
+            canvas.innerHTML = `
+                <!-- ALA IZQUIERDA -->
+                <div class="wing-side wing-left">
+                    <div class="wing-column quarters">${renderWingMatches(data.leftWing.quarters, 'left')}</div>
+                    <div class="wing-column semis">${renderWingMatches(data.leftWing.semis, 'left')}</div>
+                </div>
+
+                <!-- PODIO CENTRAL -->
+                <div class="center-podium">
+                    <div class="podium-box champion">
+                        <span class="podium-title">CHAMPION</span>
+                        <div class="podium-name"><a href="${data.podium.champion.link}" target="_blank" class="bracket-profile-link">${data.podium.champion.name}</a></div>
+                    </div>
+                    <div class="podium-box second-place">
+                        <span class="podium-title">2nd Place</span>
+                        <div class="podium-name"><a href="${data.podium.second.link}" target="_blank" class="bracket-profile-link">${data.podium.second.name}</a></div>
+                    </div>
+                    <div class="podium-box third-place">
+                        <span class="podium-title">3rd Place</span>
+                        <div class="podium-name"><a href="${data.podium.third.link}" target="_blank" class="bracket-profile-link">${data.podium.third.name}</a></div>
+                    </div>
+                </div>
+
+                <!-- ALA DERECHA -->
+                <div class="wing-side wing-right">
+                    <div class="wing-column semis">${renderWingMatches(data.rightWing.semis, 'right')}</div>
+                    <div class="wing-column quarters">${renderWingMatches(data.rightWing.quarters, 'right')}</div>
+                </div>
+            `;
+        }
+
+        // Asistente para las llaves y renderizado de banderas en línea
+        function renderWingMatches(matchups, side) {
+            return matchups.map(match => {
+                const isP1Winner = match.winner === 'player1' ? 'winner' : '';
+                const isP2Winner = match.winner === 'player2' ? 'winner' : '';
+
+                // Usamos la API flagcdn que ya tenías configurada
+                const p1Identity = side === 'left' 
+                    ? `<img src="https://flagcdn.com/w20/pe.png" alt="PE"> <a href="${match.player1.link}" target="_blank" class="bracket-profile-link">${match.player1.name}</a>`
+                    : `<a href="${match.player1.link}" target="_blank" class="bracket-profile-link">${match.player1.name}</a> <img src="https://flagcdn.com/w20/pe.png" alt="PE">`;
+
+                const p2Identity = side === 'left' 
+                    ? `<img src="https://flagcdn.com/w20/pe.png" alt="PE"> <a href="${match.player2.link}" target="_blank" class="bracket-profile-link">${match.player2.name}</a>`
+                    : `<a href="${match.player2.link}" target="_blank" class="bracket-profile-link">${match.player2.name}</a> <img src="https://flagcdn.com/w20/pe.png" alt="PE">`;
+
+                const p1Badge = match.player1.seed ? `<span class="seed-badge">${match.player1.seed}</span>` : `<span class="vote-count">${match.player1.votes}</span>`;
+                const p2Badge = match.player2.seed ? `<span class="seed-badge">${match.player2.seed}</span>` : `<span class="vote-count">${match.player2.votes}</span>`;
+
+                return `
+                    <div class="beatbox-matchup">
+                        <div class="player-slot ${isP1Winner}">
+                            ${side === 'left' ? p1Identity + p1Badge : p1Badge + p1Identity}
+                        </div>
+                        <div class="player-slot ${isP2Winner}">
+                            ${side === 'left' ? p2Identity + p2Badge : p2Badge + p2Identity}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+</html>

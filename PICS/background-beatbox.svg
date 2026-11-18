@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <!-- Fondo Negro Base -->
+  <rect width="1920" height="1080" fill="#000000"/>
+  
+  <defs>
+    <!-- 1. MICRÓFONO DINÁMICO -->
+    <g id="mic-dinamico">
+      <circle cx="0" cy="-22" r="11" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <line x1="-11" y1="-22" x2="11" y2="-22" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 1"/>
+      <rect x="-9" y="-12" width="18" height="4" fill="currentColor"/>
+      <path d="M-8 -8 L-5 25 L5 25 L8 -8 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <rect x="-3" y="25" width="6" height="5" fill="none" stroke="currentColor" stroke-width="2"/>
+    </g>
+
+    <!-- 2. PARLANTE -->
+    <g id="speaker">
+      <rect x="-18" y="-30" width="36" height="60" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="0" cy="-12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="14" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="14" r="4" fill="currentColor"/>
+    </g>
+
+    <!-- 3. ONDAS DE SONIDO -->
+    <g id="audio-wave">
+      <path d="M-20 0 Q-10 -15, 0 0 T20 0" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M-30 0 Q-15 -25, 0 0 T30 0" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    </g>
+
+    <!-- 4. BARRAS DE ECUALIZADOR -->
+    <g id="eq-bars">
+      <rect x="-15" y="-20" width="4" height="40" fill="currentColor"/>
+      <rect x="-8" y="-5" width="4" height="25" fill="currentColor"/>
+      <rect x="-1" y="-28" width="4" height="48" fill="currentColor"/>
+      <rect x="6" y="-12" width="4" height="32" fill="currentColor"/>
+      <rect x="13" y="-2" width="4" height="22" fill="currentColor"/>
+    </g>
+  </defs>
+
+  <!-- ================= CAPA BLANCA (Subida a 0.15 de opacidad) ================= -->
+  <g color="#ffffff" opacity="0.15">
+    <use href="#mic-dinamico" transform="translate(150, 180) rotate(25) scale(1.6)" />
+    <use href="#speaker" transform="translate(1100, 850) rotate(35) scale(2)" />
+    <use href="#audio-wave" transform="translate(300, 100) rotate(15) scale(2)" />
+    <use href="#eq-bars" transform="translate(1600, 650) rotate(45) scale(1)" />
+    <use href="#mic-dinamico" transform="translate(1300, 600) rotate(-15) scale(1.6)" />
+  </g>
+
+  <!-- ================= CAPA ROJA / GUINDA (Subida a 0.22 de opacidad) ================= -->
+  <g color="#aa3131" opacity="0.22">
+    <use href="#speaker" transform="translate(450, 750) rotate(-40) scale(1.3)" />
+    <use href="#mic-dinamico" transform="translate(1700, 250) rotate(-45) scale(1.9)" />
+    <use href="#speaker" transform="translate(220, 450) rotate(18) scale(1.4)" />
+    <use href="#mic-dinamico" transform="translate(650, 900) rotate(-65) scale(2.2)" />
+    <use href="#eq-bars" transform="translate(480, 380) rotate(90) scale(1.4)" />
+    <use href="#audio-wave" transform="translate(720, 600) rotate(-45) scale(1.5)" />
+  </g>
+
+  <!-- ================= CAPA DORADA (Subida a 0.20 de opacidad) ================= -->
+  <g color="#d4af37" opacity="0.20">
+    <use href="#mic-dinamico" transform="translate(850, 120) rotate(115) scale(1.5)" />
+    <use href="#speaker" transform="translate(1380, 150) rotate(55) scale(1.2)" />
+    <use href="#eq-bars" transform="translate(700, 300) rotate(-20) scale(1.3)" />
+    <use href="#audio-wave" transform="translate(1250, 950) rotate(-10) scale(2.5)" />
+    <use href="#speaker" transform="translate(920, 480) rotate(115) scale(1.3)" />
+    <use href="#mic-dinamico" transform="translate(180, 920) rotate(40) scale(1.3)" />
+  </g>
+
+  <!-- ================= DETALLES EXTRAS MIXTOS (Más marcados) ================= -->
+  <g color="#ffffff" opacity="0.12"><use href="#mic-dinamico" transform="translate(550, 220) rotate(85) scale(1.1)" /></g>
+  <g color="#aa3131" opacity="0.18"><use href="#speaker" transform="translate(1220, 400) rotate(-75) scale(0.8)" /></g>
+  <g color="#d4af37" opacity="0.18"><use href="#mic-dinamico" transform="translate(1550, 920) rotate(130) scale(1.2)" /></g>
+</svg>

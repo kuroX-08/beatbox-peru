@@ -1,0 +1,200 @@
+body {
+    background-color: #000000;
+    background-image: url('../PICS/background-beatbox.svg'); /* Ruta a tu archivo SVG modificado */
+    background-repeat: no-repeat;                         /* Evita que se repita en mosaico */
+    background-size: cover;                               /* Estira la imagen orgánicamente a toda la pantalla */
+    background-position: center center;                   /* Centrado simétrico de los iconos */
+    background-attachment: fixed;                         /* Mantiene los iconos fijos mientras el contenido desliza */
+    
+    /* Optimización para que los vectores SVG intensos se vean súper nítidos */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    color: var(--color-text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+/* ==========================================================================
+   ESTILOS DE LA PÁGINA DE CONTACTO (BEATBOX PERÚ)
+   ========================================================================== */
+   .contacto-container {
+    min-height: calc(100vh - 84px - 160px); /* Asegura que ocupe casi toda la pantalla visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 5%;
+    background-color: var(--bg-primary);
+}
+
+.contacto-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Diseño equilibrado de dos columnas */
+    gap: 60px;
+    align-items: center;
+}
+
+/* ==========================================================================
+   COLUMNA IZQUIERDA: INFORMACIÓN
+   ========================================================================== */
+.contacto-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacto-badge {
+    align-self: flex-start;
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    font-weight: 900;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.contacto-info h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.contacto-info p {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Detalles específicos (Icono + Texto) */
+.info-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.info-icono {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.info-item h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+/* ==========================================================================
+   COLUMNA DERECHA: FORMULARIO (TARJETA OSCURA)
+   ========================================================================== */
+.contacto-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 4px; /* Bordes ligeramente suavizados pero muy estructurados */
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-grupo label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text);
+}
+
+/* Estilos de los campos de texto */
+.input-grupo input,
+.input-grupo textarea {
+    width: 100%;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--color-text);
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input-grupo input:focus,
+.input-grupo textarea:focus {
+    border-color: var(--color-accent);
+    /* Sutil resplandor del color de acento */
+    box-shadow: 0 0 8px rgba(170, 49, 49, 0.2); 
+}
+
+/* Botón de envío */
+.btn-enviar {
+    background-color: var(--color-text);
+    color: var(--bg-primary);
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-enviar:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   DISEÑO ADAPTATIVO (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .contacto-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .contacto-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .contacto-card {
+        padding: 30px 20px;
+    }
+}

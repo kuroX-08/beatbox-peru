@@ -1,0 +1,940 @@
+:root {
+    /* ========================================================= */
+    /* PALETA URBANA: ASIGNACIÓN CORRECTA DE LOS NUEVOS COLORES  */
+    /* ========================================================= */
+    
+    --rojo: #a855f7;          /* 🟣 AHORA ES TU MORADO PRINCIPAL (Botones, detalles) */
+    --rojo2: #09070f;         /* 🌌 AHORA ES TU FONDO MORADO OSCURO (Tarjetas, bloques) */
+    
+    --negro: #050505;         /* ◼️ NEGRO PURO (Para los fondos principales de la web) */
+    --negro2: #111111;        /* 🎚️ NEGRO SECUNDARIO (Para contraste de secciones) */
+    
+    --amarillo-lima: #facc15;    /* 🟡 EL AMARILLO ELÉCTRICO DE "LIMA" (Para destacar textos) */
+    
+    --gris: #a7a7a7;          /* 🩶 GRIS (Para textos secundarios y descripciones) */
+    --blanco: #ffffff;        /* ⚪ BLANCO PURO (Para títulos e iconos) */
+
+    /* Estilos de estructura */
+    --glass: rgba(255, 255, 255, .05);
+    --radius: 18px;
+    --transition: .45s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/*========================
+Scrollbar
+=========================*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--rojo);
+    border-radius: 50px;
+}
+
+/*========================
+Progress Bar
+=========================*/
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--rojo), var(--amarillo-lima));
+    z-index: 99999;
+}
+
+/*========================
+Hero
+=========================*/
+#hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, var(--negro) 70%);
+}
+
+/*========================
+Video
+=========================*/
+.hero-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.25);
+}
+
+/*========================
+Overlay
+=========================*/
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12), rgba(0, 0, 0, 0.82));
+}
+
+/*========================
+Hero Content (Versión Urbana: Morado & Amarillo)
+=========================*/
+.hero-content {
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    width: 900px;
+}
+
+.hero-logo {
+    width: 180px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.4));
+}
+
+.hero-content h3 {
+    color: var(--amarillo-lima);
+    font-size: 18px;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-size: 90px;
+    margin-top: 15px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.hero-content p {
+    margin: auto;
+    margin-top: 30px;
+    width: 720px;
+    color: #d8d8d8;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+/*========================
+Botones
+=========================*/
+.hero-buttons {
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn-primary {
+    background: var(--rojo);
+    padding: 18px 45px;
+    border-radius: 60px;
+    color: var(--blanco);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    transform: translateY(-8px);
+    background: var(--amarillo-lima);
+    color: var(--negro);
+    box-shadow: 0 20px 45px rgba(250, 204, 21, 0.35);
+}
+
+.btn-secondary {
+    border: 2px solid var(--blanco);
+    padding: 18px 45px;
+    border-radius: 60px;
+    color: var(--blanco);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--blanco);
+    color: var(--negro);
+}
+
+/*========================
+Botón Home
+=========================*/
+.btn-home {
+    position: fixed;
+    left: 35px;
+    top: 35px;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(20px);
+    color: var(--blanco);
+    padding: 15px 28px;
+    border-radius: 60px;
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 9999;
+    transition: .4s;
+}
+
+.btn-home:hover {
+    background: var(--rojo);
+}
+
+/*========================
+Menu lateral
+=========================*/
+.side-menu {
+    position: fixed;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    background: rgba(5, 5, 5, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 20px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.side-menu ul {
+    list-style: none;
+}
+
+.side-menu li {
+    margin: 18px 0;
+}
+
+.side-menu a {
+    color: var(--gris);
+    text-decoration: none;
+    transition: .35s;
+    font-size: 15px;
+}
+
+.side-menu a:hover {
+    color: var(--amarillo-lima);
+    padding-right: 10px;
+}
+
+/*====================================================
+        CONTENEDOR GENERAL
+====================================================*/
+.container {
+    width: min(1300px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 120px 0;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title span {
+    color: var(--amarillo-lima);
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.section-title h2 {
+    margin-top: 20px;
+    font-size: 52px;
+    font-weight: 800;
+}
+
+.section-title p {
+    width: 760px;
+    max-width: 100%;
+    margin: 25px auto 0;
+    color: #bdbdbd;
+    line-height: 33px;
+    font-size: 18px;
+}
+
+/*====================================================
+INTRO
+====================================================*/
+.intro {
+    background: #090909;
+}
+
+.intro .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.section-mini {
+    color: var(--amarillo-lima);
+    letter-spacing: 6px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.intro-left h2 {
+    font-size: 60px;
+    margin: 25px 0;
+}
+
+.intro-left p {
+    color: #bdbdbd;
+    line-height: 34px;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.intro-right {
+    position: relative;
+}
+
+.intro-right img {
+    width: 100%;
+    border-radius: 25px;
+    transition: .6s;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, .55);
+}
+
+.intro-right img:hover {
+    transform: scale(1.04) rotate(-1deg);
+}
+
+/* Luz detrás de la imagen cambiada a Morado Urbano */
+.intro-right::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(168, 85, 247, 0.18);
+    filter: blur(140px);
+    z-index: -1;
+    left: -100px;
+    top: -50px;
+}
+
+/*====================================================
+ESTADÍSTICAS
+====================================================*/
+.stats {
+    background: var(--negro);
+}
+
+.stats .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .05);
+    backdrop-filter: blur(25px);
+    padding: 50px;
+    border-radius: 22px;
+    transition: var(--transition);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, .05), transparent);
+    transform: translateX(-100%);
+    transition: .8s;
+}
+
+.stat-card:hover::before {
+    transform: translateX(100%);
+}
+
+.stat-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 30px 80px rgba(168, 85, 247, 0.15);
+}
+
+.stat-card h2 {
+    font-size: 70px;
+    color: var(--rojo);
+    margin-bottom: 15px;
+}
+
+.stat-card span {
+    color: #d7d7d7;
+    font-size: 18px;
+}
+
+/*====================================================
+HISTORIA
+====================================================*/
+#historia {
+    background: #0b0b0b;
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 70px;
+    align-items: center;
+}
+
+.history-image {
+    position: relative;
+}
+
+.history-image img {
+    width: 100%;
+    border-radius: 22px;
+    transition: .6s;
+}
+
+.history-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Luz detrás de la historia cambiada a Morado */
+.history-image::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(168, 85, 247, 0.18);
+    filter: blur(120px);
+    right: -90px;
+    bottom: -60px;
+    z-index: -1;
+}
+
+.history-text {
+    font-size: 19px;
+    color: #cfcfcf;
+    line-height: 36px;
+}
+
+.history-text p {
+    margin-bottom: 30px;
+}
+
+/*====================================================
+TIMELINE
+====================================================*/
+#timeline {
+    background: var(--negro);
+}
+
+.timeline {
+    width: 1000px;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, var(--rojo), transparent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Círculos de los Años con Degradado Morado a Negro Puro */
+.circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rojo), #3b0764);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 0 35px rgba(168, 85, 247, 0.65);
+}
+
+.timeline-content {
+    width: 42%;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .05);
+    padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(25px);
+    transition: var(--transition);
+}
+
+.timeline-content:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+.timeline-content h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: #bdbdbd;
+    line-height: 30px;
+}
+
+/*====================================================
+FONDO DECORATIVO GLOBAL
+====================================================*/
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: rgba(168, 85, 247, 0.06);
+    filter: blur(180px);
+    top: -200px;
+    left: -250px;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    background: rgba(255, 255, 255, .03);
+    filter: blur(220px);
+    right: -250px;
+    bottom: -250px;
+    z-index: -2;
+}
+
+/*====================================================
+            COMPETENCIAS
+====================================================*/
+#competencias {
+    background: #080808;
+    position: relative;
+    overflow: hidden;
+}
+
+#competencias::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background: rgba(168, 85, 247, 0.08);
+    border-radius: 50%;
+    filter: blur(180px);
+    top: -200px;
+    right: -200px;
+    z-index: 0;
+}
+
+.cards-eventos {
+    position: relative;
+    z-index: 5;
+    width: min(1400px, 92%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.evento-card {
+    position: relative;
+    height: 650px;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .55s;
+    background: var(--negro2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .45);
+}
+
+.evento-card:hover {
+    transform: translateY(-18px) rotateX(4deg);
+    box-shadow: 0 35px 90px rgba(168, 85, 247, 0.25);
+}
+
+.evento-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.evento-card:hover img {
+    transform: scale(1.12);
+}
+
+.overlay-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    background: linear-gradient(transparent 20%, rgba(0, 0, 0, .95));
+}
+
+.overlay-card span {
+    color: var(--amarillo-lima);
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.overlay-card h2 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.overlay-card h3 {
+    font-size: 22px;
+    margin-top: 10px;
+    color: #d5d5d5;
+}
+
+.overlay-card p {
+    margin-top: 20px;
+    color: #c6c6c6;
+    line-height: 30px;
+}
+
+.botones-evento {
+    display: flex;
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.botones-evento a {
+    padding: 14px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .35s;
+}
+
+.botones-evento a:first-child {
+    background: var(--rojo);
+    color: var(--blanco);
+}
+
+.botones-evento a:last-child {
+    border: 2px solid var(--blanco);
+    color: var(--blanco);
+}
+
+.botones-evento a:hover {
+    transform: translateY(-6px);
+}
+
+.botones-evento a:first-child:hover {
+    background: var(--amarillo-lima);
+    color: var(--negro);
+    box-shadow: 0 18px 45px rgba(250, 204, 21, 0.45);
+}
+
+.botones-evento a:last-child:hover {
+    background: var(--blanco);
+    color: var(--negro);
+}
+
+/*====================================================
+CAMPEONES
+====================================================*/
+#campeones {
+    background: var(--negro);
+}
+
+.champions {
+    width: min(1300px, 92%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.champion {
+    text-align: center;
+    padding: 45px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .05);
+    backdrop-filter: blur(18px);
+    transition: var(--transition);
+}
+
+.champion:hover {
+    transform: translateY(-15px);
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.15);
+}
+
+.champion img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--rojo);
+    margin-bottom: 25px;
+}
+
+.champion h2 {
+    font-size: 34px;
+}
+
+.champion h3 {
+    color: #cfcfcf;
+    margin: 15px 0;
+}
+
+.champion span {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--rojo);
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-size: 14px;
+    color: var(--blanco);
+    transition: var(--transition);
+}
+
+.champion:hover span {
+    background: var(--amarillo-lima);
+    color: var(--negro);
+}
+
+/*====================================================
+STAFF
+====================================================*/
+#staff {
+    background: #090909;
+}
+
+.staff-grid {
+    width: min(1400px, 92%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.staff-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #121212;
+    transition: var(--transition);
+}
+
+.staff-card:hover {
+    transform: translateY(-12px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.staff-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.staff-card:hover img {
+    transform: scale(1.08);
+}
+
+.staff-card h3 {
+    margin: 25px 25px 8px;
+    font-size: 28px;
+}
+
+.staff-card span {
+    display: block;
+    margin: 0 25px 25px;
+    color: var(--amarillo-lima);
+    letter-spacing: 2px;
+}
+
+/*====================================================
+    ARREGLOS: ENLACES GENERALES & FOOTER
+====================================================*/
+a {
+    color: var(--blanco);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--amarillo-lima);
+}
+
+/* Estilos para el nuevo Footer Centrado */
+.main-footer {
+    background: var(--negro);
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    text-align: center;
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social a {
+    color: var(--gris);
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--amarillo-lima);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    color: #555555;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+
+/*====================================================
+    ESTILOS PARA LA SECCIÓN DE CRÉDITOS
+====================================================*/
+.credit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.credit-box {
+    background: var(--rojo2);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.credit-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--amarillo-lima);
+    box-shadow: 0 10px 30px rgba(250, 204, 21, 0.1);
+}
+
+.credit-box i {
+    font-size: 28px;
+    color: var(--rojo);
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
+    transition: color 0.3s ease;
+}
+
+.credit-box:hover i {
+    color: var(--amarillo-lima);
+    filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.5));
+}
+
+.credit-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+.credit-box p, 
+.credit-box .credit-list {
+    font-size: 15px;
+    color: #d1d5db;
+    line-height: 24px;
+    margin: 0;
+}
+
+.credit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*====================================================
+    CLASES AUXILIARES DE TEXTO
+====================================================*/
+.text-amarillo {
+    color: var(--amarillo-lima) !important;
+}
+
+.tag-comunidad {
+    color: var(--amarillo-lima) !important;
+    letter-spacing: 3px;
+}
+
+.hero-btns a:hover {
+    background: var(--amarillo-lima) !important;
+    color: var(--negro) !important;
+    border-color: var(--amarillo-lima) !important;
+}
