@@ -79,23 +79,86 @@
     <div class="hero-light hero-light-1"></div>
     <div class="hero-light hero-light-2"></div>
 
-    <div class="hero-content">
-        <img src="PICS/beatboxperu_escudo.png" class="hero-logo" alt="Escudo Beatbox Perú" onerror="this.style.display='none'">
-        <span class="hero-tag">LA COMUNIDAD OFICIAL DEL BEATBOX PERUANO</span>
-        <h1>BEATBOX <span>PERÚ</span></h1>
-        <p id="heroPhrase">ola</p>
+    <div class="hero-main-grid">
+        <!-- Columna Izquierda: Contenido Principal -->
+        <div class="hero-content">
+            <img src="PICS/beatboxperu_escudo.png" class="hero-logo" alt="Escudo Beatbox Perú" onerror="this.style.display='none'">
+            <span class="hero-tag">LA COMUNIDAD OFICIAL DEL BEATBOX PERUANO</span>
+            <h1>BEATBOX <span>PERÚ</span></h1>
+            <p id="heroPhrase">ojerekuidateporfabor:C</p>
 
-        <div class="hero-buttons">
-            <a href="#historia" class="btn-primary">Explorar</a>
-            <a href="#competencias" class="btn-secondary">Próximos Eventos</a>
+            <div class="hero-buttons">
+                <a href="#historia" class="btn-primary">Explorar</a>
+                <a href="#competencias" class="btn-secondary">Próximos Eventos</a>
+            </div>
+
+            <div class="hero-stats">
+                <div><h2>30+</h2><span>Beatboxers</span></div>
+                <div><h2>3+</h2><span>Comunidades</span></div>
+                <div><h2>8</h2><span>Regiones</span></div>
+            </div>
         </div>
 
-        <div class="hero-stats">
-            <div><h2>30+</h2><span>Beatboxers</span></div>
-            <div><h2>3+</h2><span>Comunidades</span></div>
-            <div><h2>8</h2><span>Regiones</span></div>
-        </div>
+        <!-- Columna Derecha: Contador Wildcards Flotante -->
+        <aside class="hero-wildcard-aside" id="wildcards">
+            <div class="wildcard-news-pill">
+                <span class="news-dot"></span>
+                <p><strong>ÚLTIMO CAMPEÓN:</strong> NEXUSS · <span>Bicampeón Nacional</span></p>
+            </div>
+
+            <div class="wildcard-main-card">
+                <!-- Bloque 1: Próxima Clasificatoria -->
+                <div class="wc-row">
+                    <div class="wc-info-left">
+                        <div class="wc-badge-icon">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                        </div>
+                        <div class="wc-details">
+                            <h3>TORNEO NACIONAL 2026 · <span>CLASIFICATORIA</span></h3>
+                            <p class="wc-date-main">Sáb, 12 Dic · 4:00 PM (GMT-5)</p>
+                            <p class="wc-date-sub">Entrada libre · Cupos limitados en tarima</p>
+                        </div>
+                    </div>
+                    <div class="wc-action-right">
+                        <a href="#eventos" class="btn-wc-outline">Ver Evento</a>
+                    </div>
+                </div>
+
+                <div class="wc-divider"></div>
+
+                <!-- Bloque 2: Contador Regresivo de Wildcards -->
+                <div class="wc-row">
+                    <div class="wc-countdown-area">
+                        <span class="wc-status-label">INSCRIPCIONES DE WILDCARDS ABIERTAS</span>
+                        
+                        <div class="wc-timer-display" id="wc-countdown" data-deadline="2026-12-05T23:59:59-05:00">
+                            <div class="wc-time-unit">
+                                <span id="wc-days">00</span><small>d</small>
+                            </div>
+                            <div class="wc-time-unit">
+                                <span id="wc-hours">00</span><small>h</small>
+                            </div>
+                            <div class="wc-time-unit">
+                                <span id="wc-minutes">00</span><small>m</small>
+                            </div>
+                            <div class="wc-time-unit">
+                                <span id="wc-seconds">00</span><small>s</small>
+                            </div>
+                            <span class="wc-left-text">para enviar</span>
+                        </div>
+
+                        <p class="wc-date-main">Cierre: 05 Dic · 11:59 PM GMT-5</p>
+                        <p class="wc-date-sub">Gratis · 1 video sin cortes · Clasifica <strong>TOP 16</strong></p>
+                    </div>
+
+                    <div class="wc-action-right">
+                        <a href="nosotros/contactanos.html" class="btn-wc-primary">Enviar Wildcard</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
+
     <div class="scroll-indicator"><span></span></div>
 </section>
 
@@ -371,5 +434,37 @@
 </section>
 
 <script src="agenda.js"></script>
+<script>
+    (function () {
+        const timerEl = document.getElementById('wc-countdown');
+        if (!timerEl) return;
+
+        const deadline = new Date(timerEl.dataset.deadline).getTime();
+        const pad = (n) => String(Math.max(0, n)).padStart(2, '0');
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = deadline - now;
+
+            if (diff <= 0) {
+                timerEl.innerHTML = '<span class="wc-closed-msg">CONVOCATORIA CERRADA · EVALUANDO VIDEOS</span>';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('wc-days').textContent = pad(days);
+            document.getElementById('wc-hours').textContent = pad(hours);
+            document.getElementById('wc-minutes').textContent = pad(minutes);
+            document.getElementById('wc-seconds').textContent = pad(seconds);
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    })();
+</script>
 </body>
 </html>
