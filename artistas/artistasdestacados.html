@@ -638,8 +638,7 @@ newArtistForm.addEventListener("submit", (e) => {
 
     const achievementsRaw = document.getElementById("artAchievements").value.trim();
     const achievements = achievementsRaw
-        .split("
-")
+        .split("\n")
         .map(line => line.trim())
         .filter(Boolean);
 
