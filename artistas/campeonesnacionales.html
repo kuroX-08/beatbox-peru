@@ -413,49 +413,43 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const mobileBtn = document.querySelector(".mobile-btn");
-    const navCenter = document.querySelector(".nav-center");
     const navbar = document.getElementById("navbar");
-    const dropdowns = document.querySelectorAll(".dropdown");
+    const menuLinks = document.querySelectorAll(".nav-center a");
 
-    if (mobileBtn && navCenter) {
+    if (mobileBtn && navbar) {
         mobileBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            mobileBtn.classList.toggle("active");
-            navCenter.classList.toggle("active");
+            mobileBtn.classList.toggle("open");
+            navbar.classList.toggle("nav-open");
         });
     }
 
-    dropdowns.forEach(drop => {
-        const link = drop.querySelector("a");
-        if (link) {
-            link.addEventListener("click", (e) => {
-                if (window.innerWidth <= 992) {
-                    const href = link.getAttribute("href");
-                    if (!href || href === "#" || drop.querySelector(".submenu")) {
-                        e.preventDefault();
-                        dropdowns.forEach(d => {
-                            if (d !== drop) d.classList.remove("open");
-                        });
-                        drop.classList.toggle("open");
-                    }
-                }
-            });
-        }
+    // Cerrar el menú automáticamente al tocar un enlace válido en celular
+    menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            const href = link.getAttribute("href");
+            if (window.innerWidth <= 992 && href && href !== "#") {
+                navbar.classList.remove("nav-open");
+                if (mobileBtn) mobileBtn.classList.remove("open");
+            }
+        });
     });
 
+    // Cerrar el menú al tocar fuera del navbar
     document.addEventListener("click", (e) => {
-        if (navCenter && navCenter.classList.contains("active") && !e.target.closest("#navbar")) {
-            navCenter.classList.remove("active");
-            if (mobileBtn) mobileBtn.classList.remove("active");
+        if (navbar && navbar.classList.contains("nav-open") && !e.target.closest("#navbar")) {
+            navbar.classList.remove("nav-open");
+            if (mobileBtn) mobileBtn.classList.remove("open");
         }
     });
 
+    // Efecto glass/blur al hacer scroll (usa .active en style.css)
     if (navbar) {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 40) {
-                navbar.classList.add("scrolled");
+                navbar.classList.add("active");
             } else {
-                navbar.classList.remove("scrolled");
+                navbar.classList.remove("active");
             }
         });
     }
