@@ -220,8 +220,11 @@ body::before {
     box-shadow: 0 5px 15px rgba(216, 0, 29, 0.4);
 }
 
-.mobile-btn { display: none; width: 36px; cursor: pointer; justify-self: end; }
+.mobile-btn { display: none; width: 36px; cursor: pointer; justify-self: end; z-index: 10001; }
 .mobile-btn span { display: block; height: 3px; margin: 6px 0; border-radius: 20px; background: var(--white); transition: .35s; }
+.mobile-btn.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.mobile-btn.open span:nth-child(2) { opacity: 0; }
+.mobile-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /*====================================================
   3. HERO SECCIÓN (DEBAJO DE LA BARRA SIN SOLAPARSE)
@@ -323,7 +326,7 @@ body::before {
 
 .hero-content h1 {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 7.2rem;
+    font-size: clamp(3.4rem, 7.5vw, 7.2rem);
     line-height: .9;
     letter-spacing: 3px;
     color: var(--white);
@@ -585,7 +588,7 @@ body::before {
 
 .section-title-premium {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 3.5rem;
+    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
@@ -602,7 +605,7 @@ body::before {
 
 .section-title-premium-small {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2.8rem;
+    font-size: clamp(2.1rem, 3.8vw, 2.8rem);
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
@@ -873,6 +876,7 @@ body::before {
     display: flex;
     gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .ce-admin-controls input {
@@ -1003,6 +1007,7 @@ body::before {
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 0.88rem;
+    width: 100%;
     transition: border-color 0.3s;
 }
 
@@ -1105,6 +1110,7 @@ body::before {
 
 .ce-event-body {
     flex: 1;
+    width: 100%;
 }
 
 .ce-event-top-tags {
@@ -1182,6 +1188,7 @@ body::before {
     align-items: center;
     gap: 5px;
     margin-left: 8px;
+    margin-top: 4px;
     padding: 3px 10px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.08);
@@ -1216,47 +1223,142 @@ body::before {
 }
 
 /*====================================================
-  7. RESPONSIVE / MEDIA QUERIES
+  7. RESPONSIVE COMPLETO (LAPTOP, TABLET, CELULAR)
 ====================================================*/
 @media (max-width: 1200px) {
     .hero-main-grid { gap: 30px; }
-    .hero-content h1 { font-size: 6rem; }
     .hero-wildcard-aside { flex: 0 1 420px; max-width: 420px; }
     .ce-grid.is-moderator { grid-template-columns: 380px 1fr; }
 }
 
 @media (max-width: 1024px) {
-    .hero { min-height: auto; padding-top: 60px; padding-bottom: 70px; }
-    .hero-main-grid { flex-direction: column; align-items: flex-start; gap: 45px; }
+    .hero { min-height: auto; padding-top: 55px; padding-bottom: 65px; }
+    .hero-main-grid { flex-direction: column; align-items: flex-start; gap: 40px; }
     .hero-wildcard-aside { max-width: 100%; flex: none; }
     .split-wrapper, .content-split-artists .split-wrapper { flex-direction: column; gap: 40px; }
     .split-col-left, .split-col-right, .content-split-artists .split-col-left, .content-split-artists .split-col-right { width: 100%; flex: 0 0 100%; }
-    .custom-card-item { flex: 0 0 calc(100% - 40px); }
     .content-split-artists .split-header { min-height: auto; }
     .ce-grid.is-moderator { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 992px) {
-    .navbar { grid-template-columns: 1fr auto; }
-    .nav-center, .nav-socials { display: none; }
+    .navbar {
+        grid-template-columns: 1fr auto;
+        padding: 0 5%;
+    }
     .mobile-btn { display: block; }
-    .hero { padding: 50px 5% 60px 5%; }
-    .hero-content h1 { font-size: 5rem; }
-    .hero-stats { gap: 45px; }
+
+    /* Menú móvil desplegable cuando se activa .nav-open */
+    .nav-center {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 14, 0.98);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px 6% 90px 6%;
+        max-height: calc(100vh - var(--nav-height));
+        overflow-y: auto;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease;
+        z-index: 9998;
+    }
+    .navbar.nav-open .nav-center {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+    }
+    .menu > li { width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 12px; }
+    .menu > li > a { font-size: 1.05rem; justify-content: space-between; width: 100%; }
+    .submenu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: none;
+        margin-top: 10px;
+        padding: 8px;
+    }
+    .nav-socials {
+        position: fixed;
+        bottom: 18px;
+        left: 6%;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+    .navbar.nav-open .nav-socials {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .hero { padding: 45px 5% 60px 5%; }
+    .hero-stats { gap: 36px; }
     .hero-stats div::after { display: none; }
-    .main-split-section, .community-events-section { padding: 50px 5% 70px 5%; }
-    .section-title-premium { font-size: 3.2rem; }
+    .main-split-section, .content-split-artists, .community-events-section { padding: 50px 5% 70px 5%; }
 }
 
 @media (max-width: 768px) {
+    .spotlight { display: none; }
+    .scroll-indicator { display: none; }
+    .hero-logo { width: 85px; margin-bottom: 16px; }
+    .hero-tag { font-size: 0.72rem; margin-bottom: 16px; }
+    .hero-description { font-size: 0.96rem; }
+    .hero-stats { gap: 28px; margin-top: 32px; }
+    .hero-stats h2 { font-size: 2.5rem; }
+
+    /* Tarjeta Wildcard en móvil */
+    .wildcard-main-card { padding: 18px; }
     .wc-row { flex-direction: column; align-items: flex-start; gap: 14px; }
     .wc-action-right, .btn-wc-outline { width: 100%; }
-    .ce-form-row { grid-template-columns: 1fr; }
-    .ce-event-item { flex-direction: column; }
-    
+    .wc-time-unit span { font-size: 1.9rem; }
+
+    /* Carrusel Comunidades en móvil (1 tarjeta completa por slide) */
+    .carousel-track { width: 600%; gap: 14px; }
+    .custom-card-item { flex: 0 0 calc(16.666% - 12px); }
+    #slide-2:checked ~ .carousel-native-window .carousel-track { transform: translateX(calc(-16.666% - 2px)); }
+    #slide-3:checked ~ .carousel-native-window .carousel-track { transform: translateX(calc(-33.333% - 4px)); }
+
     /* ZigZag Mobile */
-    .timeline-center-line { left: 26px; }
-    .node-glow-circle { left: 26px; transform: translateX(-50%); width: 52px; height: 52px; }
-    .timeline-zigzag-node:hover .node-glow-circle { transform: translateX(-50%) scale(1.08); }
-    .node-card-content { width: calc(100% - 68px); margin-left: 68px !important; }
+    .timeline-center-line { left: 24px; }
+    .node-glow-circle { left: 24px; transform: translateX(-50%); width: 48px; height: 48px; }
+    .node-glow-circle span { font-size: 0.95rem; }
+    .timeline-zigzag-node:hover .node-glow-circle { transform: translateX(-50%) scale(1.06); }
+    .node-card-content { width: calc(100% - 62px); margin-left: 62px !important; padding: 16px; }
+
+    /* Cartelera y Moderación en móvil */
+    .ce-form-card { padding: 20px 16px; }
+    .ce-form-row { grid-template-columns: 1fr; }
+    .ce-admin-controls { width: 100%; }
+    .ce-admin-controls input { min-width: 0; flex: 1; width: 100%; }
+    .ce-event-item { flex-direction: column; padding: 18px; gap: 14px; }
+    .ce-event-date {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 14px;
+    }
+    .ce-day { font-size: 1.6rem; }
+    .ce-month, .ce-year { margin-top: 0; font-size: 0.95rem; }
+    .ce-badge-link { margin-left: 0; margin-right: 6px; }
+}
+
+@media (max-width: 420px) {
+    .logo-text h2 { font-size: 1.45rem; }
+    .logo img { width: 40px; }
+    .wildcard-news-pill { border-radius: 14px; padding: 8px 12px; }
+    .solo-artist-card .card-img-wrapper { height: 230px; }
 }

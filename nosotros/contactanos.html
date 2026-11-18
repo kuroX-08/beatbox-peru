@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contáctanos | Beatbox Perú</title>
+    <link rel="icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
+    <link rel="shortcut icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="contactanos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -291,10 +293,73 @@ document.addEventListener("DOMContentLoaded", () => {
         const mensaje = document.getElementById("contact-message").value.trim() || "Hola Staff de Beatbox Perú, me gustaría conectar con ustedes...";
 
         const subject = encodeURIComponent(`[Beatbox Perú] ${motivo} - ${nombre} (${ciudad})`);
-        const body = encodeURIComponent(`Hola Staff de Beatbox Perú,\n\nNombre / AKA: ${nombre}\nCiudad / Región: ${ciudad}\nMotivo: ${motivo}\n\nMensaje:\n${mensaje}\n\nSaludos.`);
+        const body = encodeURIComponent(`Hola Staff de Beatbox Perú,
+
+Nombre / AKA: ${nombre}
+Ciudad / Región: ${ciudad}
+Motivo: ${motivo}
+
+Mensaje:
+${mensaje}
+
+Saludos.`);
 
         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${STAFF_GMAIL}&su=${subject}&body=${body}`, "_blank", "noopener,noreferrer");
     });
+});
+</script>
+
+
+<!-- Script Global: Menú Móvil, Submenús y Efecto Scroll Navbar -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileBtn = document.querySelector(".mobile-btn");
+    const navCenter = document.querySelector(".nav-center");
+    const navbar = document.getElementById("navbar");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    if (mobileBtn && navCenter) {
+        mobileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileBtn.classList.toggle("active");
+            navCenter.classList.toggle("active");
+        });
+    }
+
+    dropdowns.forEach(drop => {
+        const link = drop.querySelector("a");
+        if (link) {
+            link.addEventListener("click", (e) => {
+                if (window.innerWidth <= 992) {
+                    const href = link.getAttribute("href");
+                    if (!href || href === "#" || drop.querySelector(".submenu")) {
+                        e.preventDefault();
+                        dropdowns.forEach(d => {
+                            if (d !== drop) d.classList.remove("open");
+                        });
+                        drop.classList.toggle("open");
+                    }
+                }
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (navCenter && navCenter.classList.contains("active") && !e.target.closest("#navbar")) {
+            navCenter.classList.remove("active");
+            if (mobileBtn) mobileBtn.classList.remove("active");
+        }
+    });
+
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    }
 });
 </script>
 

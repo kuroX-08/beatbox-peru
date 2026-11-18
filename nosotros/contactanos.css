@@ -126,6 +126,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    min-width: 0;
 }
 
 .channel-tag {
@@ -140,6 +141,7 @@
     font-size: 1.08rem;
     font-weight: 700;
     color: var(--white);
+    word-break: break-word;
 }
 
 .channel-details small {
@@ -201,7 +203,7 @@
 
 .form-box-header h2 {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2.3rem;
+    font-size: clamp(1.9rem, 3.5vw, 2.3rem);
     letter-spacing: 1px;
     color: var(--white);
     line-height: 1;
@@ -263,6 +265,7 @@
 
 .topic-chip i {
     color: var(--red2);
+    flex-shrink: 0;
 }
 
 .topic-chip:hover {
@@ -293,6 +296,7 @@
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 0.88rem;
+    width: 100%;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -323,6 +327,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    width: 100%;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -400,9 +405,14 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE
+   RESPONSIVE (TABLET & CELULAR)
    ========================================================================== */
 @media (max-width: 1024px) {
+    .contact-hub-section {
+        padding: 40px 5%;
+        align-items: flex-start;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -410,18 +420,28 @@
 }
 
 @media (max-width: 640px) {
+    .contact-hub-section {
+        padding: 32px 4%;
+    }
+
     .contact-form-box {
-        padding: 24px 20px;
+        padding: 24px 18px;
     }
 
     .channel-card {
-        padding: 20px;
+        padding: 20px 18px;
         flex-direction: column;
         align-items: flex-start;
+        gap: 14px;
     }
 
     .topic-chips,
     .form-row-2 {
         grid-template-columns: 1fr;
+    }
+
+    .btn-copy-mail {
+        width: 100%;
+        justify-content: center;
     }
 }

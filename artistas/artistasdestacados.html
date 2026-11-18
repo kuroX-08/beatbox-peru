@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artistas Destacados | Beatbox Perú</title>
+    <link rel="icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
+    <link rel="shortcut icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="artistasdestacados.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -278,10 +280,6 @@ import {
     orderBy
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// =========================================================================
-// ⚠️ PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (PASO 3 DE LA GUÍA)
-// Mientras diga "PEGA_AQUI_TU_API_KEY", usará respaldo local automáticamente.
-// =========================================================================
 const firebaseConfig = {
   apiKey: "AIzaSyA-HVjqM0iFZQYWvEaiS6abe0mIdVPAROE",
   authDomain: "beatboxperu.firebaseapp.com",
@@ -375,7 +373,6 @@ const artistsGrid = document.getElementById("artistsGrid");
 const artistsCount = document.getElementById("artistsCount");
 const searchInput = document.getElementById("artistSearchInput");
 
-// Cargar artistas desde Firebase (para todo el mundo) o respaldo local
 async function fetchAllArtists() {
     if (isFirebaseConfigured && db) {
         try {
@@ -393,7 +390,6 @@ async function fetchAllArtists() {
         }
     }
 
-    // Respaldo local si aún no pegas tus credenciales de Firebase
     try {
         const saved = JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY) || "[]");
         artistsList = [...saved, ...defaultArtists];
@@ -403,7 +399,6 @@ async function fetchAllArtists() {
     renderArtistsGrid(searchInput.value);
 }
 
-// Renderizar cuadrícula de tarjetas
 function renderArtistsGrid(filterText = "") {
     const queryTxt = filterText.trim().toLowerCase();
     const filtered = artistsList.filter(art =>
@@ -443,7 +438,6 @@ function renderArtistsGrid(filterText = "") {
             socialsHtml += `<a href="${artist.socials.tiktok}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>`;
         }
 
-        // Solo se permite borrar artistas añadidos por Staff (no los 3 base por seguridad, o todos si prefieres)
         const deleteBtnHtml = (isStaffUnlocked && !artist.isDefault)
             ? `<button type="button" class="btn-delete-artist" data-id="${artist.id}" title="Eliminar artista"><i class="fa-solid fa-trash"></i></button>`
             : "";
@@ -502,9 +496,6 @@ searchInput.addEventListener("input", (e) => {
     renderArtistsGrid(e.target.value);
 });
 
-// =========================================================
-// MODAL 1: EXPEDIENTE DEL ARTISTA
-// =========================================================
 const profileBackdrop = document.getElementById("profileModalBackdrop");
 const btnCloseProfile = document.getElementById("btnCloseProfileModal");
 
@@ -570,9 +561,6 @@ profileBackdrop.addEventListener("click", (e) => {
     if (e.target === profileBackdrop) profileBackdrop.classList.remove("open");
 });
 
-// =========================================================
-// MODAL 2: BOTÓN "S" STAFF Y PUBLICACIÓN EN LA NUBE
-// =========================================================
 const staffBackdrop = document.getElementById("staffModalBackdrop");
 const btnOpenStaff = document.getElementById("btnOpenStaffModal");
 const btnCloseStaff = document.getElementById("btnCloseStaffModal");
@@ -633,7 +621,6 @@ staffPassForm.addEventListener("submit", (e) => {
     }
 });
 
-// Guardar nuevo beatboxer en Firestore (o respaldo local)
 const newArtistForm = document.getElementById("newArtistForm");
 const btnPublishArtist = document.getElementById("btnPublishArtist");
 
@@ -651,7 +638,8 @@ newArtistForm.addEventListener("submit", (e) => {
 
     const achievementsRaw = document.getElementById("artAchievements").value.trim();
     const achievements = achievementsRaw
-        .split("\n")
+        .split("
+")
         .map(line => line.trim())
         .filter(Boolean);
 
@@ -702,7 +690,6 @@ newArtistForm.addEventListener("submit", (e) => {
         }
     };
 
-    // Comprimir foto subida para que entre ligero y rápido en Firestore
     if (fileInput.files && fileInput.files[0]) {
         const reader = new FileReader();
         reader.onload = (ev) => {
@@ -742,8 +729,61 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Arrancar cargando datos reales
 fetchAllArtists();
+</script>
+
+
+<!-- Script Global: Menú Móvil, Submenús y Efecto Scroll Navbar -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileBtn = document.querySelector(".mobile-btn");
+    const navCenter = document.querySelector(".nav-center");
+    const navbar = document.getElementById("navbar");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    if (mobileBtn && navCenter) {
+        mobileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileBtn.classList.toggle("active");
+            navCenter.classList.toggle("active");
+        });
+    }
+
+    dropdowns.forEach(drop => {
+        const link = drop.querySelector("a");
+        if (link) {
+            link.addEventListener("click", (e) => {
+                if (window.innerWidth <= 992) {
+                    const href = link.getAttribute("href");
+                    if (!href || href === "#" || drop.querySelector(".submenu")) {
+                        e.preventDefault();
+                        dropdowns.forEach(d => {
+                            if (d !== drop) d.classList.remove("open");
+                        });
+                        drop.classList.toggle("open");
+                    }
+                }
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (navCenter && navCenter.classList.contains("active") && !e.target.closest("#navbar")) {
+            navCenter.classList.remove("active");
+            if (mobileBtn) mobileBtn.classList.remove("active");
+        }
+    });
+
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    }
+});
 </script>
 
 </body>

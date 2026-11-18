@@ -29,7 +29,7 @@
 
 .section-heading-editorial {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 3.3rem;
+    font-size: clamp(2.3rem, 4.5vw, 3.3rem);
     line-height: 0.96;
     letter-spacing: 1.5px;
     color: var(--white);
@@ -72,7 +72,7 @@
 
 .about-main-title {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 5rem;
+    font-size: clamp(3rem, 6.5vw, 5rem);
     line-height: 0.95;
     letter-spacing: 2px;
     color: var(--white);
@@ -102,6 +102,7 @@
 .btn-about-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: linear-gradient(135deg, var(--red), var(--red2));
     color: #ffffff;
@@ -122,6 +123,7 @@
 .btn-about-ghost {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     padding: 14px 24px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.04);
@@ -456,6 +458,7 @@
 .footer-links {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -469,7 +472,7 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE
+   RESPONSIVE (TABLET & CELULAR)
    ========================================================================== */
 @media (max-width: 1100px) {
     .about-hero-split,
@@ -482,15 +485,37 @@
     .about-metrics-strip {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .metric-box:nth-child(3) {
+        border-right: none;
+    }
 }
 
 @media (max-width: 768px) {
-    .about-main-title {
-        font-size: 3.6rem;
+    .about-editorial-hero,
+    .about-laws-section,
+    .about-circuit-section {
+        padding: 50px 5%;
+    }
+
+    .about-lead-text {
+        font-size: 0.96rem;
+    }
+
+    .about-hero-actions a {
+        width: 100%;
     }
 
     .about-metrics-strip {
         grid-template-columns: repeat(2, 1fr);
+        margin-top: 40px;
+        gap: 18px;
+    }
+
+    .metric-box {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 14px;
     }
 
     .circuit-grid-2x2 {
@@ -500,5 +525,16 @@
     .law-row {
         grid-template-columns: 1fr;
         gap: 10px;
+    }
+
+    .law-meta {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

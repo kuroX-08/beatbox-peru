@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campeones Nacionales | Beatbox Perú</title>
+    <link rel="icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
+    <link rel="shortcut icon" type="image/png" href="../PICS/V15_negro sobre rojo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="campeonesnacionales.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -330,7 +332,6 @@ document.addEventListener("DOMContentLoaded", () => {
         captionEdition.textContent = `NACIONAL ${data.year}`;
         stepCounter.textContent = `0${currentYearIndex + 1} / 0${battleData.length} EDICIONES`;
 
-        // Imagen completa sin recortar + fondo ambiental del mismo retrato
         fighterImg.src = activeFighter.img;
         fighterImg.alt = `${activeFighter.name} - ${activeFighter.role}`;
         portraitAmbient.style.backgroundImage = `url('${activeFighter.img}')`;
@@ -391,7 +392,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderScreen(true);
     });
 
-    // Navegación con flechas del teclado
     document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowDown" || e.key === "ArrowRight") {
             currentYearIndex = (currentYearIndex + 1) % battleData.length;
@@ -405,6 +405,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     renderScreen(false);
+});
+</script>
+
+
+<!-- Script Global: Menú Móvil, Submenús y Efecto Scroll Navbar -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileBtn = document.querySelector(".mobile-btn");
+    const navCenter = document.querySelector(".nav-center");
+    const navbar = document.getElementById("navbar");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    if (mobileBtn && navCenter) {
+        mobileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileBtn.classList.toggle("active");
+            navCenter.classList.toggle("active");
+        });
+    }
+
+    dropdowns.forEach(drop => {
+        const link = drop.querySelector("a");
+        if (link) {
+            link.addEventListener("click", (e) => {
+                if (window.innerWidth <= 992) {
+                    const href = link.getAttribute("href");
+                    if (!href || href === "#" || drop.querySelector(".submenu")) {
+                        e.preventDefault();
+                        dropdowns.forEach(d => {
+                            if (d !== drop) d.classList.remove("open");
+                        });
+                        drop.classList.toggle("open");
+                    }
+                }
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (navCenter && navCenter.classList.contains("active") && !e.target.closest("#navbar")) {
+            navCenter.classList.remove("active");
+            if (mobileBtn) mobileBtn.classList.remove("active");
+        }
+    });
+
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    }
 });
 </script>
 
