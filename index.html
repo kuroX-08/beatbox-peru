@@ -17,7 +17,7 @@
 <div class="spotlight"></div>
 
 <!-- =========================
-        NAVBAR (NAVEGACIÓN)
+        NAVBAR (NAVEGACIÓN FIJA Y SÓLIDA)
 ========================== -->
 <header class="navbar" id="navbar">
     <div class="logo-area">
@@ -30,7 +30,7 @@
         </a>
     </div>
 
-    <nav>
+    <nav class="nav-center">
         <ul class="menu">
             <li><a href="#">Inicio</a></li>
             <li class="dropdown">
@@ -51,12 +51,20 @@
                 <a href="#">Competencias <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="submenu">
                     <li><a href="#campeonatos">Campeonatos</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#eventos-comunidad">Eventos</a></li>
                 </ul>
             </li>
             <li><a href="#">Merch</a></li>
         </ul>
     </nav>
+
+    <div class="nav-socials">
+        <a href="https://www.instagram.com/beatboxperunacional/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.tiktok.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/19njhVERoM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
 
     <div class="mobile-btn">
         <span></span><span></span><span></span>
@@ -64,7 +72,7 @@
 </header>
 
 <!-- =========================
-            HERO
+            HERO (DEBAJO DEL NAVBAR)
 ========================== -->
 <section class="hero">
     <div class="hero-slider">
@@ -85,12 +93,7 @@
             <img src="PICS/beatboxperu_escudo.png" class="hero-logo" alt="Escudo Beatbox Perú" onerror="this.style.display='none'">
             <span class="hero-tag">LA COMUNIDAD OFICIAL DEL BEATBOX PERUANO</span>
             <h1>BEATBOX <span>PERÚ</span></h1>
-            <p id="heroPhrase">ojerekuidateporfabor:C</p>
-
-            <div class="hero-buttons">
-                <a href="#historia" class="btn-primary">Explorar</a>
-                <a href="#competencias" class="btn-secondary">Próximos Eventos</a>
-            </div>
+            <p class="hero-description">Plataforma oficial que conecta, impulsa y visibiliza a los mejores exponentes y colectivos del arte vocal en todo el Perú.</p>
 
             <div class="hero-stats">
                 <div><h2>30+</h2><span>Beatboxers</span></div>
@@ -115,12 +118,12 @@
                         </div>
                         <div class="wc-details">
                             <h3>TORNEO NACIONAL 2026 · <span>CLASIFICATORIA</span></h3>
-                            <p class="wc-date-main">Sáb, 12 Dic · 4:00 PM (GMT-5)</p>
+                            <p class="wc-date-main">Dom, 20 Dic · 4:00 PM (GMT-5)</p>
                             <p class="wc-date-sub">Entrada libre · Cupos limitados en tarima</p>
                         </div>
                     </div>
                     <div class="wc-action-right">
-                        <a href="#eventos" class="btn-wc-outline">Ver Evento</a>
+                        <a href="https://www.instagram.com/p/DfgEXszzP4f/" target="_blank" rel="noopener noreferrer" class="btn-wc-outline">Ver Evento</a>
                     </div>
                 </div>
 
@@ -131,7 +134,7 @@
                     <div class="wc-countdown-area">
                         <span class="wc-status-label">INSCRIPCIONES DE WILDCARDS ABIERTAS</span>
                         
-                        <div class="wc-timer-display" id="wc-countdown" data-deadline="2026-12-05T23:59:59-05:00">
+                        <div class="wc-timer-display" id="wc-countdown" data-deadline="2026-11-29T23:59:59-05:00">
                             <div class="wc-time-unit">
                                 <span id="wc-days">00</span><small>d</small>
                             </div>
@@ -147,12 +150,8 @@
                             <span class="wc-left-text">para enviar</span>
                         </div>
 
-                        <p class="wc-date-main">Cierre: 05 Dic · 11:59 PM GMT-5</p>
-                        <p class="wc-date-sub">Gratis · 1 video sin cortes · Clasifica <strong>TOP 16</strong></p>
-                    </div>
-
-                    <div class="wc-action-right">
-                        <a href="nosotros/contactanos.html" class="btn-wc-primary">Enviar Wildcard</a>
+                        <p class="wc-date-main">Cierre: 29 Nov · 11:59 PM (Hora Perú)</p>
+                        <p class="wc-date-sub">Clasifica el <strong>TOP 8</strong></p>
                     </div>
                 </div>
             </div>
@@ -162,35 +161,13 @@
     <div class="scroll-indicator"><span></span></div>
 </section>
 
-<section class="mission-section">
-    <div class="mission-horizontal-container">
-        <!-- Bloque Izquierdo: Texto -->
-        <div class="mission-content-left">
-            <h2 class="mission-title">Nuestra Misión</h2>
-            <p class="mission-text">La comunidad peruana de beatbox no solo imita ritmos; crea mundos con la voz. Nos dedicamos a descentralizar el arte vocal en el Perú, conectando colectivos de Lima, Huancayo y Chimbote para forjar la próxima generación de campeones.</p>
-        </div>
-        
-        <!-- Bloque Derecho: Estadísticas compactas -->
-        <div class="mission-stats-right">
-            <div class="m-stat-box">
-                <h3>3+</h3>
-                <span>Comunidades Activas</span>
-            </div>
-            <div class="m-stat-box">
-                <h3>100%</h3>
-                <span>Arte Independiente</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================
-      SECCIÓN COMBINADA: COMUNIDADES & ANÁLISIS
-=========================================== -->
+<!-- =========================================================
+      SECCIÓN COMBINADA: COMUNIDADES & BEATBOXERS RELEVANTES
+========================================================== -->
 <section class="main-split-section">
     <div class="split-wrapper">
         
-        <!-- COLUMNA IZQUIERDA: Carrusel -->
+        <!-- COLUMNA IZQUIERDA: Carrusel Comunidades -->
         <div class="split-col-left">
             <div class="split-header">
                 <h2 class="section-title-premium">Comunidades Activas</h2>
@@ -275,94 +252,17 @@
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA: Análisis -->
-        <div class="split-col-right">
-            <div class="split-header">
-                <h2 class="section-title-premium-small">Análisis & Más</h2>
-            </div>
-            <div class="analysis-grid">
-                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
-                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
-                <div class="analysis-box"><span>PROXIMAMENTE...</span></div>
-                <div class="analysis-box class-highlight"><span>REGLAMENTO OFICIAL</span></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!--====================================================
-      SECCIÓN COMBINADA: COMPETENCIAS & EXPONENTES
-====================================================-->
-<section class="main-split-section content-split-artists">
-    <div class="split-wrapper">
-        
-        <!-- COLUMNA IZQUIERDA: TIMELINE EN ZIGZAG -->
-        <div class="split-col-left timeline-zigzag-column">
-            <div class="split-header">
-                <span class="timeline-mini-tag">CRONOLOGÍA</span>
-                <h2 class="section-title-premium">Eventos <span>Locales</span></h2>
-                <p class="section-subtitle-premium">Historial de batallas y plazas de la comunidad peruana.</p>
-            </div>
-            
-            <div class="timeline-zigzag-wrapper">
-                <div class="timeline-center-line"></div>
-
-                <!-- Bloque 1 -->
-                <div class="timeline-zigzag-node left-node">
-                    <div class="node-glow-circle"><span>2023</span></div>
-                    <div class="node-card-content">
-                        <span class="card-mini-label">Edición Especial</span>
-                        <h3>FERIA BOMBART</h3>
-                        <p>Espacio underground de exhibición e integración en Lima.</p>
-                    </div>
-                </div>
-
-                <!-- Bloque 2 -->
-                <div class="timeline-zigzag-node right-node">
-                    <div class="node-glow-circle"><span>2024</span></div>
-                    <div class="node-card-content">
-                        <span class="card-mini-label">Plaza Freestyle</span>
-                        <h3>FERIA RANDOM 1</h3>
-                        <p>Primer volumen del torneo experimental con dinámicas aleatorias.</p>
-                    </div>
-                </div>
-
-                <!-- Bloque 3 -->
-                <div class="timeline-zigzag-node left-node">
-                    <div class="node-glow-circle"><span>2025</span></div>
-                    <div class="node-card-content">
-                        <span class="card-mini-label">Plaza Freestyle</span>
-                        <h3>FERIA RANDOM 2</h3>
-                        <p>Consolidación del formato callejero con mayor convocatoria.</p>
-                    </div>
-                </div>
-
-                <!-- Bloque 4 -->
-                <div class="timeline-zigzag-node right-node">
-                    <div class="node-glow-circle"><span>2026</span></div>
-                    <div class="node-card-content">
-                        <span class="card-mini-label">Última Edición</span>
-                        <h3>FERIA RANDOM 3</h3>
-                        <p>El cierre del ciclo competitivo underground en plazas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- COLUMNA DERECHA: CARRUSEL INDIVIDUAL DE EXPONENTES -->
+        <!-- COLUMNA DERECHA: Beatboxers Relevantes -->
         <div class="split-col-right column-artists-carousel">
             <div class="split-header">
-                <h2 class="section-title-premium-small">Beatboxers Relevantes</h2>
+                <h2 class="section-title-premium-small">Beatboxers <span>Relevantes</span></h2>
             </div>
-            
+
             <div class="artist-solo-carousel">
-                <!-- Selectores de Radio Invisibles -->
                 <input type="radio" name="artist-slide" id="artist-1" checked>
                 <input type="radio" name="artist-slide" id="artist-2">
                 <input type="radio" name="artist-slide" id="artist-3">
 
-                <!-- Ventana del Carrusel -->
                 <div class="carousel-native-window">
                     <div class="artist-solo-track">
                         
@@ -408,7 +308,6 @@
                     </div>
                 </div>
 
-                <!-- Paginación / Controles -->
                 <div class="carousel-dots premium-dots">
                     <label for="artist-1" class="dot-btn"></label>
                     <label for="artist-2" class="dot-btn"></label>
@@ -421,19 +320,172 @@
 </section>
 
 <!--====================================================
-            SECCIÓN: PRÓXIMOS EVENTOS & BATALLAS
+      SECCIÓN: EVENTOS LOCALES (CRONOLOGÍA EN ZIGZAG)
 ====================================================-->
-<section class="events-section-premium">
-    <div class="events-container">
-        <div class="events-header">
-            <h2 class="section-title-premium">Próximos Eventos <span>& Batallas</span></h2>
-            <p class="section-subtitle-premium">Saca tu micrófono, entrena tus rutinas y asiste a los siguientes encuentros.</p>
+<section class="main-split-section content-split-artists">
+    <div class="split-wrapper single-column-timeline">
+        
+        <div class="split-col-full timeline-zigzag-column">
+            <div class="split-header">
+                <span class="timeline-mini-tag">CRONOLOGÍA</span>
+                <h2 class="section-title-premium">Eventos <span>Locales</span></h2>
+                <p class="section-subtitle-premium">Historial de batallas y plazas de la comunidad peruana.</p>
+            </div>
+            
+            <div class="timeline-zigzag-wrapper">
+                <div class="timeline-center-line"></div>
+
+                <!-- Bloque 1 -->
+                <div class="timeline-zigzag-node left-node">
+                    <div class="node-glow-circle"><span>13/04<br><small>2025</small></span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">13 Abr 2025 · Edición Especial</span>
+                        <h3>FERIA BOMBART</h3>
+                        <p>Espacio underground de exhibición e integración en Lima.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 2 -->
+                <div class="timeline-zigzag-node right-node">
+                    <div class="node-glow-circle"><span>12/10<br><small>2025</small></span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">12 Oct 2025 · Plaza Freestyle</span>
+                        <h3>FERIA RANDOM 1</h3>
+                        <p>Primer volumen del torneo experimental con dinámicas aleatorias.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 3 -->
+                <div class="timeline-zigzag-node left-node">
+                    <div class="node-glow-circle"><span>02/11<br><small>2025</small></span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">02 Nov 2025 · Plaza Freestyle</span>
+                        <h3>FERIA RANDOM 2</h3>
+                        <p>Consolidación del formato callejero con mayor convocatoria.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 4 -->
+                <div class="timeline-zigzag-node right-node">
+                    <div class="node-glow-circle"><span>26/04<br><small>2026</small></span></div>
+                    <div class="node-card-content">
+                        <span class="card-mini-label">26 Abr 2026 · Última Edición</span>
+                        <h3>FERIA RANDOM 3</h3>
+                        <p>El cierre del ciclo competitivo underground en plazas.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="events-dynamic-list" class="events-list-wrapper"></div>
+
     </div>
 </section>
 
-<script src="agenda.js"></script>
+<!--====================================================
+      SECCIÓN: CREAR Y GESTIONAR EVENTOS DE LA COMUNIDAD
+====================================================-->
+<section class="community-events-section" id="eventos-comunidad">
+    <div class="community-events-container">
+        
+        <!-- Barra Superior con el icono cuadrado "S" en la esquina derecha -->
+        <div class="ce-top-bar">
+            <div class="ce-header-text">
+                <span class="timeline-mini-tag">CARTELERA OFICIAL</span>
+                <h2 class="section-title-premium">Próximos Eventos <span>& Torneos</span></h2>
+                <p class="section-subtitle-premium">Calendario oficial de competencias, clasificatorias y encuentros de la comunidad.</p>
+            </div>
+            <div class="ce-header-actions">
+                <button type="button" class="btn-staff-s" id="btnToggleAdmin" title="Acceso Staff / Moderador">
+                    <span>S</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Ventana de Moderador con Contraseña -->
+        <div class="ce-admin-panel" id="ceAdminPanel" style="display: none;">
+            <div class="ce-admin-inner" id="ceAdminLoginBox">
+                <div class="ce-admin-info">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Ingresa la clave oficial de administración para habilitar el panel de creación y borrado de eventos:</span>
+                </div>
+                <div class="ce-admin-controls">
+                    <input type="password" id="ceAdminPassword" placeholder="Contraseña de administrador">
+                    <button type="button" class="btn-ce-unlock" id="btnUnlockAdmin">Ingresar</button>
+                </div>
+                <p class="ce-admin-feedback" id="ceAdminFeedback"></p>
+            </div>
+            <div class="ce-admin-active-bar" id="ceAdminActiveBox" style="display: none;">
+                <span><i class="fa-solid fa-circle-check"></i> <strong>MODO MODERADOR ACTIVO:</strong> Ahora puedes crear, publicar o eliminar eventos de la cartelera.</span>
+                <button type="button" class="btn-ce-lock" id="btnLockAdmin">Cerrar Modo Moderador</button>
+            </div>
+        </div>
+
+        <div class="ce-grid" id="ceMainGrid">
+            <!-- Columna Izquierda: Formulario exclusivo para moderadores (Oculto por defecto) -->
+            <div class="ce-form-card" id="ceCreatorColumn" style="display: none;">
+                <h3><i class="fa-solid fa-plus-circle"></i> Crea y Publica Tu Evento</h3>
+                <form id="createEventForm" class="ce-form">
+                    <div class="ce-form-group">
+                        <label for="evTitle">Nombre del Evento / Torneo *</label>
+                        <input type="text" id="evTitle" required placeholder="Ej. Batalla de Plazas Lima Norte">
+                    </div>
+
+                    <div class="ce-form-row">
+                        <div class="ce-form-group">
+                            <label for="evDate">Fecha del Evento *</label>
+                            <input type="date" id="evDate" required>
+                        </div>
+                        <div class="ce-form-group">
+                            <label for="evOrganizer">Colectivo / Organizador *</label>
+                            <input type="text" id="evOrganizer" required placeholder="Ej. Kawsabeat / Beatbox Lima">
+                        </div>
+                    </div>
+
+                    <div class="ce-form-group">
+                        <label for="evJudges">Jueces *</label>
+                        <input type="text" id="evJudges" required placeholder="Ej. Nexuss, Dmhop, El Grande">
+                    </div>
+
+                    <div class="ce-form-group">
+                        <label for="evCompetitors">Competidores Confirmados *</label>
+                        <textarea id="evCompetitors" rows="2" required placeholder="Ej. Top 16 clasificados o lista de inscritos..."></textarea>
+                    </div>
+
+                    <div class="ce-form-group">
+                        <label for="evLocationText">Lugar / Referencia *</label>
+                        <input type="text" id="evLocationText" required placeholder="Ej. Anfiteatro del Parque Kennedy, Miraflores">
+                    </div>
+
+                    <div class="ce-form-row">
+                        <div class="ce-form-group">
+                            <label for="evMapLink">Enlace Google Maps / Ubicación (Opcional)</label>
+                            <input type="url" id="evMapLink" placeholder="https://maps.google.com/...">
+                        </div>
+                        <div class="ce-form-group">
+                            <label for="evFlyerLink">Enlace del Flyer de la Competencia (Opcional)</label>
+                            <input type="url" id="evFlyerLink" placeholder="https://instagram.com/p/...">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-ce-submit" id="btnSubmitEvent">
+                        <i class="fa-solid fa-bullhorn"></i> Publicar Evento en Cartelera
+                    </button>
+                </form>
+            </div>
+
+            <!-- Columna Derecha: Lista de Eventos Publicados -->
+            <div class="ce-list-area">
+                <div class="ce-list-header">
+                    <h3>Eventos Publicados (<span id="ceCount">0</span>)</h3>
+                </div>
+                <div id="communityEventsList" class="ce-cards-stack">
+                    <div class="ce-empty-state">Cargando eventos...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 1. Contador regresivo de Wildcards -->
 <script>
     (function () {
         const timerEl = document.getElementById('wc-countdown');
@@ -465,6 +517,251 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
     })();
+</script>
+
+<!-- 2. Sistema de Moderación (Staff) + Gestión de Eventos en la Nube (Firebase Firestore) -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        deleteDoc,
+        doc,
+        onSnapshot,
+        query,
+        orderBy,
+        serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA-HVjqM0iFZQYWvEaiS6abe0mIdVPAROE",
+        authDomain: "beatboxperu.firebaseapp.com",
+        projectId: "beatboxperu",
+        storageBucket: "beatboxperu.firebasestorage.app",
+        messagingSenderId: "56621298048",
+        appId: "1:56621298048:web:89393ffc7e5ebf3445d165",
+        measurementId: "G-X38XJ1CVLF"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const eventsCollection = collection(db, "eventos_torneos");
+
+    const ADMIN_PASS = 'beatboxperunacionalstaff2026';
+    let isAdminUnlocked = false;
+    let cloudEvents = [];
+
+    const defaultEvents = [
+        {
+            id: 'ev-default-1',
+            isDefault: true,
+            title: 'TORNEO NACIONAL BEATBOX PERÚ 2026',
+            date: '2026-12-20',
+            organizer: 'Beatbox Perú Oficial',
+            judges: 'Por anunciar',
+            competitors: 'Top 8 Wildcards + Clasificados Regionales',
+            locationText: 'Lima, Perú (Sede Oficial por confirmar)',
+            mapLink: '',
+            flyerLink: 'https://www.instagram.com/p/DfgEXszzP4f/'
+        }
+    ];
+
+    function formatDateBadge(dateStr) {
+        if (!dateStr) return { day: '--', month: '---', year: '' };
+        const months = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SET', 'OCT', 'NOV', 'DIC'];
+        const parts = dateStr.split('-');
+        if (parts.length !== 3) return { day: dateStr, month: '', year: '' };
+        return {
+            day: parts[2],
+            month: months[parseInt(parts[1], 10) - 1] || '',
+            year: parts[0]
+        };
+    }
+
+    function escapeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str || '';
+        return div.innerHTML;
+    }
+
+    function updateModeratorLayout() {
+        const creatorCol = document.getElementById('ceCreatorColumn');
+        const mainGrid = document.getElementById('ceMainGrid');
+        if (isAdminUnlocked) {
+            creatorCol.style.display = 'block';
+            mainGrid.classList.add('is-moderator');
+        } else {
+            creatorCol.style.display = 'none';
+            mainGrid.classList.remove('is-moderator');
+        }
+    }
+
+    function renderEvents() {
+        const listEl = document.getElementById('communityEventsList');
+        const countEl = document.getElementById('ceCount');
+        const allEvents = [...cloudEvents, ...defaultEvents];
+        countEl.textContent = allEvents.length;
+
+        if (allEvents.length === 0) {
+            listEl.innerHTML = '<div class="ce-empty-state">Aún no hay eventos registrados en cartelera.</div>';
+            return;
+        }
+
+        listEl.innerHTML = allEvents.map(ev => {
+            const d = formatDateBadge(ev.date);
+            const mapBtn = ev.mapLink
+                ? `<a href="${escapeHTML(ev.mapLink)}" target="_blank" rel="noopener noreferrer" class="ce-badge-link"><i class="fa-solid fa-location-dot"></i> Ver Ubicación</a>`
+                : '';
+            const flyerBtn = ev.flyerLink
+                ? `<a href="${escapeHTML(ev.flyerLink)}" target="_blank" rel="noopener noreferrer" class="ce-badge-link ce-flyer-link"><i class="fa-solid fa-image"></i> Ver Flyer</a>`
+                : '';
+            const deleteBtn = (isAdminUnlocked && !ev.isDefault)
+                ? `<button type="button" class="btn-ce-delete" data-id="${escapeHTML(ev.id)}"><i class="fa-solid fa-trash-can"></i> Eliminar Evento</button>`
+                : '';
+
+            return `
+                <article class="ce-event-item">
+                    <div class="ce-event-date">
+                        <span class="ce-day">${escapeHTML(d.day)}</span>
+                        <span class="ce-month">${escapeHTML(d.month)}</span>
+                        <span class="ce-year">${escapeHTML(d.year)}</span>
+                    </div>
+                    <div class="ce-event-body">
+                        <div class="ce-event-top-tags">
+                            <span class="ce-org-badge">${escapeHTML(ev.organizer)}</span>
+                            ${deleteBtn}
+                        </div>
+                        <h4>${escapeHTML(ev.title)}</h4>
+                        <div class="ce-meta-grid">
+                            <p><strong><i class="fa-solid fa-gavel"></i> Jueces:</strong> ${escapeHTML(ev.judges)}</p>
+                            <p><strong><i class="fa-solid fa-users"></i> Competidores:</strong> ${escapeHTML(ev.competitors)}</p>
+                            <p><strong><i class="fa-solid fa-map-pin"></i> Lugar:</strong> ${escapeHTML(ev.locationText)} ${mapBtn} ${flyerBtn}</p>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        // Asignar acción de borrado en Firebase
+        listEl.querySelectorAll('.btn-ce-delete').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                if (!isAdminUnlocked) return;
+                const docId = btn.getAttribute('data-id');
+                if (!docId) return;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Eliminando...';
+                try {
+                    await deleteDoc(doc(db, "eventos_torneos", docId));
+                } catch (err) {
+                    console.error("Error eliminando evento:", err);
+                    alert("No se pudo eliminar el evento. Verifica tu conexión.");
+                    btn.disabled = false;
+                }
+            });
+        });
+    }
+
+    // Escuchar eventos en tiempo real desde Firestore
+    const q = query(eventsCollection, orderBy("createdAt", "desc"));
+    onSnapshot(q, (snapshot) => {
+        cloudEvents = snapshot.docs.map(docSnap => ({
+            id: docSnap.id,
+            ...docSnap.data()
+        }));
+        renderEvents();
+    }, (error) => {
+        console.error("Error cargando eventos de Firestore:", error);
+        renderEvents();
+    });
+
+    // Envío de formulario a Firestore (solo moderadores)
+    const form = document.getElementById('createEventForm');
+    const submitBtn = document.getElementById('btnSubmitEvent');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (!isAdminUnlocked) return;
+
+        const title = document.getElementById('evTitle').value.trim();
+        const date = document.getElementById('evDate').value;
+        const organizer = document.getElementById('evOrganizer').value.trim();
+        const judges = document.getElementById('evJudges').value.trim();
+        const competitors = document.getElementById('evCompetitors').value.trim();
+        const locationText = document.getElementById('evLocationText').value.trim();
+        const mapLink = document.getElementById('evMapLink').value.trim();
+        const flyerLink = document.getElementById('evFlyerLink').value.trim();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publicando...';
+
+        try {
+            await addDoc(eventsCollection, {
+                title,
+                date,
+                organizer,
+                judges,
+                competitors,
+                locationText,
+                mapLink,
+                flyerLink,
+                createdAt: serverTimestamp()
+            });
+            form.reset();
+        } catch (err) {
+            console.error("Error publicando evento:", err);
+            alert("No se pudo publicar el evento. Revisa las reglas de Firestore o tu conexión.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-bullhorn"></i> Publicar Evento en Cartelera';
+        }
+    });
+
+    // Controles de Moderador (Botón cuadrado "S")
+    const btnToggle = document.getElementById('btnToggleAdmin');
+    const adminPanel = document.getElementById('ceAdminPanel');
+    const loginBox = document.getElementById('ceAdminLoginBox');
+    const activeBox = document.getElementById('ceAdminActiveBox');
+    const passInput = document.getElementById('ceAdminPassword');
+    const feedback = document.getElementById('ceAdminFeedback');
+
+    btnToggle.addEventListener('click', () => {
+        adminPanel.style.display = adminPanel.style.display === 'none' ? 'block' : 'none';
+    });
+
+    function tryUnlockAdmin() {
+        if (passInput.value === ADMIN_PASS) {
+            isAdminUnlocked = true;
+            feedback.textContent = '';
+            passInput.value = '';
+            loginBox.style.display = 'none';
+            activeBox.style.display = 'flex';
+            updateModeratorLayout();
+            renderEvents();
+        } else {
+            feedback.textContent = 'Contraseña incorrecta. Acceso denegado.';
+        }
+    }
+
+    document.getElementById('btnUnlockAdmin').addEventListener('click', tryUnlockAdmin);
+    passInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            tryUnlockAdmin();
+        }
+    });
+
+    document.getElementById('btnLockAdmin').addEventListener('click', () => {
+        isAdminUnlocked = false;
+        activeBox.style.display = 'none';
+        loginBox.style.display = 'flex';
+        adminPanel.style.display = 'none';
+        updateModeratorLayout();
+        renderEvents();
+    });
+
+    updateModeratorLayout();
+    renderEvents();
 </script>
 </body>
 </html>

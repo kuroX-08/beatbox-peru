@@ -3,185 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campeones Nacionales - BEATBOX PERÚ</title>
-    <link rel="stylesheet" href="../style.css"> 
-    <link rel="stylesheet" href="../header-global.css"> 
+    <title>Campeones Nacionales | Beatbox Perú</title>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="campeonesnacionales.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
-<!-- HEADER PRINCIPAL REPLICADO AL 100% -->
-<header>
-    <div class="logo">
-        <a href="../index.html" class="logo-link">
-            <img src="../PICS/V16_rojo sobre negro.png" alt="Beatbox Perú" class="header-logo-img">
-            <span class="logo-text">BEATBOX PERÚ</span>
+<div class="spotlight"></div>
+
+<!-- =========================
+        NAVBAR UNIFICADO (EXACTO AL INDEX)
+========================== -->
+<header class="navbar" id="navbar">
+    <div class="logo-area">
+        <a href="../index.html" class="logo">
+            <img src="../PICS/V15_negro sobre rojo.png" alt="Beatbox Perú">
+            <div class="logo-text">
+                <span class="logo-top">Comunidad Oficial</span>
+                <h2>BEATBOX <span>PERÚ</span></h2>
+            </div>
         </a>
     </div>
-    
-    <nav>
-        <a href="../index.html">Inicio</a>
 
-        <div class="dropdown">
-            <a href="../nosotros/nosotros.html" class="dropdown-trigger">Nosotros <span class="arrow">↓</span></a>
-            <div class="dropdown-menu">
-                <a href="../nosotros/nosotros.html">Sobre Nosotros</a>
-                <a href="../nosotros/contactanos.html">Contáctanos</a>
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <a href="#" class="dropdown-trigger">Artistas <span class="arrow">↓</span></a>
-            <div class="dropdown-menu">
-                <a href="campeonesnacionales.html">Campeones Nacionales</a>
-                <a href="artistas-destacados.html">Artistas Destacados</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="#" class="dropdown-trigger active">Competencias <span class="arrow">↓</span></a>
-            <div class="dropdown-menu">
-                <a href="campeones.html">Campeonatos</a>
-                <a href="artistas-destacados.html">Eventos</a>
-            </div>
-        </div>
-        <a href="merch.html">Merch</a>
+    <nav class="nav-center">
+        <ul class="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../nosotros/nosotros.html">Nosotros <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../nosotros/nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="../nosotros/contactanos.html">Contáctanos</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="active-nav">Artistas <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="campeonesnacionales.html">Campeones Nacionales</a></li>
+                    <li><a href="artistasdestacados.html">Artistas Destacados</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Competencias <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../index.html#campeonatos">Campeonatos</a></li>
+                    <li><a href="../index.html#eventos-comunidad">Eventos</a></li>
+                </ul>
+            </li>
+            <li><a href="../merch.html">Merch</a></li>
+        </ul>
     </nav>
-</header>
 
-<!-- CONTENEDOR DE LA INTERFAZ DE CAMPEONES -->
-<main class="epic-fullscreen-arena">
-
-    <!-- Fondo que ocupará el 100% real de la pantalla -->
-    <div class="arena-dynamic-bg" id="arenaBg"></div>
-    <div class="arena-cinematic-overlay"></div>
-
-    <!-- CONTENIDO DIVIDIDO EN PANTALLA COMPLETA -->
-    <div class="arena-layout">
-        <!-- Panel Izquierdo: Información y Roles -->
-        <div class="info-panel">
-            <div class="role-selector">
-                <span class="role-tab active" id="btnChamp">WINNER</span>
-                <span class="role-vs">VS</span>
-                <span class="role-tab" id="btnRunner">FINALIST</span>
-            </div>
-            
-            <div class="champion-meta">
-                <h1 class="champ-name-massive" id="fighterName">NEXUSS</h1>
-                <p class="champ-status-sub" id="fighterRole">CAMPEÓN NACIONAL</p>
-            </div>
-
-            <div class="champ-bio-card">
-                <p id="fighterBio">Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.</p>
-            </div>
-        </div>
-
-        <!-- Panel Derecho: Espacio limpio para que luzca la foto gigante del artista -->
-        <div class="visual-panel">
-            <div class="giant-year-stroke" id="currentYearDisplay">2025</div>
-        </div>
+    <div class="nav-socials">
+        <a href="https://www.instagram.com/beatboxperunacional/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.tiktok.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/19njhVERoM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
     </div>
 
-    <!-- NAVEGACIÓN INFERIOR DE EXTREMO A EXTREMO -->
-    <div class="epic-timeline-bar">
-        <div class="timeline-track">
-            <button class="epic-time-btn active" data-index="0">2025</button>
-            <button class="epic-time-btn" data-index="1">2024</button>
-            <button class="epic-time-btn" data-index="2">2023</button>
-            <button class="epic-time-btn" data-index="3">2022</button>
-            <button class="epic-time-btn" data-index="4">2021</button>
-            <button class="epic-time-btn" data-index="5">2019</button>
-        </div>
+    <div class="mobile-btn">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- =========================
+     SALÓN DE LA FAMA · CRONOLOGÍA DE CAMPEONES
+========================== -->
+<main class="champions-vault">
+    <div class="vault-ambient-glow"></div>
+
+    <!-- Tipografía gigante decorativa de fondo -->
+    <div class="vault-watermark-year" id="watermarkYear">2025</div>
+
+    <div class="vault-container">
+        
+        <!-- COLUMNA IZQUIERDA: EXPEDIENTE DEL CAMPEÓN / FINALISTA -->
+        <section class="vault-dossier" id="vaultDossier">
+            <div class="dossier-top-meta">
+                <span class="vault-eyebrow">
+                    <i class="fa-solid fa-crown"></i> <span id="editionLabel">CAMPEONATO NACIONAL PERÚ · 2025</span>
+                </span>
+
+                <!-- Selector Campeón / Subcampeón -->
+                <div class="role-toggle-pills">
+                    <button type="button" class="role-pill active" id="btnChamp">
+                        <i class="fa-solid fa-trophy"></i> CAMPEÓN NACIONAL
+                    </button>
+                    <button type="button" class="role-pill" id="btnRunner">
+                        <i class="fa-solid fa-medal"></i> SUBCAMPEÓN
+                    </button>
+                </div>
+            </div>
+
+            <div class="dossier-headline">
+                <h1 class="fighter-display-name" id="fighterName">NEXUSS</h1>
+                <div class="fighter-badge-row">
+                    <span class="status-tag tag-gold" id="fighterRole">CAMPEÓN NACIONAL 2025</span>
+                    <span class="rival-tag" id="rivalLabel">Final vs. <strong>Goliat</strong></span>
+                </div>
+            </div>
+
+            <div class="dossier-story-card">
+                <span class="story-label">CÓMO CONQUISTÓ EL TÍTULO</span>
+                <p id="fighterBio">
+                    Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.
+                </p>
+            </div>
+
+            <!-- Controles de navegación rápida -->
+            <div class="dossier-nav-controls">
+                <button type="button" id="btnPrevYear" class="step-arrow-btn" aria-label="Edición siguiente">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span class="step-counter" id="stepCounter">01 / 06 EDICIONES</span>
+                <button type="button" id="btnNextYear" class="step-arrow-btn" aria-label="Edición anterior">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- COLUMNA CENTRO: TARJETA RETRATO DE CUERPO / ENCUADRE COMPLETO SIN RECORTES -->
+        <section class="vault-portrait-stage">
+            <div class="portrait-frame-card" id="portraitCard">
+                <!-- Capa ambiental difuminada del mismo retrato para rellenar cualquier proporción sin cortar al artista -->
+                <div class="portrait-ambient-fill" id="portraitAmbient"></div>
+
+                <!-- Imagen completa intacta -->
+                <img src="../PICS/neksu.webp" alt="Nexuss" id="fighterImg" class="portrait-full-img">
+
+                <!-- Esquinas técnicas estilo archivo oficial -->
+                <span class="corner-mark tl"></span>
+                <span class="corner-mark tr"></span>
+                <span class="corner-mark bl"></span>
+                <span class="corner-mark br"></span>
+
+                <!-- Etiqueta inferior flotante sobre el marco -->
+                <div class="portrait-caption-bar">
+                    <span class="caption-edition" id="captionEdition">NACIONAL 2025</span>
+                    <span class="caption-dot">•</span>
+                    <span class="caption-division">SOLO BATTLE · PERÚ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLUMNA DERECHA: CRONOLOGÍA VERTICAL DE EDICIONES (2025 - 2019) -->
+        <aside class="vault-timeline-rail" aria-label="Historial de ediciones">
+            <span class="rail-header-label">HISTORIAL</span>
+            <div class="rail-buttons-stack" id="timelineTrack">
+                <button type="button" class="rail-year-btn active" data-index="0">
+                    <span class="rail-year">2025</span>
+                    <span class="rail-champ-name">NEXUSS</span>
+                </button>
+                <button type="button" class="rail-year-btn" data-index="1">
+                    <span class="rail-year">2024</span>
+                    <span class="rail-champ-name">TITA</span>
+                </button>
+                <button type="button" class="rail-year-btn" data-index="2">
+                    <span class="rail-year">2023</span>
+                    <span class="rail-champ-name">JGAS</span>
+                </button>
+                <button type="button" class="rail-year-btn" data-index="3">
+                    <span class="rail-year">2022</span>
+                    <span class="rail-champ-name">POLLI</span>
+                </button>
+                <button type="button" class="rail-year-btn" data-index="4">
+                    <span class="rail-year">2021</span>
+                    <span class="rail-champ-name">NEXUSS</span>
+                </button>
+                <button type="button" class="rail-year-btn" data-index="5">
+                    <span class="rail-year">2019</span>
+                    <span class="rail-champ-name">TANOS</span>
+                </button>
+            </div>
+        </aside>
+
     </div>
 </main>
 
 <script>
-    // Mantén exactamente tu misma lógica de JavaScript y la base de datos 'battleData' anterior.
-    // Solo asegúrate de mapear bien los IDs (que se mantienen iguales en este HTML).
+document.addEventListener("DOMContentLoaded", () => {
     const battleData = [
         {
             year: "2025",
-            champ: { name: "Nexuss", role: "CAMPEÓN NACIONAL", bio: "Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.", img: "../PICS/neksu.webp" },
-            runner: { name: "Goliat", role: "SUBCAMPEÓN", bio: "Luchando hasta la última ronda con bajos profundos y una potencia brutal en tarima, Goliat demostró por qué es una de las bestias más temidas.", img: "../PICS/goliat.jpg" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2025",
+            champ: {
+                name: "NEXUSS",
+                role: "CAMPEÓN NACIONAL 2025",
+                bio: "Consolidándose como uno de los máximos referentes históricos del país, Nexuss conquistó el bicampeonato con un estilo técnico impecable y un control arrollador.",
+                img: "../PICS/neksu.webp"
+            },
+            runner: {
+                name: "GOLIAT",
+                role: "SUBCAMPEÓN NACIONAL 2025",
+                bio: "Luchando hasta la última ronda con bajos profundos y una potencia brutal en tarima, Goliat demostró por qué es una de las bestias más temidas del circuito.",
+                img: "../PICS/goliat.jpg"
+            }
         },
         {
             year: "2024",
-            champ: { name: "Tita", role: "CAMPEÓN NACIONAL", bio: "Marcando un antes y un después, Tita se coronó campeón absoluto con rutinas cargadas de una energía brutal y flows totalmente innovadores.", img: "../PICS/tita.jpg.webp" },
-            runner: { name: "Jgas", role: "SUBCAMPEÓN", bio: "Con una propuesta melódica impecable y beats complejos de alta escuela, Jgas se quedó con el segundo puesto tras una final de infarto.", img: "../PICS/jgas.jpg" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2024",
+            champ: {
+                name: "TITA",
+                role: "CAMPEÓN NACIONAL 2024",
+                bio: "Marcando un antes y un después, Tita se coronó campeón absoluto con rutinas cargadas de una energía brutal y flows totalmente innovadores.",
+                img: "../PICS/tita.jpg.webp"
+            },
+            runner: {
+                name: "JGAS",
+                role: "SUBCAMPEÓN NACIONAL 2024",
+                bio: "Con una propuesta melódica impecable y beats complejos de alta escuela, Jgas se quedó con el segundo puesto tras una final de infarto.",
+                img: "../PICS/jgas.jpg"
+            }
         },
         {
             year: "2023",
-            champ: { name: "Jgas", role: "CAMPEÓN NACIONAL", bio: "Conocido por su increíble creatividad y musicalidad extrema, Jgas dominó la escena en 2023 entregando batallas e innovaciones icónicas.", img: "../PICS/jgas.jpg" },
-            runner: { name: "Rakura", role: "SUBCAMPEÓN", bio: "Dejó el alma en cada ronda con un repertorio dinámico lleno de efectos vocales limpios, asegurando un subcampeonato histórico.", img: "../PICS/neksu.webp" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2023",
+            champ: {
+                name: "JGAS",
+                role: "CAMPEÓN NACIONAL 2023",
+                bio: "Conocido por su increíble creatividad y musicalidad extrema, Jgas dominó la escena en 2023 entregando batallas e innovaciones icónicas.",
+                img: "../PICS/jgas.jpg"
+            },
+            runner: {
+                name: "RAKURA",
+                role: "SUBCAMPEÓN NACIONAL 2023",
+                bio: "Dejó el alma en cada ronda con un repertorio dinámico lleno de efectos vocales limpios, asegurando un subcampeonato histórico.",
+                img: "../PICS/neksu.webp"
+            }
         },
         {
             year: "2022",
-            champ: { name: "Polli", role: "CAMPEÓN NACIONAL", bio: "Polli se llevó el trofeo nacional gracias a su increíble velocidad, patrones complejos de drops pesados y una presencia escénica brutal.", img: "../PICS/polli.jpg" },
-            runner: { name: "Gamma", role: "SUBCAMPEÓN", bio: "Aportando una tremenda versatilidad y técnicas de bass muy limpias, Gamma demostró su alta categoría en el torneo.", img: "../PICS/jgas.jpg" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2022",
+            champ: {
+                name: "POLLI",
+                role: "CAMPEÓN NACIONAL 2022",
+                bio: "Polli se llevó el trofeo nacional gracias a su increíble velocidad, patrones complejos de drops pesados y una presencia escénica brutal.",
+                img: "../PICS/polli.jpg"
+            },
+            runner: {
+                name: "GAMMA",
+                role: "SUBCAMPEÓN NACIONAL 2022",
+                bio: "Aportando una tremenda versatilidad y técnicas de bass muy limpias, Gamma demostró su alta categoría en el torneo.",
+                img: "../PICS/jgas.jpg"
+            }
         },
         {
             year: "2021",
-            champ: { name: "Nexuss", role: "CAMPEÓN NACIONAL", bio: "Su primer título nacional que marcó el inicio de su legado. Deslumbró con una limpieza de sonido impecable y métricas de nivel internacional.", img: "../PICS/nekkkksu.jpg.webp" },
-            runner: { name: "Nairo", role: "SUBCAMPEÓN", bio: "Desplegó una creatividad inagotable en cada enfrentamiento, plantando cara al campeón con un estilo fresco y dinámico.", img: "../PICS/tita.jpg.webp" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2021",
+            champ: {
+                name: "NEXUSS",
+                role: "CAMPEÓN NACIONAL 2021",
+                bio: "Su primer título nacional que marcó el inicio de su legado. Deslumbró con una limpieza de sonido impecable y métricas de nivel internacional.",
+                img: "../PICS/nekkkksu.jpg.webp"
+            },
+            runner: {
+                name: "NAIRO",
+                role: "SUBCAMPEÓN NACIONAL 2021",
+                bio: "Desplegó una creatividad inagotable en cada enfrentamiento, plantando cara al campeón con un estilo fresco y dinámico.",
+                img: "../PICS/tita.jpg.webp"
+            }
         },
         {
             year: "2019",
-            champ: { name: "Tanos", role: "CAMPEÓN NACIONAL", bio: "El campeón pionero de esta era. Tanos se alzó con la victoria gracias a su potencia pura, bajos demoledores y un estilo agresivo old school.", img: "../PICS/tanos.jpg.jpeg" },
-            runner: { name: "Felipebeat", role: "SUBCAMPEÓN", bio: "Marcó un hito en la competencia fundacional con rutinas sólidas y una precisión rítmica legendaria digna de la gran final.", img: "../PICS/polli.jpg" }
+            edition: "CAMPEONATO NACIONAL PERÚ · 2019",
+            champ: {
+                name: "TANOS",
+                role: "CAMPEÓN NACIONAL 2019",
+                bio: "El campeón pionero de esta era. Tanos se alzó con la victoria gracias a su potencia pura, bajos demoledores y un estilo agresivo old school.",
+                img: "../PICS/tanos.jpg.jpeg"
+            },
+            runner: {
+                name: "FELIPEBEAT",
+                role: "SUBCAMPEÓN NACIONAL 2019",
+                bio: "Marcó un hito en la competencia fundacional con rutinas sólidas y una precisión rítmica legendaria digna de la gran final.",
+                img: "../PICS/polli.jpg"
+            }
         }
     ];
 
     let currentYearIndex = 0;
-    let currentSide = 'champ';
+    let currentSide = "champ";
 
-    const arenaBg = document.getElementById('arenaBg');
-    const fighterName = document.getElementById('fighterName');
-    const fighterRole = document.getElementById('fighterRole');
-    const fighterBio = document.getElementById('fighterBio');
-    const currentYearDisplay = document.getElementById('currentYearDisplay');
-    
-    const idChamp = document.getElementById('btnChamp');
-    const idRunner = document.getElementById('btnRunner');
+    const watermarkYear = document.getElementById("watermarkYear");
+    const editionLabel = document.getElementById("editionLabel");
+    const fighterName = document.getElementById("fighterName");
+    const fighterRole = document.getElementById("fighterRole");
+    const rivalLabel = document.getElementById("rivalLabel");
+    const fighterBio = document.getElementById("fighterBio");
+    const fighterImg = document.getElementById("fighterImg");
+    const portraitAmbient = document.getElementById("portraitAmbient");
+    const captionEdition = document.getElementById("captionEdition");
+    const stepCounter = document.getElementById("stepCounter");
+    const portraitCard = document.getElementById("portraitCard");
+    const vaultDossier = document.getElementById("vaultDossier");
 
-    function renderScreen() {
+    const btnChamp = document.getElementById("btnChamp");
+    const btnRunner = document.getElementById("btnRunner");
+    const railBtns = document.querySelectorAll(".rail-year-btn");
+    const btnPrevYear = document.getElementById("btnPrevYear");
+    const btnNextYear = document.getElementById("btnNextYear");
+
+    function triggerTransition() {
+        portraitCard.classList.remove("animate-in");
+        vaultDossier.classList.remove("animate-text");
+        void portraitCard.offsetWidth;
+        portraitCard.classList.add("animate-in");
+        vaultDossier.classList.add("animate-text");
+    }
+
+    function renderScreen(animate = true) {
         const data = battleData[currentYearIndex];
         const activeFighter = data[currentSide];
+        const opponent = currentSide === "champ" ? data.runner : data.champ;
 
-        arenaBg.style.backgroundImage = `url('${activeFighter.img}')`;
+        if (animate) triggerTransition();
+
+        watermarkYear.textContent = data.year;
+        editionLabel.textContent = data.edition;
         fighterName.textContent = activeFighter.name;
         fighterRole.textContent = activeFighter.role;
         fighterBio.textContent = activeFighter.bio;
-        currentYearDisplay.textContent = data.year;
+        captionEdition.textContent = `NACIONAL ${data.year}`;
+        stepCounter.textContent = `0${currentYearIndex + 1} / 0${battleData.length} EDICIONES`;
 
-        if(currentSide === 'champ') {
-            idChamp.classList.add('active');
-            idRunner.classList.remove('active');
-            fighterRole.style.color = "#aa3131";
+        // Imagen completa sin recortar + fondo ambiental del mismo retrato
+        fighterImg.src = activeFighter.img;
+        fighterImg.alt = `${activeFighter.name} - ${activeFighter.role}`;
+        portraitAmbient.style.backgroundImage = `url('${activeFighter.img}')`;
+
+        if (currentSide === "champ") {
+            btnChamp.classList.add("active");
+            btnRunner.classList.remove("active");
+            fighterRole.className = "status-tag tag-gold";
+            rivalLabel.innerHTML = `Final vs. <strong>${opponent.name}</strong>`;
+            portraitCard.classList.remove("runner-mode");
         } else {
-            idChamp.classList.remove('active');
-            idRunner.classList.add('active');
-            fighterRole.style.color = "#ffffff";
+            btnChamp.classList.remove("active");
+            btnRunner.classList.add("active");
+            fighterRole.className = "status-tag tag-red";
+            rivalLabel.innerHTML = `Finalista ante <strong>${opponent.name}</strong>`;
+            portraitCard.classList.add("runner-mode");
         }
+
+        railBtns.forEach((btn, idx) => {
+            btn.classList.toggle("active", idx === currentYearIndex);
+        });
     }
 
-    idChamp.addEventListener('mouseenter', () => { currentSide = 'champ'; renderScreen(); });
-    idRunner.addEventListener('mouseenter', () => { currentSide = 'runner'; renderScreen(); });
-    idChamp.addEventListener('click', () => { currentSide = 'champ'; renderScreen(); });
-    idRunner.addEventListener('click', () => { currentSide = 'runner'; renderScreen(); });
+    btnChamp.addEventListener("click", () => {
+        if (currentSide !== "champ") {
+            currentSide = "champ";
+            renderScreen(true);
+        }
+    });
 
-    const timeBtns = document.querySelectorAll('.epic-time-btn');
-    timeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            timeBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentYearIndex = parseInt(btn.getAttribute('data-index'));
-            renderScreen();
+    btnRunner.addEventListener("click", () => {
+        if (currentSide !== "runner") {
+            currentSide = "runner";
+            renderScreen(true);
+        }
+    });
+
+    railBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const idx = parseInt(btn.dataset.index, 10);
+            if (idx !== currentYearIndex) {
+                currentYearIndex = idx;
+                currentSide = "champ";
+                renderScreen(true);
+            }
         });
     });
 
-    renderScreen();
+    btnPrevYear.addEventListener("click", () => {
+        currentYearIndex = (currentYearIndex - 1 + battleData.length) % battleData.length;
+        currentSide = "champ";
+        renderScreen(true);
+    });
+
+    btnNextYear.addEventListener("click", () => {
+        currentYearIndex = (currentYearIndex + 1) % battleData.length;
+        currentSide = "champ";
+        renderScreen(true);
+    });
+
+    // Navegación con flechas del teclado
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+            currentYearIndex = (currentYearIndex + 1) % battleData.length;
+            currentSide = "champ";
+            renderScreen(true);
+        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+            currentYearIndex = (currentYearIndex - 1 + battleData.length) % battleData.length;
+            currentSide = "champ";
+            renderScreen(true);
+        }
+    });
+
+    renderScreen(false);
+});
 </script>
+
+</body>
+</html>

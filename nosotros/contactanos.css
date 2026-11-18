@@ -1,200 +1,427 @@
-body {
-    background-color: #000000;
-    background-image: url('../PICS/background-beatbox.svg'); /* Ruta a tu archivo SVG modificado */
-    background-repeat: no-repeat;                         /* Evita que se repita en mosaico */
-    background-size: cover;                               /* Estira la imagen orgánicamente a toda la pantalla */
-    background-position: center center;                   /* Centrado simétrico de los iconos */
-    background-attachment: fixed;                         /* Mantiene los iconos fijos mientras el contenido desliza */
-    
-    /* Optimización para que los vectores SVG intensos se vean súper nítidos */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    
-    color: var(--color-text);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
 /* ==========================================================================
-   ESTILOS DE LA PÁGINA DE CONTACTO (BEATBOX PERÚ)
+   CSS ESPECÍFICO - CONTÁCTANOS (LÍNEA DE DISEÑO BEATBOX PERÚ)
    ========================================================================== */
-   .contacto-container {
-    min-height: calc(100vh - 84px - 160px); /* Asegura que ocupe casi toda la pantalla visible */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 5%;
-    background-color: var(--bg-primary);
+
+.menu > li > a.active-nav {
+    color: var(--red2);
 }
 
-.contacto-wrapper {
-    max-width: 1100px;
+.menu > li > a.active-nav::after {
     width: 100%;
+}
+
+.contact-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contact-hub-section {
+    position: relative;
+    min-height: calc(100vh - var(--nav-height));
+    background: #040406;
+    padding: 50px 6%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.contact-bg-glow-1 {
+    position: absolute;
+    top: -140px;
+    left: -100px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 0, 29, 0.14), transparent 70%);
+    pointer-events: none;
+}
+
+.contact-bg-glow-2 {
+    position: absolute;
+    bottom: -160px;
+    right: -100px;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(214, 176, 77, 0.08), transparent 70%);
+    pointer-events: none;
+}
+
+.contact-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr; /* Diseño equilibrado de dos columnas */
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 44px;
+    align-items: stretch;
 }
 
 /* ==========================================================================
-   COLUMNA IZQUIERDA: INFORMACIÓN
+   COLUMNA IZQUIERDA: 3 TARJETAS EQUILIBRADAS A LA ALTURA DEL FORMULARIO
    ========================================================================== */
-.contacto-info {
+.contact-info-col {
     display: flex;
     flex-direction: column;
 }
 
-.contacto-badge {
-    align-self: flex-start;
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    font-weight: 900;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.contacto-info h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3.2rem;
-    line-height: 1.1;
-    font-weight: 700;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.contacto-info p {
-    font-size: 1.05rem;
-    color: var(--color-muted);
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-/* Detalles específicos (Icono + Texto) */
-.info-detalles {
+.contact-channels-list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
     gap: 20px;
+    height: 100%;
 }
 
-.info-icono {
-    font-size: 1.8rem;
-    line-height: 1;
-}
-
-.info-item h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-}
-
-.info-item p {
-    font-size: 0.95rem;
-    color: var(--color-muted);
-    margin: 0;
-}
-
-/* ==========================================================================
-   COLUMNA DERECHA: FORMULARIO (TARJETA OSCURA)
-   ========================================================================== */
-.contacto-card {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    padding: 40px;
-    border-radius: 4px; /* Bordes ligeramente suavizados pero muy estructurados */
-}
-
-.formulario-contacto {
+.channel-card {
+    flex: 1;
+    background: #09090e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid var(--red);
+    border-radius: 14px;
+    padding: 26px 26px;
     display: flex;
-    flex-direction: column;
-    gap: 25px;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
 
-.input-grupo {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.channel-card:nth-child(2) {
+    border-left-color: var(--gold);
 }
 
-.input-grupo label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-text);
-}
-
-/* Estilos de los campos de texto */
-.input-grupo input,
-.input-grupo textarea {
-    width: 100%;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    color: var(--color-text);
-    padding: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.input-grupo input:focus,
-.input-grupo textarea:focus {
-    border-color: var(--color-accent);
-    /* Sutil resplandor del color de acento */
-    box-shadow: 0 0 8px rgba(170, 49, 49, 0.2); 
-}
-
-/* Botón de envío */
-.btn-enviar {
-    background-color: var(--color-text);
-    color: var(--bg-primary);
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 16px 30px;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    display: inline-block;
-    text-align: center;
-}
-
-.btn-enviar:hover {
-    background-color: var(--color-accent);
-    color: var(--color-text);
+.channel-card:hover {
+    border-color: rgba(216, 0, 29, 0.45);
+    background: #0c0c12;
     transform: translateY(-2px);
 }
 
+.channel-card:nth-child(2):hover {
+    border-color: rgba(214, 176, 77, 0.45);
+}
+
+.channel-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(216, 0, 29, 0.14);
+    border: 1px solid rgba(216, 0, 29, 0.35);
+    color: var(--red2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.channel-icon.icon-gold {
+    background: rgba(214, 176, 77, 0.14);
+    border-color: rgba(214, 176, 77, 0.35);
+    color: var(--gold);
+}
+
+.channel-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.channel-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.channel-details strong {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.channel-details small {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #9e9ea8;
+}
+
+.email-copy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-copy-mail {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #e4e4e7;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.btn-copy-mail:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #ffffff;
+}
+
+.btn-copy-mail.copied {
+    background: #15803d;
+    border-color: #22c55e;
+    color: #ffffff;
+}
+
 /* ==========================================================================
-   DISEÑO ADAPTATIVO (RESPONSIVE)
+   COLUMNA DERECHA: FORMULARIO FUNCIONAL
    ========================================================================== */
-@media (max-width: 992px) {
-    .contacto-wrapper {
+.contact-form-box {
+    background: #09090e;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-top: 3px solid var(--red);
+    border-radius: 16px;
+    padding: 34px 36px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+.form-box-header {
+    margin-bottom: 24px;
+}
+
+.form-box-header h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.form-box-header h2 span {
+    color: var(--red);
+}
+
+.form-box-header p {
+    font-size: 0.88rem;
+    color: #9898a2;
+}
+
+.bbx-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #b4b4be;
+}
+
+/* Chips de motivo */
+.topic-chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+}
+
+.topic-chip {
+    background: #040407;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #b8b8c2;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    text-align: left;
+}
+
+.topic-chip i {
+    color: var(--red2);
+}
+
+.topic-chip:hover {
+    border-color: rgba(216, 0, 29, 0.5);
+    color: #ffffff;
+}
+
+.topic-chip.active {
+    background: rgba(216, 0, 29, 0.16);
+    border-color: var(--red);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(216, 0, 29, 0.2);
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.bbx-contact-form input[type="text"],
+.bbx-contact-form input[type="email"],
+.bbx-contact-form textarea {
+    background: #040407;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bbx-contact-form input:focus,
+.bbx-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(216, 0, 29, 0.14);
+}
+
+.bbx-contact-form textarea {
+    resize: vertical;
+    min-height: 115px;
+}
+
+.btn-send-gmail {
+    margin-top: 4px;
+    background: linear-gradient(135deg, var(--red), var(--red2));
+    color: #ffffff;
+    border: none;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-send-gmail:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(216, 0, 29, 0.45);
+}
+
+.btn-send-gmail:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.gmail-direct-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.78rem;
+    color: #888892;
+}
+
+.link-gmail-web {
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.link-gmail-web:hover {
+    color: #ffffff;
+}
+
+.contact-status-banner {
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-status-banner i {
+    font-size: 1.15rem;
+    margin-top: 2px;
+}
+
+.contact-status-banner div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-status-banner.success {
+    background: rgba(21, 128, 61, 0.16);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #bbf7d0;
+}
+
+.contact-status-banner.warning {
+    background: rgba(214, 176, 77, 0.14);
+    border: 1px solid rgba(214, 176, 77, 0.4);
+    color: #fde68a;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .contact-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-form-box {
+        padding: 24px 20px;
     }
 
-    .contacto-info h1 {
-        font-size: 2.5rem;
+    .channel-card {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .contacto-card {
-        padding: 30px 20px;
+    .topic-chips,
+    .form-row-2 {
+        grid-template-columns: 1fr;
     }
 }

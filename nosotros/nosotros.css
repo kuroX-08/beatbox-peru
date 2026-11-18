@@ -1,337 +1,504 @@
 /* ==========================================================================
-   CSS ESPECÍFICO - PÁGINA NOSOTROS (Hereda Header de header-global.css)
+   CSS ESPECÍFICO - SOBRE NOSOTROS (ESTILO EDITORIAL + PALETA BEATBOX PERÚ)
    ========================================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+.menu > li > a.active-nav {
+    color: var(--red2);
 }
 
-body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
+.menu > li > a.active-nav::after {
+    width: 100%;
+}
+
+.about-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.about-eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+}
+
+.section-heading-editorial {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3.3rem;
+    line-height: 0.96;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin-bottom: 18px;
+}
+
+.section-heading-editorial span {
+    color: var(--red);
+    text-shadow: 0 0 20px rgba(216, 0, 29, 0.35);
 }
 
 /* ==========================================================================
-   SCREEN HERO (Ajuste de contraste e imágenes)
+   1. HERO EDITORIAL + TARJETA HISTORIA + FRANJA DE MÉTRICAS
    ========================================================================== */
-.screen-hero {
+.about-editorial-hero {
     position: relative;
-    height: calc(100vh - 90px); 
+    background: #040406;
+    padding: 75px 6% 65px 6%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.about-bg-glow {
+    position: absolute;
+    top: -160px;
+    left: -120px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 0, 29, 0.14), transparent 70%);
+    pointer-events: none;
+}
+
+.about-hero-split {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.about-main-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 5rem;
+    line-height: 0.95;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 26px;
+}
+
+.about-main-title span {
+    color: var(--red);
+}
+
+.about-lead-text {
+    font-size: 1.05rem;
+    line-height: 1.72;
+    color: #c8c8ce;
+    margin-bottom: 18px;
+    max-width: 650px;
+}
+
+.about-hero-actions {
     display: flex;
     align-items: center;
-    padding: 0 8%;
-    background: url('../PICS/baner 2.jpeg') no-repeat center center;
-    background-size: cover;
+    gap: 16px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-about-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--red), var(--red2));
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 14px 26px;
+    border-radius: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-about-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(216, 0, 29, 0.45);
+}
+
+.btn-about-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #e4e4e7;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.btn-about-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* Tarjeta derecha: Historia con foto */
+.about-origin-card {
+    background: #0a0a0e;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-top: 2px solid var(--red);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.origin-card-visual {
+    position: relative;
+    height: 195px;
     overflow: hidden;
 }
 
-.hero-bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradiente oscuro para neutralizar fondos claros y hacer legible el texto */
-    background: linear-gradient(90deg, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.4) 100%);
-    z-index: 1;
-}
-
-.hero-full-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    color: #ffffff !important;
-}
-
-.main-badge {
-    background-color: var(--color-accent, #aa3131d3);
-    color: #ffffff !important;
-    font-weight: 900;
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 25px;
-}
-
-.giant-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 5.5rem; 
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    color: #ffffff !important;
-}
-
-.giant-title .highlight {
-    color: var(--color-accent, #aa3131d3);
-}
-
-.hero-lead {
-    font-size: 1.35rem;
-    color: #cccccc !important;
-    max-width: 650px;
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-.btn-primary-large {
-    display: inline-block;
-    background-color: #ffffff;
-    color: #000000 !important;
-    font-weight: 900;
-    padding: 18px 40px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-primary-large:hover {
-    background-color: var(--color-accent, #aa3131d3);
-    color: #ffffff !important;
-    transform: translateY(-3px);
-}
-
-/* ==========================================================================
-   SECCIÓN PARTIDA (Historia)
-   ========================================================================== */
-.split-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    min-height: 85vh;
-    border-bottom: 1px solid var(--border-color, #1a1a1a);
-    background-color: var(--bg-secondary, #050505);
-}
-
-.split-image {
-    position: relative;
-    height: 100%;
-    min-height: 450px;
-    overflow: hidden;
-}
-
-.split-image img {
+.origin-card-visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.1);
-    transition: transform 0.5s ease;
+    filter: contrast(1.08);
 }
 
-.split-image:hover img {
-    transform: scale(1.05);
-}
-
-.image-overlay-text {
+.origin-badge {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 10px 20px;
-    border-left: 4px solid var(--color-accent, #aa3131d3);
+    bottom: 12px;
+    left: 14px;
+    background: rgba(5, 5, 7, 0.88);
+    border: 1px solid rgba(214, 176, 77, 0.4);
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
 }
 
-.image-overlay-text span {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
+.origin-card-body {
+    padding: 24px 26px;
+}
+
+.origin-mini-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
     letter-spacing: 2px;
+    color: var(--red2);
+    margin-bottom: 10px;
 }
 
-.split-info {
-    padding: 80px 10%;
+.origin-card-body p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #b4b4bc;
+    margin-bottom: 12px;
+}
+
+.origin-card-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Franja de 6 métricas */
+.about-metrics-strip {
+    margin-top: 60px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.metric-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 6px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.section-tag {
-    color: var(--color-accent, #aa3131d3);
-    font-weight: 900;
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    display: block;
+.metric-box:last-child {
+    border-right: none;
 }
 
-.split-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
+.metric-box i {
+    color: var(--red2);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.metric-label {
+    font-size: 0.66rem;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 30px;
+    letter-spacing: 1.4px;
+    color: #8f8f99;
+    text-transform: uppercase;
 }
 
-.split-text {
-    font-size: 1.1rem;
-    color: var(--color-muted, #aaaaaa);
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.inline-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 25px;
-    padding-top: 35px;
-    border-top: 1px solid var(--border-color, #1a1a1a);
-}
-
-.stat-item .stat-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--color-accent, #aa3131d3);
+.metric-value {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
     line-height: 1;
-    display: block;
-}
-
-.stat-item .stat-lbl {
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    color: var(--white);
     letter-spacing: 1px;
-    color: #ffffff;
-    margin-top: 5px;
-    display: block;
+}
+
+.metrics-footnote {
+    margin-top: 22px;
+    font-size: 0.76rem;
+    color: #71717a;
 }
 
 /* ==========================================================================
-   VALORES Y PILARES
+   2. NUESTROS PRINCIPIOS (FILAS EDITORIALES)
    ========================================================================== */
-.valores-full-section {
-    padding: 100px 6%;
-    background-color: var(--bg-primary, #000000);
-    border-bottom: 1px solid var(--border-color, #1a1a1a);
+.about-laws-section {
+    background: #060609;
+    padding: 85px 6%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.valores-title-area {
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.valores-expand-grid {
+.laws-layout {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px; 
-    background-color: var(--border-color, #1a1a1a); 
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: 60px;
+    align-items: start;
 }
 
-.valor-expand-card {
-    background-color: var(--bg-card, #0c0c0c);
-    padding: 80px 45px; 
-    position: relative;
+.laws-sticky-intro p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #9e9ea8;
+    margin-bottom: 24px;
+}
+
+.laws-visual-frame {
+    border-radius: 12px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    height: 220px;
 }
 
-.valor-expand-card:hover {
-    background-color: #111111;
+.laws-visual-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(35%) contrast(1.1);
 }
 
-.card-num-bg {
-    position: absolute;
-    right: 30px;
-    bottom: -10px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 9rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
-    line-height: 1;
-    user-select: none;
-    transition: color 0.4s ease;
+.laws-list {
+    display: flex;
+    flex-direction: column;
 }
 
-.valor-expand-card:hover .card-num-bg {
-    color: rgba(255, 255, 255, 0.06); 
+.law-row {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.25s ease;
 }
 
-.card-inner-content {
-    position: relative;
-    z-index: 2;
+.law-row:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.valor-expand-card h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+.law-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 3px;
+}
+
+.law-meta i {
+    color: var(--red2);
+    font-size: 1rem;
+}
+
+.law-meta span {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.law-content h3 {
+    font-size: 1.12rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-    transition: color 0.3s;
+    color: var(--white);
+    margin-bottom: 8px;
 }
 
-.valor-expand-card:hover h3 {
-    color: var(--color-accent, #aa3131d3);
-}
-
-.valor-expand-card p {
-    color: var(--color-muted, #aaaaaa);
-    font-size: 1.05rem;
-    line-height: 1.7;
+.law-content p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #9e9ea8;
 }
 
 /* ==========================================================================
-   FOOTER
+   3. CÓMO ARTICULAMOS LA ESCENA (CUADRÍCULA 2x2)
    ========================================================================== */
-footer {
-    background-color: #000000;
-    padding: 60px 6%;
-    text-align: center;
-    border-top: 1px solid var(--border-color, #1a1a1a);
+.about-circuit-section {
+    background: #030305;
+    padding: 85px 6% 100px 6%;
 }
 
-.footer-logo {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin-bottom: 15px;
+.circuit-layout {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: 60px;
+    align-items: start;
 }
 
-footer p {
-    color: var(--color-muted, #aaaaaa);
-    font-size: 0.9rem;
+.circuit-intro p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #9e9ea8;
+}
+
+.circuit-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.circuit-card {
+    background: #09090d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 28px 26px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.circuit-card:hover {
+    border-color: rgba(216, 0, 29, 0.45);
+    transform: translateY(-3px);
+}
+
+.circuit-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(216, 0, 29, 0.14);
+    border: 1px solid rgba(216, 0, 29, 0.35);
+    color: var(--red2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+}
+
+.circuit-card h3 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.circuit-card p {
+    font-size: 0.89rem;
+    line-height: 1.62;
+    color: #9898a2;
+}
+
+/* ==========================================================================
+   FOOTER UNIFICADO
+   ========================================================================== */
+.about-footer {
+    background: #030304;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 36px 6%;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand img {
+    width: 36px;
+    border-radius: 4px;
+}
+
+.footer-brand strong {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    line-height: 1;
+}
+
+.footer-brand strong span {
+    color: var(--red);
+}
+
+.footer-brand small {
+    font-size: 0.72rem;
+    color: #888892;
+}
+
+.footer-copy {
+    font-size: 0.82rem;
+    color: #7c7c86;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    font-size: 0.82rem;
+    color: #b4b4bc;
+    transition: color 0.25s;
+}
+
+.footer-links a:hover {
+    color: var(--red2);
 }
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1200px) {
-    .giant-title {
-        font-size: 4rem;
-    }
-    .valores-expand-grid {
+@media (max-width: 1100px) {
+    .about-hero-split,
+    .laws-layout,
+    .circuit-layout {
         grid-template-columns: 1fr;
-        gap: 20px;
-        background-color: transparent;
+        gap: 40px;
     }
-    .valor-expand-card {
-        padding: 50px 30px;
-        border: 1px solid var(--border-color, #1a1a1a);
+
+    .about-metrics-strip {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 992px) {
-    .split-section {
+@media (max-width: 768px) {
+    .about-main-title {
+        font-size: 3.6rem;
+    }
+
+    .about-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .circuit-grid-2x2 {
         grid-template-columns: 1fr;
     }
-    .split-info {
-        padding: 60px 6%;
-    }
-    .giant-title {
-        font-size: 3.2rem;
+
+    .law-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }

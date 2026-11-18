@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistas Destacados | Beatbox Perú</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="artistasdestacados.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<div class="spotlight"></div>
+
+<!-- =========================
+        NAVBAR UNIFICADO (EXACTO AL INDEX)
+========================== -->
+<header class="navbar" id="navbar">
+    <div class="logo-area">
+        <a href="../index.html" class="logo">
+            <img src="../PICS/V15_negro sobre rojo.png" alt="Beatbox Perú">
+            <div class="logo-text">
+                <span class="logo-top">Comunidad Oficial</span>
+                <h2>BEATBOX <span>PERÚ</span></h2>
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav-center">
+        <ul class="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../nosotros/nosotros.html">Nosotros <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../nosotros/nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="../nosotros/contactanos.html">Contáctanos</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="active-nav">Artistas <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="campeonesnacionales.html">Campeones Nacionales</a></li>
+                    <li><a href="artistasdestacados.html">Artistas Destacados</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Competencias <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="../index.html#campeonatos">Campeonatos</a></li>
+                    <li><a href="../index.html#eventos-comunidad">Eventos</a></li>
+                </ul>
+            </li>
+            <li><a href="../merch.html">Merch</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-socials">
+        <a href="https://www.instagram.com/beatboxperunacional/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.tiktok.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/19njhVERoM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@beatboxperunacional" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+
+    <div class="mobile-btn">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- =========================
+     SECCIÓN PRINCIPAL: ROSTER DE ARTISTAS DESTACADOS
+========================== -->
+<main class="roster-hub">
+    <div class="roster-ambient-glow"></div>
+
+    <div class="roster-container">
+        <!-- CABECERA + BOTÓN "S" PARA STAFF -->
+        <div class="roster-header-bar">
+            <div class="roster-title-block">
+                <span class="roster-eyebrow">ESCENA NACIONAL ACTIVA · PERÚ</span>
+                <h1 class="roster-main-title">BEATBOXERS <span>DESTACADOS</span></h1>
+                <p class="roster-subtitle">Exponentes activos de la comunidad peruana. Selecciona un artista para explorar su perfil, logros y últimas batallas.</p>
+            </div>
+
+            <div class="roster-header-actions">
+                <div class="roster-search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="artistSearchInput" placeholder="Buscar AKA o ciudad...">
+                </div>
+                <!-- Botón S exclusivo Staff -->
+                <button type="button" id="btnOpenStaffModal" class="btn-staff-s" title="Acceso Staff - Gestionar Artistas">S</button>
+            </div>
+        </div>
+
+        <!-- CONTADOR + ESTADO STAFF ACTIVO -->
+        <div class="roster-status-bar">
+            <h2 class="roster-count-title">ARTISTAS REGISTRADOS (<span id="artistsCount">0</span>)</h2>
+            <div id="staffActiveBadge" class="staff-active-badge" style="display:none;">
+                <span><i class="fa-solid fa-shield-halved"></i> MODO STAFF ACTIVO</span>
+                <button type="button" id="btnAddMoreArtist" class="btn-mini-add"><i class="fa-solid fa-plus"></i> Añadir Beatboxer</button>
+                <button type="button" id="btnExitStaff" class="btn-mini-exit">Salir</button>
+            </div>
+        </div>
+
+        <!-- GRID DE TARJETAS DE ARTISTAS -->
+        <section class="artists-cards-grid" id="artistsGrid">
+            <div class="empty-roster-msg">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <p>Cargando beatboxers destacados de la comunidad...</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- =========================
+     MODAL 1: EXPEDIENTE / PERFIL DEL BEATBOXER
+========================== -->
+<div class="bbx-modal-backdrop" id="profileModalBackdrop">
+    <div class="bbx-profile-modal" role="dialog" aria-modal="true">
+        <button type="button" class="modal-close-x" id="btnCloseProfileModal" aria-label="Cerrar perfil">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="profile-hero-banner">
+            <div class="profile-avatar-frame">
+                <div class="avatar-ambient" id="modalAvatarAmbient"></div>
+                <img src="" alt="" id="modalArtistImg">
+            </div>
+
+            <div class="profile-identity">
+                <span class="profile-tag-pill">BEATBOXER ACTIVO · PERÚ</span>
+                <h2 class="profile-aka" id="modalArtistName">NEXUSS</h2>
+                <div class="profile-birthplace">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Lugar de nacimiento: <strong id="modalArtistBirthplace">Lima, Perú</strong></span>
+                </div>
+
+                <div class="profile-socials-row" id="modalArtistSocials"></div>
+            </div>
+        </div>
+
+        <div class="profile-details-split">
+            <div class="profile-panel-box">
+                <div class="panel-box-head">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3>LOGROS DESTACADOS</h3>
+                </div>
+                <ul class="achievements-list" id="modalAchievementsList"></ul>
+            </div>
+
+            <div class="profile-panel-box">
+                <div class="panel-box-head">
+                    <i class="fa-brands fa-youtube"></i>
+                    <h3>ÚLTIMAS BATALLAS</h3>
+                </div>
+                <div class="battles-links-list" id="modalBattlesList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =========================
+     MODAL 2: ACCESO STAFF ("S") Y FORMULARIO PARA AÑADIR BEATBOXER
+========================== -->
+<div class="bbx-modal-backdrop" id="staffModalBackdrop">
+    <div class="bbx-staff-modal" role="dialog" aria-modal="true">
+        <button type="button" class="modal-close-x" id="btnCloseStaffModal" aria-label="Cerrar panel staff">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- PASO A: PANTALLA DE CONTRASEÑA -->
+        <div id="staffAuthView" class="staff-auth-box">
+            <div class="staff-lock-icon"><i class="fa-solid fa-lock"></i></div>
+            <h3>ACCESO <span>STAFF & APOYO</span></h3>
+            <p>Ingresa la clave oficial del equipo para registrar o administrar beatboxers destacados en tiempo real para todos los visitantes.</p>
+            <form id="staffPasswordForm" class="staff-auth-form">
+                <input type="password" id="staffPasswordInput" placeholder="Contraseña del Staff..." required autocomplete="off">
+                <button type="submit" class="btn-staff-submit">DESBLOQUEAR PANEL</button>
+            </form>
+            <span id="staffAuthError" class="staff-auth-error" style="display:none;">Contraseña incorrecta. Verifica con el Staff.</span>
+        </div>
+
+        <!-- PASO B: FORMULARIO CREAR BEATBOXER -->
+        <div id="staffFormView" class="staff-form-container" style="display:none;">
+            <div class="staff-form-header">
+                <span class="plus-badge"><i class="fa-solid fa-plus"></i></span>
+                <h3>REGISTRA UN <span>BEATBOXER DESTACADO</span></h3>
+            </div>
+
+            <form id="newArtistForm" class="bbx-staff-form">
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="artName">AKA / NOMBRE ARTÍSTICO *</label>
+                        <input type="text" id="artName" placeholder="Ej. Nexuss, Dmhop, Tita..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artBirthplace">LUGAR DE NACIMIENTO *</label>
+                        <input type="text" id="artBirthplace" placeholder="Ej. Lima, Huancayo, Arequipa..." required>
+                    </div>
+                </div>
+
+                <!-- Imagen (Subir archivo o URL) -->
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="artImageFile">SUBIR FOTO DEL ARTISTA (ARCHIVO)</label>
+                        <input type="file" id="artImageFile" accept="image/*" class="file-input-custom">
+                    </div>
+                    <div class="form-group">
+                        <label for="artImageUrl">O ENLACE DE IMAGEN (URL / RUTA)</label>
+                        <input type="text" id="artImageUrl" placeholder="Ej. ../PICS/neksu.webp o https://...">
+                    </div>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="form-section-divider">REDES SOCIALES (OPCIONAL)</div>
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="artIg"><i class="fa-brands fa-instagram"></i> INSTAGRAM</label>
+                        <input type="url" id="artIg" placeholder="https://instagram.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="artYt"><i class="fa-brands fa-youtube"></i> YOUTUBE</label>
+                        <input type="url" id="artYt" placeholder="https://youtube.com/@...">
+                    </div>
+                    <div class="form-group">
+                        <label for="artTt"><i class="fa-brands fa-tiktok"></i> TIKTOK</label>
+                        <input type="url" id="artTt" placeholder="https://tiktok.com/@...">
+                    </div>
+                </div>
+
+                <!-- Logros -->
+                <div class="form-group">
+                    <label for="artAchievements">LOGROS (UNO POR LÍNEA) *</label>
+                    <textarea id="artAchievements" rows="3" placeholder="Campeón Nacional Beatbox Perú 2025&#10;Top 8 Campeonato Sudamericano&#10;Campeón Regional Lima" required></textarea>
+                </div>
+
+                <!-- Últimas Batallas (Enlaces a YouTube) -->
+                <div class="form-section-divider">ÚLTIMAS BATALLAS (ENLACES A YOUTUBE)</div>
+                <div class="battles-inputs-group">
+                    <div class="form-row-battle">
+                        <input type="text" id="battleTitle1" placeholder="Título Batalla 1 (Ej. Final Nacional 2025 vs Goliat)" required>
+                        <input type="url" id="battleUrl1" placeholder="https://www.youtube.com/watch?v=..." required>
+                    </div>
+                    <div class="form-row-battle">
+                        <input type="text" id="battleTitle2" placeholder="Título Batalla 2 (Opcional)">
+                        <input type="url" id="battleUrl2" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+                    <div class="form-row-battle">
+                        <input type="text" id="battleTitle3" placeholder="Título Batalla 3 (Opcional)">
+                        <input type="url" id="battleUrl3" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+                </div>
+
+                <button type="submit" id="btnPublishArtist" class="btn-publish-artist">
+                    <i class="fa-solid fa-microphone-lines"></i> PUBLICAR BEATBOXER EN DESTACADOS
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- =========================================================================
+     CONEXIÓN EN LA NUBE (FIREBASE FIRESTORE) PARA QUE TODOS VEAN LOS CAMBIOS
+     ========================================================================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    deleteDoc,
+    doc,
+    query,
+    orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// =========================================================================
+// ⚠️ PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (PASO 3 DE LA GUÍA)
+// Mientras diga "PEGA_AQUI_TU_API_KEY", usará respaldo local automáticamente.
+// =========================================================================
+const firebaseConfig = {
+  apiKey: "AIzaSyA-HVjqM0iFZQYWvEaiS6abe0mIdVPAROE",
+  authDomain: "beatboxperu.firebaseapp.com",
+  projectId: "beatboxperu",
+  storageBucket: "beatboxperu.firebasestorage.app",
+  messagingSenderId: "56621298048",
+  appId: "1:56621298048:web:89393ffc7e5ebf3445d165",
+  measurementId: "G-X38XJ1CVLF"
+};
+
+const isFirebaseConfigured = !firebaseConfig.apiKey.includes("PEGA_AQUI");
+let db = null;
+if (isFirebaseConfigured) {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+}
+
+const STAFF_PASS = "beatboxperuartistas2026";
+const LOCAL_BACKUP_KEY = "bbx_peru_featured_artists_v1";
+
+// Artistas base iniciales (siempre visibles)
+const defaultArtists = [
+    {
+        id: "default-nexuss",
+        isDefault: true,
+        name: "NEXUSS",
+        birthplace: "Lima, Perú",
+        img: "../PICS/neksu.webp",
+        socials: {
+            instagram: "https://www.instagram.com/beatboxperunacional/",
+            youtube: "https://www.youtube.com/@beatboxperunacional",
+            tiktok: "https://www.tiktok.com/@beatboxperunacional"
+        },
+        achievements: [
+            "Bicampeón Nacional Beatbox Perú (2021 & 2025)",
+            "Representante Oficial del Perú en Circuito Internacional",
+            "Múltiple ganador de plazas y torneos oficiales en Lima"
+        ],
+        battles: [
+            { title: "Gran Final Nacional Perú 2025 — Nexuss vs Goliat", url: "https://www.youtube.com/@beatboxperunacional" },
+            { title: "Semifinal Nacional Perú — Nexuss en tarima", url: "https://www.youtube.com/@beatboxperunacional" }
+        ]
+    },
+    {
+        id: "default-dmhop",
+        isDefault: true,
+        name: "DMHOP",
+        birthplace: "Perú",
+        img: "../PICS/jgas.jpg",
+        socials: {
+            instagram: "https://www.instagram.com/beatboxperunacional/",
+            youtube: "https://www.youtube.com/@beatboxperunacional",
+            tiktok: ""
+        },
+        achievements: [
+            "Top 8 Continental — Circuito América",
+            "Clasificación histórica por Wildcard Internacional",
+            "Referente técnico y jurado oficial en torneos nacionales"
+        ],
+        battles: [
+            { title: "Batalla Internacional Top 8 América — Dmhop", url: "https://www.youtube.com/@beatboxperunacional" },
+            { title: "Showcase Técnico Beatbox Perú", url: "https://www.youtube.com/@beatboxperunacional" }
+        ]
+    },
+    {
+        id: "default-tita",
+        isDefault: true,
+        name: "TITA",
+        birthplace: "Perú",
+        img: "../PICS/tita.jpg.webp",
+        socials: {
+            instagram: "https://www.instagram.com/beatboxperunacional/",
+            youtube: "https://www.youtube.com/@beatboxperunacional",
+            tiktok: ""
+        },
+        achievements: [
+            "Campeón Nacional Beatbox Perú 2024",
+            "Subcampeón Nacional Beatbox Perú 2021",
+            "Reconocido por musicalidad y flows innovadores en tarima"
+        ],
+        battles: [
+            { title: "Final Nacional Beatbox Perú 2024 — Tita vs Jgas", url: "https://www.youtube.com/@beatboxperunacional" }
+        ]
+    }
+];
+
+let artistsList = [];
+let isStaffUnlocked = sessionStorage.getItem("bbx_staff_unlocked") === "true";
+
+const artistsGrid = document.getElementById("artistsGrid");
+const artistsCount = document.getElementById("artistsCount");
+const searchInput = document.getElementById("artistSearchInput");
+
+// Cargar artistas desde Firebase (para todo el mundo) o respaldo local
+async function fetchAllArtists() {
+    if (isFirebaseConfigured && db) {
+        try {
+            const q = query(collection(db, "artistas_destacados"), orderBy("createdAt", "desc"));
+            const snapshot = await getDocs(q);
+            const cloudArtists = [];
+            snapshot.forEach(docSnap => {
+                cloudArtists.push({ id: docSnap.id, ...docSnap.data() });
+            });
+            artistsList = [...cloudArtists, ...defaultArtists];
+            renderArtistsGrid(searchInput.value);
+            return;
+        } catch (err) {
+            console.error("Error leyendo Firebase:", err);
+        }
+    }
+
+    // Respaldo local si aún no pegas tus credenciales de Firebase
+    try {
+        const saved = JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY) || "[]");
+        artistsList = [...saved, ...defaultArtists];
+    } catch (e) {
+        artistsList = [...defaultArtists];
+    }
+    renderArtistsGrid(searchInput.value);
+}
+
+// Renderizar cuadrícula de tarjetas
+function renderArtistsGrid(filterText = "") {
+    const queryTxt = filterText.trim().toLowerCase();
+    const filtered = artistsList.filter(art =>
+        art.name.toLowerCase().includes(queryTxt) ||
+        art.birthplace.toLowerCase().includes(queryTxt) ||
+        (art.achievements || []).some(a => a.toLowerCase().includes(queryTxt))
+    );
+
+    artistsCount.textContent = filtered.length;
+    artistsGrid.innerHTML = "";
+
+    if (filtered.length === 0) {
+        artistsGrid.innerHTML = `
+            <div class="empty-roster-msg">
+                <i class="fa-solid fa-microphone-slash"></i>
+                <p>No se encontraron beatboxers con ese criterio de búsqueda.</p>
+            </div>
+        `;
+        return;
+    }
+
+    filtered.forEach(artist => {
+        const card = document.createElement("article");
+        card.className = "artist-card";
+
+        const topAchievement = (artist.achievements && artist.achievements[0]) || "Exponente Activo Beatbox Perú";
+        const battlesCount = artist.battles ? artist.battles.length : 0;
+
+        let socialsHtml = "";
+        if (artist.socials?.instagram) {
+            socialsHtml += `<a href="${artist.socials.instagram}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>`;
+        }
+        if (artist.socials?.youtube) {
+            socialsHtml += `<a href="${artist.socials.youtube}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>`;
+        }
+        if (artist.socials?.tiktok) {
+            socialsHtml += `<a href="${artist.socials.tiktok}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>`;
+        }
+
+        // Solo se permite borrar artistas añadidos por Staff (no los 3 base por seguridad, o todos si prefieres)
+        const deleteBtnHtml = (isStaffUnlocked && !artist.isDefault)
+            ? `<button type="button" class="btn-delete-artist" data-id="${artist.id}" title="Eliminar artista"><i class="fa-solid fa-trash"></i></button>`
+            : "";
+
+        card.innerHTML = `
+            ${deleteBtnHtml}
+            <div class="artist-card-media">
+                <div class="card-media-blur" style="background-image: url('${artist.img}');"></div>
+                <img src="${artist.img}" alt="${artist.name}" loading="lazy">
+                <span class="card-city-badge"><i class="fa-solid fa-location-dot"></i> ${artist.birthplace}</span>
+            </div>
+
+            <div class="artist-card-body">
+                <div class="card-top-row">
+                    <h3 class="artist-card-name">${artist.name}</h3>
+                    <div class="card-mini-socials">${socialsHtml}</div>
+                </div>
+
+                <div class="card-highlight-achievement">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>${topAchievement}</span>
+                </div>
+
+                <div class="card-footer-row">
+                    <span class="battles-pill"><i class="fa-brands fa-youtube"></i> ${battlesCount} ${battlesCount === 1 ? "Batalla" : "Batallas"}</span>
+                    <span class="open-dossier-cta">Ver Perfil <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        `;
+
+        card.addEventListener("click", () => openArtistProfile(artist));
+        artistsGrid.appendChild(card);
+    });
+
+    if (isStaffUnlocked) {
+        document.querySelectorAll(".btn-delete-artist").forEach(btn => {
+            btn.addEventListener("click", async (e) => {
+                e.stopPropagation();
+                const idToDelete = btn.dataset.id;
+                if (!confirm("¿Seguro que deseas eliminar este artista para todos los visitantes?")) return;
+
+                btn.disabled = true;
+                if (isFirebaseConfigured && db) {
+                    await deleteDoc(doc(db, "artistas_destacados", idToDelete));
+                } else {
+                    const saved = JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY) || "[]");
+                    localStorage.setItem(LOCAL_BACKUP_KEY, JSON.stringify(saved.filter(a => a.id !== idToDelete)));
+                }
+                await fetchAllArtists();
+            });
+        });
+    }
+}
+
+searchInput.addEventListener("input", (e) => {
+    renderArtistsGrid(e.target.value);
+});
+
+// =========================================================
+// MODAL 1: EXPEDIENTE DEL ARTISTA
+// =========================================================
+const profileBackdrop = document.getElementById("profileModalBackdrop");
+const btnCloseProfile = document.getElementById("btnCloseProfileModal");
+
+function openArtistProfile(artist) {
+    document.getElementById("modalArtistName").textContent = artist.name;
+    document.getElementById("modalArtistBirthplace").textContent = artist.birthplace;
+
+    const imgEl = document.getElementById("modalArtistImg");
+    imgEl.src = artist.img;
+    imgEl.alt = artist.name;
+    document.getElementById("modalAvatarAmbient").style.backgroundImage = `url('${artist.img}')`;
+
+    const socialsContainer = document.getElementById("modalArtistSocials");
+    socialsContainer.innerHTML = "";
+    if (artist.socials?.instagram) {
+        socialsContainer.innerHTML += `<a href="${artist.socials.instagram}" target="_blank" rel="noopener noreferrer" class="profile-social-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>`;
+    }
+    if (artist.socials?.youtube) {
+        socialsContainer.innerHTML += `<a href="${artist.socials.youtube}" target="_blank" rel="noopener noreferrer" class="profile-social-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>`;
+    }
+    if (artist.socials?.tiktok) {
+        socialsContainer.innerHTML += `<a href="${artist.socials.tiktok}" target="_blank" rel="noopener noreferrer" class="profile-social-btn"><i class="fa-brands fa-tiktok"></i> TikTok</a>`;
+    }
+    if (!socialsContainer.innerHTML) {
+        socialsContainer.innerHTML = `<span class="no-socials-note">Redes sociales no registradas</span>`;
+    }
+
+    const achList = document.getElementById("modalAchievementsList");
+    achList.innerHTML = "";
+    (artist.achievements || []).forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<span class="ach-badge">LOGRO</span> <span>${item}</span>`;
+        achList.appendChild(li);
+    });
+
+    const battlesList = document.getElementById("modalBattlesList");
+    battlesList.innerHTML = "";
+    if (artist.battles && artist.battles.length > 0) {
+        artist.battles.forEach(b => {
+            const a = document.createElement("a");
+            a.href = b.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.className = "battle-yt-item";
+            a.innerHTML = `
+                <div class="yt-play-thumb"><i class="fa-brands fa-youtube"></i></div>
+                <div class="yt-battle-info">
+                    <strong>${b.title}</strong>
+                    <span>Ver batalla en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+            `;
+            battlesList.appendChild(a);
+        });
+    } else {
+        battlesList.innerHTML = `<p class="empty-battles-note">Aún no hay enlaces de batallas registrados.</p>`;
+    }
+
+    profileBackdrop.classList.add("open");
+}
+
+btnCloseProfile.addEventListener("click", () => profileBackdrop.classList.remove("open"));
+profileBackdrop.addEventListener("click", (e) => {
+    if (e.target === profileBackdrop) profileBackdrop.classList.remove("open");
+});
+
+// =========================================================
+// MODAL 2: BOTÓN "S" STAFF Y PUBLICACIÓN EN LA NUBE
+// =========================================================
+const staffBackdrop = document.getElementById("staffModalBackdrop");
+const btnOpenStaff = document.getElementById("btnOpenStaffModal");
+const btnCloseStaff = document.getElementById("btnCloseStaffModal");
+const staffAuthView = document.getElementById("staffAuthView");
+const staffFormView = document.getElementById("staffFormView");
+const staffPassForm = document.getElementById("staffPasswordForm");
+const staffPassInput = document.getElementById("staffPasswordInput");
+const staffAuthError = document.getElementById("staffAuthError");
+const staffActiveBadge = document.getElementById("staffActiveBadge");
+const btnAddMoreArtist = document.getElementById("btnAddMoreArtist");
+const btnExitStaff = document.getElementById("btnExitStaff");
+
+function syncStaffUI() {
+    if (isStaffUnlocked) {
+        staffAuthView.style.display = "none";
+        staffFormView.style.display = "block";
+        staffActiveBadge.style.display = "flex";
+    } else {
+        staffAuthView.style.display = "flex";
+        staffFormView.style.display = "none";
+        staffActiveBadge.style.display = "none";
+    }
+    renderArtistsGrid(searchInput.value);
+}
+
+btnOpenStaff.addEventListener("click", () => {
+    staffAuthError.style.display = "none";
+    staffPassInput.value = "";
+    syncStaffUI();
+    staffBackdrop.classList.add("open");
+});
+
+btnAddMoreArtist.addEventListener("click", () => {
+    syncStaffUI();
+    staffBackdrop.classList.add("open");
+});
+
+btnExitStaff.addEventListener("click", () => {
+    isStaffUnlocked = false;
+    sessionStorage.removeItem("bbx_staff_unlocked");
+    syncStaffUI();
+});
+
+btnCloseStaff.addEventListener("click", () => staffBackdrop.classList.remove("open"));
+staffBackdrop.addEventListener("click", (e) => {
+    if (e.target === staffBackdrop) staffBackdrop.classList.remove("open");
+});
+
+staffPassForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (staffPassInput.value.trim() === STAFF_PASS) {
+        isStaffUnlocked = true;
+        sessionStorage.setItem("bbx_staff_unlocked", "true");
+        staffAuthError.style.display = "none";
+        syncStaffUI();
+    } else {
+        staffAuthError.style.display = "block";
+    }
+});
+
+// Guardar nuevo beatboxer en Firestore (o respaldo local)
+const newArtistForm = document.getElementById("newArtistForm");
+const btnPublishArtist = document.getElementById("btnPublishArtist");
+
+newArtistForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("artName").value.trim().toUpperCase();
+    const birthplace = document.getElementById("artBirthplace").value.trim();
+    const fileInput = document.getElementById("artImageFile");
+    const urlInput = document.getElementById("artImageUrl").value.trim();
+
+    const instagram = document.getElementById("artIg").value.trim();
+    const youtube = document.getElementById("artYt").value.trim();
+    const tiktok = document.getElementById("artTt").value.trim();
+
+    const achievementsRaw = document.getElementById("artAchievements").value.trim();
+    const achievements = achievementsRaw
+        .split("\n")
+        .map(line => line.trim())
+        .filter(Boolean);
+
+    const battles = [];
+    for (let i = 1; i <= 3; i++) {
+        const bTitle = document.getElementById(`battleTitle${i}`).value.trim();
+        const bUrl = document.getElementById(`battleUrl${i}`).value.trim();
+        if (bTitle && bUrl) {
+            battles.push({ title: bTitle, url: bUrl });
+        }
+    }
+
+    btnPublishArtist.disabled = true;
+    btnPublishArtist.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> PUBLICANDO EN LA WEB...';
+
+    const saveToCloudOrLocal = async (finalImageSrc) => {
+        const payload = {
+            name,
+            birthplace,
+            img: finalImageSrc || "../PICS/V15_negro sobre rojo.png",
+            socials: { instagram, youtube, tiktok },
+            achievements,
+            battles,
+            createdAt: Date.now()
+        };
+
+        try {
+            if (isFirebaseConfigured && db) {
+                const docRef = await addDoc(collection(db, "artistas_destacados"), payload);
+                payload.id = docRef.id;
+            } else {
+                payload.id = "local-" + Date.now();
+                const saved = JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY) || "[]");
+                saved.unshift(payload);
+                localStorage.setItem(LOCAL_BACKUP_KEY, JSON.stringify(saved));
+            }
+
+            await fetchAllArtists();
+            newArtistForm.reset();
+            staffBackdrop.classList.remove("open");
+            openArtistProfile(payload);
+        } catch (error) {
+            alert("Hubo un problema al guardar en la nube. Revisa las reglas de Firestore o tu conexión.");
+            console.error(error);
+        } finally {
+            btnPublishArtist.disabled = false;
+            btnPublishArtist.innerHTML = '<i class="fa-solid fa-microphone-lines"></i> PUBLICAR BEATBOXER EN DESTACADOS';
+        }
+    };
+
+    // Comprimir foto subida para que entre ligero y rápido en Firestore
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            const imgObj = new Image();
+            imgObj.onload = () => {
+                const canvas = document.createElement("canvas");
+                const maxDim = 540;
+                let w = imgObj.width;
+                let h = imgObj.height;
+                if (w > maxDim || h > maxDim) {
+                    if (w > h) {
+                        h = Math.round((h * maxDim) / w);
+                        w = maxDim;
+                    } else {
+                        w = Math.round((w * maxDim) / h);
+                        h = maxDim;
+                    }
+                }
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(imgObj, 0, 0, w, h);
+                saveToCloudOrLocal(canvas.toDataURL("image/webp", 0.78));
+            };
+            imgObj.src = ev.target.result;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        saveToCloudOrLocal(urlInput || "../PICS/V15_negro sobre rojo.png");
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        profileBackdrop.classList.remove("open");
+        staffBackdrop.classList.remove("open");
+    }
+});
+
+// Arrancar cargando datos reales
+fetchAllArtists();
+</script>
+
+</body>
+</html>
